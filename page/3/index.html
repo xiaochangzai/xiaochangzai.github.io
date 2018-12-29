@@ -163,6 +163,355 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-H5输入框被软键盘遮挡解决办法" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/12/28/H5输入框被软键盘遮挡解决办法/" class="article-date">
+  	<time datetime="2018-12-28T08:05:03.691Z" itemprop="datePublished">2018-12-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/28/H5输入框被软键盘遮挡解决办法/">
+        H5输入框被软键盘遮挡解决办法
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>当input或textarea获得焦点的时候，有可能会被软键盘遮挡住。解决办法如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">window.addEventListener(&apos;resize&apos;, function () &#123;</span><br><span class="line">        if (document.activeElement.tagName === &apos;INPUT&apos; || document.activeElement.tagName === &apos;TEXTAREA&apos;) &#123;</span><br><span class="line">            window.setTimeout(function () &#123;</span><br><span class="line">                let doc: any = document</span><br><span class="line">                doc.activeElement.scrollIntoViewIfNeeded()</span><br><span class="line">            &#125;, 0)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-axios获取图片，后台返回文件流怎么处理" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/12/28/axios获取图片，后台返回文件流怎么处理/" class="article-date">
+  	<time datetime="2018-12-28T08:04:11.725Z" itemprop="datePublished">2018-12-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/28/axios获取图片，后台返回文件流怎么处理/">
+        axios获取图片，后台返回文件流怎么处理
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="今天调一个返回图片的接口，图片是以文件流的格式返回的。"><a href="#今天调一个返回图片的接口，图片是以文件流的格式返回的。" class="headerlink" title="今天调一个返回图片的接口，图片是以文件流的格式返回的。"></a>今天调一个返回图片的接口，图片是以文件流的格式返回的。</h4><h5 id="如何才能正确的显示图片呢？"><a href="#如何才能正确的显示图片呢？" class="headerlink" title="如何才能正确的显示图片呢？"></a>如何才能正确的显示图片呢？</h5><h4 id="1-请求时在header设置返回类型。指定返回类型为-blob"><a href="#1-请求时在header设置返回类型。指定返回类型为-blob" class="headerlink" title="1. 请求时在header设置返回类型。指定返回类型为 ==blob=="></a>1. 请求时在header设置返回类型。指定返回类型为 ==blob==</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * </span><br><span class="line"> * @param &#123;tai&#125; string 生成订阅号海报</span><br><span class="line"> */</span><br><span class="line">static getSubscriptionPicture (&#123;</span><br><span class="line">  tai</span><br><span class="line">&#125;: &#123;tai: string&#125;) &#123;</span><br><span class="line">  return http.post(&#123;</span><br><span class="line">    url: this.subscription,</span><br><span class="line">    data: &#123;&#125;,</span><br><span class="line">    config: &#123;</span><br><span class="line">      requiresAuth: true,</span><br><span class="line">      params: &#123;</span><br><span class="line">        tai</span><br><span class="line">      &#125;,</span><br><span class="line">      responseType: &apos;blob&apos;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-使用原生js自带的-URL-createObjectURL-函数。"><a href="#2-使用原生js自带的-URL-createObjectURL-函数。" class="headerlink" title="2. 使用原生js自带的 ==URL.createObjectURL== 函数。"></a>2. 使用原生js自带的 ==URL.createObjectURL== 函数。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.card = URL.createObjectURL(res.data)</span><br></pre></td></tr></table></figure>
+<h5 id="这样将-this-card-放在img的src上面就行了"><a href="#这样将-this-card-放在img的src上面就行了" class="headerlink" title="这样将==this.card==放在img的src上面就行了"></a>这样将==this.card==放在img的src上面就行了</h5>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-判断手机系统是ios 还是Android" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/12/28/判断手机系统是ios 还是Android/" class="article-date">
+  	<time datetime="2018-12-28T08:03:40.551Z" itemprop="datePublished">2018-12-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/28/判断手机系统是ios 还是Android/">
+        判断手机系统是ios 还是Android
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="判断手机系统是ios-还是Android"><a href="#判断手机系统是ios-还是Android" class="headerlink" title="判断手机系统是ios 还是Android"></a>判断手机系统是ios 还是Android</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var u = navigator.userAgent</span><br><span class="line">var isAndroid = u.indexOf(&apos;Android&apos;) &gt; -1 || u.indexOf(&apos;Adr&apos;) &gt; -1; //android终端</span><br><span class="line">var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-前端使用 jest 做单元测试" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/12/28/前端使用 jest 做单元测试/" class="article-date">
+  	<time datetime="2018-12-28T08:03:09.797Z" itemprop="datePublished">2018-12-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/28/前端使用 jest 做单元测试/">
+        前端使用 jest 做单元测试
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-安装-Jest"><a href="#1-安装-Jest" class="headerlink" title="1. 安装 Jest"></a>1. 安装 Jest</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev jest</span><br></pre></td></tr></table></figure>
+<h3 id="2-在script里面加上下面一句："><a href="#2-在script里面加上下面一句：" class="headerlink" title="2. 在script里面加上下面一句："></a>2. 在script里面加上下面一句：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/ 添加测试命令</span><br><span class="line">&#123;</span><br><span class="line">  &quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;test&quot;: &quot;jest&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-添加被测试文件"><a href="#3-添加被测试文件" class="headerlink" title="3. 添加被测试文件"></a>3. 添加被测试文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 被测试文件 sum.js</span><br><span class="line">function sum(a, b) &#123;</span><br><span class="line">  return a + b;</span><br><span class="line">&#125;</span><br><span class="line">module.exports = sum;</span><br></pre></td></tr></table></figure>
+<h3 id="4-书写测试文件"><a href="#4-书写测试文件" class="headerlink" title="4. 书写测试文件"></a>4. 书写测试文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 测试文件 sum.test.js</span><br><span class="line">const sum = require(‘./sum&apos;);</span><br><span class="line">test(&apos;adds 1 + 2 to equal 3&apos;, () =&gt; &#123;</span><br><span class="line">  expect(sum(1, 2)).toBe(3);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="5-控制台执行"><a href="#5-控制台执行" class="headerlink" title="5. 控制台执行"></a>5. 控制台执行</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm test</span><br><span class="line">// 或者</span><br><span class="line">npm t</span><br></pre></td></tr></table></figure>
+<p><a href="https://blog.csdn.net/u011818572/article/details/81638872" target="_blank" rel="noopener">vue+typescript+jest测试指南</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-git工作流学习" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/12/28/git工作流学习/" class="article-date">
+  	<time datetime="2018-12-28T08:02:23.046Z" itemprop="datePublished">2018-12-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/28/git工作流学习/">
+        git工作流学习
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://blog.csdn.net/zyw0713/article/details/80083431" target="_blank" rel="noopener">git 的工作流程 纯干货</a><br><a href="https://git.ninghao.net/gitflow-workflow.html" target="_blank" rel="noopener">git workflow 工作流</a></p>
+<h4 id="1-有一次线上项目出bug了，需要把master上的项目拉取到本地"><a href="#1-有一次线上项目出bug了，需要把master上的项目拉取到本地" class="headerlink" title="1. 有一次线上项目出bug了，需要把master上的项目拉取到本地"></a>1. 有一次线上项目出bug了，需要把master上的项目拉取到本地</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure>
+<h5 id="然后在本地修改完bug，重新上传到master上"><a href="#然后在本地修改完bug，重新上传到master上" class="headerlink" title="然后在本地修改完bug，重新上传到master上"></a>然后在本地修改完bug，重新上传到master上</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &apos;修改了bug&apos;</span><br><span class="line">git pull    #看看有没有新的提交</span><br><span class="line">git push    #同步到远程仓库</span><br></pre></td></tr></table></figure>
+<h5 id="然后把master上的修改的内容同步到开发分支上，以防下次bug再出现"><a href="#然后把master上的修改的内容同步到开发分支上，以防下次bug再出现" class="headerlink" title="然后把master上的修改的内容同步到开发分支上，以防下次bug再出现"></a>然后把master上的修改的内容同步到开发分支上，以防下次bug再出现</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout feature    #先切换到feature分支（开发分支）</span><br><span class="line">git merge master    #把master分支合并到当前分支</span><br></pre></td></tr></table></figure>
+<h6 id="修改完毕"><a href="#修改完毕" class="headerlink" title="修改完毕"></a>修改完毕</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#Git创建Develop分支的命令</span><br><span class="line">git checkout -b develop master</span><br><span class="line">#将Develop分支发布到Master分支的命令</span><br><span class="line">git checkout master</span><br><span class="line">git merge --no-ff develop</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-CSS属性顺序" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/12/28/CSS属性顺序/" class="article-date">
+  	<time datetime="2018-12-28T08:01:48.600Z" itemprop="datePublished">2018-12-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/28/CSS属性顺序/">
+        CSS属性顺序
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="推荐样式书写顺序"><a href="#推荐样式书写顺序" class="headerlink" title="推荐样式书写顺序"></a>推荐样式书写顺序</h5><ol>
+<li>Position</li>
+<li>Box Model</li>
+<li>Typographic</li>
+<li>Visual</li>
+</ol>
+<p>由于定位（positioning）可以从正常的文档流中移除元素，并且还能覆盖盒模型（box model）相关的样式，因此排在首位。盒模型决定了组件的尺寸和位置，因此排在第二位。</p>
+<p>其他属性只是影响组件的内部（inside）或者是不影响前两组属性，因此排在后面:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">.declaration-order &#123;</span><br><span class="line">    /* Positioning */</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 0;</span><br><span class="line">    right: 0;</span><br><span class="line">    bottom: 0;</span><br><span class="line">    left: 0;</span><br><span class="line">    z-index: 100;</span><br><span class="line">    </span><br><span class="line">    /* Box-model */</span><br><span class="line">    display: block;</span><br><span class="line">    float: right;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100px;</span><br><span class="line">    </span><br><span class="line">    /* Typography */</span><br><span class="line">    font: normal 13px &quot;Helvetica Neue&quot;, sans-serif;</span><br><span class="line">    line-height: 1.5;</span><br><span class="line">    color: #333;</span><br><span class="line">    text-align: center;</span><br><span class="line">    </span><br><span class="line">    /* Visual */</span><br><span class="line">    background-color: #f5f5f5;</span><br><span class="line">    border: 1px solid #e5e5e5;</span><br><span class="line">    border-radius: 3px;</span><br><span class="line">    </span><br><span class="line">    /* Misc */</span><br><span class="line">    opacity: 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>链接的样式请严格按照如下顺序添加：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a:link -&gt; a:visited -&gt; a:hover -&gt; a:active（LoVeHAte）</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://blog.csdn.net/SyKent/article/details/7862172" target="_blank" rel="noopener">规则示例：</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line">.cl &#123;</span><br><span class="line">    display: ;</span><br><span class="line">    visibility: ;</span><br><span class="line">    float: ;</span><br><span class="line">    clear: ;</span><br><span class="line">    </span><br><span class="line">    position: ;</span><br><span class="line">    top: ;</span><br><span class="line">    right: ;</span><br><span class="line">    bottom: ;</span><br><span class="line">    left: ;</span><br><span class="line">    z-index: ;</span><br><span class="line">   </span><br><span class="line">    width: ;</span><br><span class="line">    min-width: ;</span><br><span class="line">    max-width: ;</span><br><span class="line">    height: ;</span><br><span class="line">    min-height: ;</span><br><span class="line">    max-height: ;</span><br><span class="line">    overflow: ;</span><br><span class="line"> </span><br><span class="line">    margin: ;</span><br><span class="line">    margin-top: ;</span><br><span class="line">    margin-right: ;</span><br><span class="line">    margin-bottom: ;</span><br><span class="line">    margin-left: ;</span><br><span class="line"> </span><br><span class="line">    padding: ;</span><br><span class="line">    padding-top: ;</span><br><span class="line">    padding-right: ;</span><br><span class="line">    padding-bottom: ;</span><br><span class="line">    padding-left: ;</span><br><span class="line"> </span><br><span class="line">    border-width: ;</span><br><span class="line">    border-top-width: ;</span><br><span class="line">    border-right-width: ;</span><br><span class="line">    border-bottom-width: ;</span><br><span class="line">    border-left-width: ;</span><br><span class="line"> </span><br><span class="line">    border-style: ;</span><br><span class="line">    border-top-style: ;</span><br><span class="line">    border-right-style: ;</span><br><span class="line">    border-bottom-style: ;</span><br><span class="line">    border-left-style: ;</span><br><span class="line"> </span><br><span class="line">    border-color: ;</span><br><span class="line">    border-top-color: ;</span><br><span class="line">    border-right-color: ;</span><br><span class="line">    border-bottom-color: ;</span><br><span class="line">    border-left-color: ;</span><br><span class="line"> </span><br><span class="line">    outline: ;</span><br><span class="line"> </span><br><span class="line">    list-style: ;</span><br><span class="line"> </span><br><span class="line">    table-layout: ;</span><br><span class="line">    caption-side: ;</span><br><span class="line">    border-collapse: ;</span><br><span class="line">    border-spacing: ;</span><br><span class="line">    empty-cells: ;</span><br><span class="line"> </span><br><span class="line">    font: ;</span><br><span class="line">    font-family: ;</span><br><span class="line">    font-size: ;</span><br><span class="line">    line-height: ;</span><br><span class="line">    font-weight: ;</span><br><span class="line">    text-align: ;</span><br><span class="line">    text-indent: ;</span><br><span class="line">    text-transform: ;</span><br><span class="line">    text-decoration: ;</span><br><span class="line">    letter-spacing: ;</span><br><span class="line">    word-spacing: ;</span><br><span class="line">    white-space: ;</span><br><span class="line">    vertical-align: ;</span><br><span class="line">    color: ;</span><br><span class="line"> </span><br><span class="line">    background: ;</span><br><span class="line">    background-color: ;</span><br><span class="line">    background-image: ;</span><br><span class="line">    background-repeat: ;</span><br><span class="line">    background-position: ;</span><br><span class="line"> </span><br><span class="line">    opacity: ;</span><br><span class="line"> </span><br><span class="line">    cursor: ;</span><br><span class="line"> </span><br><span class="line">    content: ;</span><br><span class="line">    quotes: ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-JQuery源码之自调用匿名函数" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -416,170 +765,9 @@
 
 
   
-    <article id="post-常用链接" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/12/28/常用链接/" class="article-date">
-  	<time datetime="2018-12-28T07:52:00.258Z" itemprop="datePublished">2018-12-28</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/28/常用链接/">
-        常用链接
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="http://start.spring.io/" target="_blank" rel="noopener">http://start.spring.io/</a></p>
-<p><a href="http://www.cnblogs.com/lobo/p/5657684.html" target="_blank" rel="noopener">正确、安全地停止SpringBoot应用服务</a></p>
-<p><a href="http://www.cnblogs.com/m4tech/p/6610301.html" target="_blank" rel="noopener">Springboot 常用注解</a></p>
-<p><a href="http://blog.csdn.net/isea533/article/details/50359390" target="_blank" rel="noopener">Spring Boot 集成MyBatis</a></p>
-<p><a href="http://www.cnblogs.com/ityouknow/p/6037431.html" target="_blank" rel="noopener">如何优雅的使用mybatis</a></p>
-<p><a href="http://blog.csdn.net/xiaoyu411502/article/details/48049099" target="_blank" rel="noopener">spring boot application properties配置详解</a></p>
-<p><a href="http://blog.csdn.net/rainbow702/article/details/55046298" target="_blank" rel="noopener">Spring Boot 不使用默认的 parent，改用自己的项目的 parent</a></p>
-<p><a href="http://blog.csdn.net/h363659487/article/details/74955543" target="_blank" rel="noopener">spring-boot-starter-redis配置详解</a></p>
-<p><a href="http://blog.csdn.net/lou7441822/article/details/78111307" target="_blank" rel="noopener">spring boot 跨域同源策略filter</a></p>
-<p><a href="http://www.cnblogs.com/zhangzhen894095789/p/6640808.html" target="_blank" rel="noopener">SpringBoot的日志管理</a></p>
-<p><a href="http://blog.csdn.net/gebitan505/article/details/70142155?locationNum=1&amp;fps=1" target="_blank" rel="noopener">默认日志框架配置</a></p>
-<p><a href="http://blog.csdn.net/catoop/article/details/50501696" target="_blank" rel="noopener"> Spring Boot 拦截器</a></p>
-<p><a href="http://blog.csdn.net/aqsunkai/article/details/69660817?locationNum=2&amp;fps=1" target="_blank" rel="noopener">整合MyBatis，使用Druid连接池</a></p>
-<p><a href="http://blog.csdn.net/github_32521685/article/details/50198467" target="_blank" rel="noopener">Spring Boot自定义错误页面，Whitelabel Error Page处理方式</a></p>
-<p><a href="http://blog.csdn.net/wlwlwlwl015/article/details/50246717" target="_blank" rel="noopener"> Mybatis 大数据量的批量insert解决方案</a></p>
-<p><a href="http://blog.csdn.net/draven1122/article/details/77505631" target="_blank" rel="noopener">Springboot 集成mybatis并用Logback并打印sql</a></p>
-<p><a href="http://blog.csdn.net/u014527058/article/details/62883573" target="_blank" rel="noopener">Spring Boot绑定枚举类型参数</a></p>
-<p><a href="http://www.itpub.net/forum.php?mod=viewthread&amp;tid=1133732" target="_blank" rel="noopener">关于数据库表的主键和业务系统中流水号的一点探讨</a></p>
-<p><a href="http://blog.csdn.net/catoop/article/details/50501688" target="_blank" rel="noopener">Spring Boot 过滤器、监听器</a></p>
-<p><a href="http://blog.csdn.net/u012702547/article/details/53816326" target="_blank" rel="noopener">在Spring Boot框架下使用WebSocket实现消息推送</a></p>
-<p><a href="http://blog.csdn.net/sky786905664/article/details/73920815" target="_blank" rel="noopener">vue2 前后端分离项目ajax跨域session问题解决</a></p>
-<p><a href="http://blog.csdn.net/linxingliang/article/details/52263763" target="_blank" rel="noopener">Spring Boot集成Redis实现缓存机制【从零开始学Spring Boot】</a></p>
-<p><a href="http://www.cnblogs.com/ityouknow/p/5748830.html" target="_blank" rel="noopener">spring boot 中redis的使用</a></p>
-<p><a href="http://www.cnblogs.com/waterlufei/p/7056420.html" target="_blank" rel="noopener">spring boot + mybatis + druid</a></p>
-<p><a href="http://blog.csdn.net/clementad/article/details/51334064" target="_blank" rel="noopener">Eclipse中创建新的Spring Boot项目</a></p>
-<p><a href="https://www.fontke.com/tool/convfont/" target="_blank" rel="noopener">字客网</a></p>
-<p><a href="http://www.css88.com/tool/css3Preview/" target="_blank" rel="noopener">css3样式生成器</a></p>
-<p><a href="https://github.com/xswei/d3js_doc" target="_blank" rel="noopener">d3.js中文文档</a><br><a href="http://start.spring.io/" target="_blank" rel="noopener">spring boot</a></p>
-<p><a href="http://www.pixijs.com/gallery" target="_blank" rel="noopener">pixijs</a></p>
-<p><a href="https://1stwebdesigner.com/css-effects/" target="_blank" rel="noopener">css-effects</a></p>
-<p><a href="https://github.com/shadowsocks/shadowsocks-windows/wiki/Shadowsocks-Windows-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E" target="_blank" rel="noopener">Shadowsocks</a></p>
-<p><a href="http://www.daqianduan.com/" target="_blank" rel="noopener">大前端</a></p>
-<p><a href="http://gitbook.cn/gitchat/vip?utm_source=csdnblog" target="_blank" rel="noopener">gitChat会员</a></p>
-<p><a href="http://www.alloyteam.com/nav/" target="_blank" rel="noopener">web前端导航</a></p>
-<p><a href="http://www.77169.com/" target="_blank" rel="noopener">华盟网</a><br><a href="https://www.bejson.com/" target="_blank" rel="noopener">在线json格式化工具</a></p>
-<p><a href="https://haxe.org/" target="_blank" rel="noopener">haxe</a></p>
-<p><a href="http://tools.jb51.net/" target="_blank" rel="noopener">脚本之家在线工具</a></p>
-<p><a href="http://www.runoob.com/" target="_blank" rel="noopener">脚本之家菜鸟教程</a></p>
-<p><a href="https://github.com/liutao/vue2.0-source" target="_blank" rel="noopener">VUE 源码解析</a></p>
-<p><a href="http://css3ps.com/" target="_blank" rel="noopener">PS 生成css代码插件</a></p>
-<p><a href="http://www.reddit.com/r/programming" target="_blank" rel="noopener">程序员网站 Reddit</a><br><a href="https://plus.google.com/communities" target="_blank" rel="noopener">谷歌社区</a></p>
-<p><a href="http://www.sitepoint.com/forums/" target="_blank" rel="noopener">程序员网站 SitePoint</a></p>
-<p><a href="https://news.ycombinator.com/news" target="_blank" rel="noopener">程序员网站 Hacker News</a></p>
-<p><a href="http://www.henkuai.com/forum.php" target="_blank" rel="noopener">很快 微信小程序社区</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-用hexo搭建博客" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/08/18/用hexo搭建博客/" class="article-date">
-  	<time datetime="2018-08-18T01:54:12.576Z" itemprop="datePublished">2018-08-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/18/用hexo搭建博客/">
-        用hexo搭建博客
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 </div>

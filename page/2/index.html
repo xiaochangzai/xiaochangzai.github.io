@@ -163,6 +163,364 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-React npm 环境搭建" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/12/29/React npm 环境搭建/" class="article-date">
+  	<time datetime="2018-12-29T02:25:43.380Z" itemprop="datePublished">2018-12-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/29/React npm 环境搭建/">
+        React npm 环境搭建
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="1-安装淘宝镜像"><a href="#1-安装淘宝镜像" class="headerlink" title="1. 安装淘宝镜像"></a>1. 安装淘宝镜像</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br><span class="line">$ npm config set registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+<h4 id="2-使用-create-react-app-快速构建-React-开发环境"><a href="#2-使用-create-react-app-快速构建-React-开发环境" class="headerlink" title="2. 使用 create-react-app 快速构建 React 开发环境"></a>2. 使用 create-react-app 快速构建 React 开发环境</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm install -g create-react-app</span><br><span class="line">$ create-react-app my-app</span><br><span class="line">$ cd my-app/</span><br><span class="line">$ npm start</span><br></pre></td></tr></table></figure>
+<h4 id="3-使用外部React组件"><a href="#3-使用外部React组件" class="headerlink" title="3. 使用外部React组件"></a>3. 使用外部React组件</h4><p>test.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; Component &#125; from &apos;react&apos;;</span><br><span class="line">class Test extends Component&#123;</span><br><span class="line">	render () &#123;</span><br><span class="line">		return (&lt;div&gt;1234&lt;/div&gt;)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">export default Test;</span><br></pre></td></tr></table></figure></p>
+<p>index.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import React from &apos;react&apos;;</span><br><span class="line">import ReactDOM from &apos;react-dom&apos;;</span><br><span class="line">import &apos;./index.css&apos;;</span><br><span class="line">import App from &apos;./App&apos;;</span><br><span class="line">import Test from &apos;./test&apos;;</span><br><span class="line">import registerServiceWorker from &apos;./registerServiceWorker&apos;;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(&lt;Test /&gt;, document.getElementById(&apos;root&apos;));</span><br><span class="line">registerServiceWorker();</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-关于数组遍历dom没有key导致的错误 react&amp;npm 中的state" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/12/29/关于数组遍历dom没有key导致的错误 react&npm 中的state/" class="article-date">
+  	<time datetime="2018-12-29T02:24:09.538Z" itemprop="datePublished">2018-12-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/29/关于数组遍历dom没有key导致的错误 react&npm 中的state/">
+        关于数组遍历dom没有key导致的错误 react&amp;npm 中的state
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="React-报错-Warning-Each-child-in-an-array-or-iterator-should-have-a-unique-“key”-prop"><a href="#React-报错-Warning-Each-child-in-an-array-or-iterator-should-have-a-unique-“key”-prop" class="headerlink" title="React 报错 Warning: Each child in an array or iterator should have a unique “key” prop."></a>React 报错 Warning: Each child in an array or iterator should have a unique “key” prop.</h5><p>这个是和react的dom-diff算法相关的。react对dom做遍历的时候，会根据data-reactid生成虚拟dom树。如果你没有手动的添加unique constant key的话，react是无法记录你的dom操作的。它只会在重新渲染的时候，继续使用相应dom数组的序数号(就是array[index]这种)来比对dom树。</p>
+<p>解决办法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">bannerArr.map(function (src,index) &#123;</span><br><span class="line">    // body...</span><br><span class="line">    return (</span><br><span class="line">        &lt;div className=&quot;banner-box&quot; key=&#123;index&#125;&gt;</span><br><span class="line">            &lt;img src=&#123;src&#125; /&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        )</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>在遍历的dom节点加个key属性</p>
+<h4 id="2-react-amp-npm-中的this-state"><a href="#2-react-amp-npm-中的this-state" class="headerlink" title="2. react&amp;npm 中的this.state"></a>2. react&amp;npm 中的this.state</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">constructor(props) &#123;</span><br><span class="line">    super(props);</span><br><span class="line">    // this.onClickButton = this.onClickButton.bind(this);</span><br><span class="line">    this.state = &#123;</span><br><span class="line">        left: 0,</span><br><span class="line">        curr:0</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>html代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;span className=&quot;prev&quot; onClick=&#123;this.prev.bind(this)&#125;&gt;&lt;/span&gt;</span><br><span class="line">&lt;span className=&quot;next&quot; onClick=&#123;this.next.bind(this)&#125;&gt;&lt;/span&gt;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-在html代码里添加关键字、描述" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/12/29/在html代码里添加关键字、描述/" class="article-date">
+  	<time datetime="2018-12-29T02:22:46.521Z" itemprop="datePublished">2018-12-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/29/在html代码里添加关键字、描述/">
+        在html代码里添加关键字、描述
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="添加关键字和描述"><a href="#添加关键字和描述" class="headerlink" title="添加关键字和描述"></a>添加关键字和描述</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;keywords&quot; content=&quot;SVG特效, 手机微信网站特效, css3动画, html5特效, 网页特效&quot; /&gt;</span><br><span class="line">&lt;meta name=&quot;description&quot; content=&quot;网页特效库-专注于HTML5、CSS3、js、jQuery、手机移动端等网页特效的手机与分享。特效库始终坚持：无会员、无积分、无限制的“三无原则”，所有的资源都免费提供广大童鞋下载学习和使用。&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="animation-一直转特效"><a href="#animation-一直转特效" class="headerlink" title="animation 一直转特效"></a>animation 一直转特效</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">@-webkit-keyframes rotate&#123;</span><br><span class="line">    0%&#123;</span><br><span class="line">        transform: rotate(0deg);</span><br><span class="line">    &#125;</span><br><span class="line">    100%&#123;</span><br><span class="line">        transform: rotate(360deg);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">.bagua img&#123;</span><br><span class="line">    width: 548px;</span><br><span class="line">    height: 548px;</span><br><span class="line">    display: block;</span><br><span class="line">    animation:rotate 20s linear 0s infinite;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-React 路由" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/12/28/React 路由/" class="article-date">
+  	<time datetime="2018-12-28T08:27:43.454Z" itemprop="datePublished">2018-12-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/28/React 路由/">
+        React 路由
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://reacttraining.cn/" target="_blank" rel="noopener">react-router-dom</a> 的使用方法</p>
+<ol>
+<li><p>先安装 react-router-dom<br>在index.html 的目录下执行以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install react-router-dom -D</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>导出路由配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">import React from &quot;react&quot;;</span><br><span class="line">import createBrowserHistory from &apos;history/createBrowserHistory&apos;</span><br><span class="line">import &#123;</span><br><span class="line">  BrowserRouter as Router,</span><br><span class="line">  Route,</span><br><span class="line">  Link</span><br><span class="line">&#125; from &apos;react-router-dom&apos;</span><br><span class="line"></span><br><span class="line">const BasicExample = () =&gt; (</span><br><span class="line">  &lt;Router&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;ul&gt;</span><br><span class="line">        &lt;li&gt;&lt;Link to=&quot;/&quot;&gt;Home&lt;/Link&gt;&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;&lt;Link to=&quot;/about&quot;&gt;About&lt;/Link&gt;&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;&lt;Link to=&quot;/topics&quot;&gt;Topics&lt;/Link&gt;&lt;/li&gt;</span><br><span class="line">      &lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">      &lt;hr/&gt;</span><br><span class="line"></span><br><span class="line">      &lt;Route exact path=&quot;/&quot; component=&#123;Home&#125;/&gt;</span><br><span class="line">      &lt;Route path=&quot;/about&quot; component=&#123;About&#125;/&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/Router&gt;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">const Home = () =&gt; (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h2&gt;Home&lt;/h2&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">const About = () =&gt; (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h2&gt;About&lt;/h2&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">export default BasicExample</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用路由</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import React from &apos;react&apos;;</span><br><span class="line">import ReactDOM from &apos;react-dom&apos;;</span><br><span class="line">import &apos;./index.css&apos;;</span><br><span class="line">import BasicExample from &quot;./router&quot; </span><br><span class="line">import registerServiceWorker from &apos;./registerServiceWorker&apos;;</span><br><span class="line">import Home from &quot;./components/home&quot;</span><br><span class="line">ReactDOM.render(&lt;BasicExample /&gt;, document.getElementById(&apos;root&apos;));</span><br><span class="line">registerServiceWorker();</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-React里面如何使用jQuery 和 jQuery 的插件" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/12/28/React里面如何使用jQuery 和 jQuery 的插件/" class="article-date">
+  	<time datetime="2018-12-28T08:09:25.096Z" itemprop="datePublished">2018-12-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/28/React里面如何使用jQuery 和 jQuery 的插件/">
+        React 里面如何使用jQuery 和 jQuery 的插件
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>如果直接 import $ from ‘./jquery.min’ 引入的话，会报错。<br>webpack 下使用jQuery ，要先安装。<br>在index.js 的目录下，执行以下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install jquery -D</span><br></pre></td></tr></table></figure></p>
+<p>在js里引入jquery<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import $ from &apos;jquery&apos;</span><br></pre></td></tr></table></figure></p>
+<p>在webpack react项目里怎么使用jQuery的插件？</p>
+<p>修改组建源码，将方法暴露出去。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function reflection($) &#123;</span><br><span class="line"></span><br><span class="line">	$.fn.reflect = function(options) &#123;</span><br><span class="line">		options = $.extend(&#123;</span><br><span class="line">			height: 1/3,</span><br><span class="line">			opacity: 0.5</span><br><span class="line">		&#125;, options);</span><br><span class="line"></span><br><span class="line">		return this.unreflect().each(function() &#123;</span><br></pre></td></tr></table></figure></p>
+<p>将方法暴露出去</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">	$.fn.unreflect = function() &#123;</span><br><span class="line">		return this.unbind(&quot;load&quot;).each(function() &#123;</span><br><span class="line">			var img = this, reflected = $(this).data(&quot;reflected&quot;), wrapper;</span><br><span class="line"></span><br><span class="line">			if (reflected !== undefined) &#123;</span><br><span class="line">				wrapper = img.parentNode;</span><br><span class="line">				img.className = wrapper.className;</span><br><span class="line">				img.style.cssText = reflected;</span><br><span class="line">				$(img).data(&quot;reflected&quot;, null);</span><br><span class="line">				wrapper.parentNode.replaceChild(img, wrapper);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default reflection;</span><br></pre></td></tr></table></figure>
+<p>在js中引用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import $ from &apos;jquery&apos;;</span><br><span class="line">import cloud9carousel from &apos;./../js/jquery.cloud9carousel&apos;;</span><br><span class="line">import reflection from &apos;./../js/jquery.reflection&apos;;</span><br><span class="line">//初始化组件</span><br><span class="line">cloud9carousel($);</span><br><span class="line">reflection($);</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-React 点击事件怎么传参" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/12/28/React 点击事件怎么传参/" class="article-date">
+  	<time datetime="2018-12-28T08:08:55.362Z" itemprop="datePublished">2018-12-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/28/React 点击事件怎么传参/">
+        React 点击事件怎么传参
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>先看一下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> React.Children.map(this.state.hours,function(item,index)&#123;</span><br><span class="line">    return &lt;li key=&#123;index&#125; index=&#123;index&#125; onClick=&#123;this.clickItem.bind(this,index)&#125;&gt;&#123;item&#125;&lt;/li&gt;</span><br><span class="line">&#125;.bind(this))</span><br></pre></td></tr></table></figure>
+<h4 id="map里的函数为什么要执行-bind-this"><a href="#map里的函数为什么要执行-bind-this" class="headerlink" title="map里的函数为什么要执行 bind(this)?"></a>map里的函数为什么要执行 bind(this)?</h4><p>因为这个函数的this是指向window的，要把当前作用域传入，是this指向React的this。</p>
+<h4 id="onClick-this-clickItem-index-这样写会怎么样？"><a href="#onClick-this-clickItem-index-这样写会怎么样？" class="headerlink" title="onClick={this.clickItem(index)} 这样写会怎么样？"></a>onClick={this.clickItem(index)} 这样写会怎么样？</h4><p>会在加载的时候执行。点击的时候并不执行。</p>
+<h4 id="如何才能正确的传入参数呢？"><a href="#如何才能正确的传入参数呢？" class="headerlink" title="如何才能正确的传入参数呢？"></a>如何才能正确的传入参数呢？</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;li key=&#123;index&#125; index=&#123;index&#125; onClick=&#123;this.clickItem.bind(this,index)&#125;&gt;&#123;item&#125;&lt;/li&gt;</span><br></pre></td></tr></table></figure>
+<p>把参数通过bind函数传进去。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-React-router_config的用法" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -402,358 +760,9 @@
 
 
   
-    <article id="post-H5输入框被软键盘遮挡解决办法" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/12/28/H5输入框被软键盘遮挡解决办法/" class="article-date">
-  	<time datetime="2018-12-28T08:05:03.691Z" itemprop="datePublished">2018-12-28</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/28/H5输入框被软键盘遮挡解决办法/">
-        H5输入框被软键盘遮挡解决办法
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>当input或textarea获得焦点的时候，有可能会被软键盘遮挡住。解决办法如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">window.addEventListener(&apos;resize&apos;, function () &#123;</span><br><span class="line">        if (document.activeElement.tagName === &apos;INPUT&apos; || document.activeElement.tagName === &apos;TEXTAREA&apos;) &#123;</span><br><span class="line">            window.setTimeout(function () &#123;</span><br><span class="line">                let doc: any = document</span><br><span class="line">                doc.activeElement.scrollIntoViewIfNeeded()</span><br><span class="line">            &#125;, 0)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-axios获取图片，后台返回文件流怎么处理" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/12/28/axios获取图片，后台返回文件流怎么处理/" class="article-date">
-  	<time datetime="2018-12-28T08:04:11.725Z" itemprop="datePublished">2018-12-28</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/28/axios获取图片，后台返回文件流怎么处理/">
-        axios获取图片，后台返回文件流怎么处理
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="今天调一个返回图片的接口，图片是以文件流的格式返回的。"><a href="#今天调一个返回图片的接口，图片是以文件流的格式返回的。" class="headerlink" title="今天调一个返回图片的接口，图片是以文件流的格式返回的。"></a>今天调一个返回图片的接口，图片是以文件流的格式返回的。</h4><h5 id="如何才能正确的显示图片呢？"><a href="#如何才能正确的显示图片呢？" class="headerlink" title="如何才能正确的显示图片呢？"></a>如何才能正确的显示图片呢？</h5><h4 id="1-请求时在header设置返回类型。指定返回类型为-blob"><a href="#1-请求时在header设置返回类型。指定返回类型为-blob" class="headerlink" title="1. 请求时在header设置返回类型。指定返回类型为 ==blob=="></a>1. 请求时在header设置返回类型。指定返回类型为 ==blob==</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * </span><br><span class="line"> * @param &#123;tai&#125; string 生成订阅号海报</span><br><span class="line"> */</span><br><span class="line">static getSubscriptionPicture (&#123;</span><br><span class="line">  tai</span><br><span class="line">&#125;: &#123;tai: string&#125;) &#123;</span><br><span class="line">  return http.post(&#123;</span><br><span class="line">    url: this.subscription,</span><br><span class="line">    data: &#123;&#125;,</span><br><span class="line">    config: &#123;</span><br><span class="line">      requiresAuth: true,</span><br><span class="line">      params: &#123;</span><br><span class="line">        tai</span><br><span class="line">      &#125;,</span><br><span class="line">      responseType: &apos;blob&apos;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="2-使用原生js自带的-URL-createObjectURL-函数。"><a href="#2-使用原生js自带的-URL-createObjectURL-函数。" class="headerlink" title="2. 使用原生js自带的 ==URL.createObjectURL== 函数。"></a>2. 使用原生js自带的 ==URL.createObjectURL== 函数。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.card = URL.createObjectURL(res.data)</span><br></pre></td></tr></table></figure>
-<h5 id="这样将-this-card-放在img的src上面就行了"><a href="#这样将-this-card-放在img的src上面就行了" class="headerlink" title="这样将==this.card==放在img的src上面就行了"></a>这样将==this.card==放在img的src上面就行了</h5>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-判断手机系统是ios 还是Android" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/12/28/判断手机系统是ios 还是Android/" class="article-date">
-  	<time datetime="2018-12-28T08:03:40.551Z" itemprop="datePublished">2018-12-28</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/28/判断手机系统是ios 还是Android/">
-        判断手机系统是ios 还是Android
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="判断手机系统是ios-还是Android"><a href="#判断手机系统是ios-还是Android" class="headerlink" title="判断手机系统是ios 还是Android"></a>判断手机系统是ios 还是Android</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var u = navigator.userAgent</span><br><span class="line">var isAndroid = u.indexOf(&apos;Android&apos;) &gt; -1 || u.indexOf(&apos;Adr&apos;) &gt; -1; //android终端</span><br><span class="line">var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-前端使用 jest 做单元测试" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/12/28/前端使用 jest 做单元测试/" class="article-date">
-  	<time datetime="2018-12-28T08:03:09.797Z" itemprop="datePublished">2018-12-28</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/28/前端使用 jest 做单元测试/">
-        前端使用 jest 做单元测试
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1-安装-Jest"><a href="#1-安装-Jest" class="headerlink" title="1. 安装 Jest"></a>1. 安装 Jest</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev jest</span><br></pre></td></tr></table></figure>
-<h3 id="2-在script里面加上下面一句："><a href="#2-在script里面加上下面一句：" class="headerlink" title="2. 在script里面加上下面一句："></a>2. 在script里面加上下面一句：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/ 添加测试命令</span><br><span class="line">&#123;</span><br><span class="line">  &quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;test&quot;: &quot;jest&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="3-添加被测试文件"><a href="#3-添加被测试文件" class="headerlink" title="3. 添加被测试文件"></a>3. 添加被测试文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 被测试文件 sum.js</span><br><span class="line">function sum(a, b) &#123;</span><br><span class="line">  return a + b;</span><br><span class="line">&#125;</span><br><span class="line">module.exports = sum;</span><br></pre></td></tr></table></figure>
-<h3 id="4-书写测试文件"><a href="#4-书写测试文件" class="headerlink" title="4. 书写测试文件"></a>4. 书写测试文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 测试文件 sum.test.js</span><br><span class="line">const sum = require(‘./sum&apos;);</span><br><span class="line">test(&apos;adds 1 + 2 to equal 3&apos;, () =&gt; &#123;</span><br><span class="line">  expect(sum(1, 2)).toBe(3);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h3 id="5-控制台执行"><a href="#5-控制台执行" class="headerlink" title="5. 控制台执行"></a>5. 控制台执行</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm test</span><br><span class="line">// 或者</span><br><span class="line">npm t</span><br></pre></td></tr></table></figure>
-<p><a href="https://blog.csdn.net/u011818572/article/details/81638872" target="_blank" rel="noopener">vue+typescript+jest测试指南</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-git工作流学习" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/12/28/git工作流学习/" class="article-date">
-  	<time datetime="2018-12-28T08:02:23.046Z" itemprop="datePublished">2018-12-28</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/28/git工作流学习/">
-        git工作流学习
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://blog.csdn.net/zyw0713/article/details/80083431" target="_blank" rel="noopener">git 的工作流程 纯干货</a><br><a href="https://git.ninghao.net/gitflow-workflow.html" target="_blank" rel="noopener">git workflow 工作流</a></p>
-<h4 id="1-有一次线上项目出bug了，需要把master上的项目拉取到本地"><a href="#1-有一次线上项目出bug了，需要把master上的项目拉取到本地" class="headerlink" title="1. 有一次线上项目出bug了，需要把master上的项目拉取到本地"></a>1. 有一次线上项目出bug了，需要把master上的项目拉取到本地</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure>
-<h5 id="然后在本地修改完bug，重新上传到master上"><a href="#然后在本地修改完bug，重新上传到master上" class="headerlink" title="然后在本地修改完bug，重新上传到master上"></a>然后在本地修改完bug，重新上传到master上</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &apos;修改了bug&apos;</span><br><span class="line">git pull    #看看有没有新的提交</span><br><span class="line">git push    #同步到远程仓库</span><br></pre></td></tr></table></figure>
-<h5 id="然后把master上的修改的内容同步到开发分支上，以防下次bug再出现"><a href="#然后把master上的修改的内容同步到开发分支上，以防下次bug再出现" class="headerlink" title="然后把master上的修改的内容同步到开发分支上，以防下次bug再出现"></a>然后把master上的修改的内容同步到开发分支上，以防下次bug再出现</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout feature    #先切换到feature分支（开发分支）</span><br><span class="line">git merge master    #把master分支合并到当前分支</span><br></pre></td></tr></table></figure>
-<h6 id="修改完毕"><a href="#修改完毕" class="headerlink" title="修改完毕"></a>修改完毕</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#Git创建Develop分支的命令</span><br><span class="line">git checkout -b develop master</span><br><span class="line">#将Develop分支发布到Master分支的命令</span><br><span class="line">git checkout master</span><br><span class="line">git merge --no-ff develop</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-CSS属性顺序" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/12/28/CSS属性顺序/" class="article-date">
-  	<time datetime="2018-12-28T08:01:48.600Z" itemprop="datePublished">2018-12-28</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/28/CSS属性顺序/">
-        CSS属性顺序
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h5 id="推荐样式书写顺序"><a href="#推荐样式书写顺序" class="headerlink" title="推荐样式书写顺序"></a>推荐样式书写顺序</h5><ol>
-<li>Position</li>
-<li>Box Model</li>
-<li>Typographic</li>
-<li>Visual</li>
-</ol>
-<p>由于定位（positioning）可以从正常的文档流中移除元素，并且还能覆盖盒模型（box model）相关的样式，因此排在首位。盒模型决定了组件的尺寸和位置，因此排在第二位。</p>
-<p>其他属性只是影响组件的内部（inside）或者是不影响前两组属性，因此排在后面:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">.declaration-order &#123;</span><br><span class="line">    /* Positioning */</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 0;</span><br><span class="line">    right: 0;</span><br><span class="line">    bottom: 0;</span><br><span class="line">    left: 0;</span><br><span class="line">    z-index: 100;</span><br><span class="line">    </span><br><span class="line">    /* Box-model */</span><br><span class="line">    display: block;</span><br><span class="line">    float: right;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100px;</span><br><span class="line">    </span><br><span class="line">    /* Typography */</span><br><span class="line">    font: normal 13px &quot;Helvetica Neue&quot;, sans-serif;</span><br><span class="line">    line-height: 1.5;</span><br><span class="line">    color: #333;</span><br><span class="line">    text-align: center;</span><br><span class="line">    </span><br><span class="line">    /* Visual */</span><br><span class="line">    background-color: #f5f5f5;</span><br><span class="line">    border: 1px solid #e5e5e5;</span><br><span class="line">    border-radius: 3px;</span><br><span class="line">    </span><br><span class="line">    /* Misc */</span><br><span class="line">    opacity: 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>链接的样式请严格按照如下顺序添加：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a:link -&gt; a:visited -&gt; a:hover -&gt; a:active（LoVeHAte）</span><br></pre></td></tr></table></figure></p>
-<p><a href="https://blog.csdn.net/SyKent/article/details/7862172" target="_blank" rel="noopener">规则示例：</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line">.cl &#123;</span><br><span class="line">    display: ;</span><br><span class="line">    visibility: ;</span><br><span class="line">    float: ;</span><br><span class="line">    clear: ;</span><br><span class="line">    </span><br><span class="line">    position: ;</span><br><span class="line">    top: ;</span><br><span class="line">    right: ;</span><br><span class="line">    bottom: ;</span><br><span class="line">    left: ;</span><br><span class="line">    z-index: ;</span><br><span class="line">   </span><br><span class="line">    width: ;</span><br><span class="line">    min-width: ;</span><br><span class="line">    max-width: ;</span><br><span class="line">    height: ;</span><br><span class="line">    min-height: ;</span><br><span class="line">    max-height: ;</span><br><span class="line">    overflow: ;</span><br><span class="line"> </span><br><span class="line">    margin: ;</span><br><span class="line">    margin-top: ;</span><br><span class="line">    margin-right: ;</span><br><span class="line">    margin-bottom: ;</span><br><span class="line">    margin-left: ;</span><br><span class="line"> </span><br><span class="line">    padding: ;</span><br><span class="line">    padding-top: ;</span><br><span class="line">    padding-right: ;</span><br><span class="line">    padding-bottom: ;</span><br><span class="line">    padding-left: ;</span><br><span class="line"> </span><br><span class="line">    border-width: ;</span><br><span class="line">    border-top-width: ;</span><br><span class="line">    border-right-width: ;</span><br><span class="line">    border-bottom-width: ;</span><br><span class="line">    border-left-width: ;</span><br><span class="line"> </span><br><span class="line">    border-style: ;</span><br><span class="line">    border-top-style: ;</span><br><span class="line">    border-right-style: ;</span><br><span class="line">    border-bottom-style: ;</span><br><span class="line">    border-left-style: ;</span><br><span class="line"> </span><br><span class="line">    border-color: ;</span><br><span class="line">    border-top-color: ;</span><br><span class="line">    border-right-color: ;</span><br><span class="line">    border-bottom-color: ;</span><br><span class="line">    border-left-color: ;</span><br><span class="line"> </span><br><span class="line">    outline: ;</span><br><span class="line"> </span><br><span class="line">    list-style: ;</span><br><span class="line"> </span><br><span class="line">    table-layout: ;</span><br><span class="line">    caption-side: ;</span><br><span class="line">    border-collapse: ;</span><br><span class="line">    border-spacing: ;</span><br><span class="line">    empty-cells: ;</span><br><span class="line"> </span><br><span class="line">    font: ;</span><br><span class="line">    font-family: ;</span><br><span class="line">    font-size: ;</span><br><span class="line">    line-height: ;</span><br><span class="line">    font-weight: ;</span><br><span class="line">    text-align: ;</span><br><span class="line">    text-indent: ;</span><br><span class="line">    text-transform: ;</span><br><span class="line">    text-decoration: ;</span><br><span class="line">    letter-spacing: ;</span><br><span class="line">    word-spacing: ;</span><br><span class="line">    white-space: ;</span><br><span class="line">    vertical-align: ;</span><br><span class="line">    color: ;</span><br><span class="line"> </span><br><span class="line">    background: ;</span><br><span class="line">    background-color: ;</span><br><span class="line">    background-image: ;</span><br><span class="line">    background-repeat: ;</span><br><span class="line">    background-position: ;</span><br><span class="line"> </span><br><span class="line">    opacity: ;</span><br><span class="line"> </span><br><span class="line">    cursor: ;</span><br><span class="line"> </span><br><span class="line">    content: ;</span><br><span class="line">    quotes: ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 </div>
