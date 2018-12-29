@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>sunJsona的个人博客</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="sunJsona的个人博客">
+<meta property="og:url" content="https://xiaochangzai.github.io/page/2/index.html">
+<meta property="og:site_name" content="sunJsona的个人博客">
+<meta property="og:locale" content="Simple Chinese">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="sunJsona的个人博客">
+  
+    <link rel="alternative" href="/atom.xml" title="sunJsona的个人博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://sunchang.oss-cn-beijing.aliyuncs.com/image/17685955%20-%20%E5%89%AF%E6%9C%AC.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+
+  <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://sunchang.oss-cn-beijing.aliyuncs.com/image/17685955%20-%20%E5%89%AF%E6%9C%AC.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">sunJsona</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/smackgg/hexo-theme-smackdown">smackdown</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">sunJsona</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="https://sunchang.oss-cn-beijing.aliyuncs.com/image/17685955%20-%20%E5%89%AF%E6%9C%AC.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">sunJsona</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap">
+  
+    <article id="post-React-router_config的用法" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/12/28/React-router_config的用法/" class="article-date">
+  	<time datetime="2018-12-28T08:08:23.800Z" itemprop="datePublished">2018-12-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/28/React-router_config的用法/">
+        React-router config 的用法
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>React有好几种路由嵌套的用法。感觉都不好用。终于我找到已一个React Router Config 的方法<br>官方例子如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">import React from &apos;react&apos;;</span><br><span class="line">import ReactDom from &apos;react-dom&apos;;</span><br><span class="line">import &#123;</span><br><span class="line">    BrowserRouter as Router,</span><br><span class="line">    Route,</span><br><span class="line">    Link</span><br><span class="line">&#125; from &apos;react-router-dom&apos;</span><br><span class="line"></span><br><span class="line">const Main = () =&gt; &lt;h2&gt;Main&lt;/h2&gt;</span><br><span class="line">const Sandwiches = () =&gt; &lt;h2&gt;Sandwiches&lt;/h2&gt;</span><br><span class="line"></span><br><span class="line">const Tacos = (&#123; routes &#125;) =&gt; (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;h2&gt;Tacos&lt;/h2&gt;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">            &lt;li&gt;&lt;Link to=&quot;/tacos/bus&quot;&gt;Bus&lt;/Link&gt;&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;&lt;Link to=&quot;/tacos/cart&quot;&gt;Cart&lt;/Link&gt;&lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">        &#123;routes.map((route, i) =&gt; (</span><br><span class="line">            &lt;RouteWithSubRoutes key=&#123;i&#125; &#123;...route&#125; /&gt;</span><br><span class="line">        ))&#125;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">const Bus = () =&gt; &lt;h3&gt;Bus&lt;/h3&gt;</span><br><span class="line">const Cart = () =&gt; &lt;h3&gt;Cart&lt;/h3&gt;</span><br><span class="line"></span><br><span class="line">const routes = [</span><br><span class="line">    &#123;</span><br><span class="line">        path: &apos;/sandwiches&apos;,</span><br><span class="line">        component: Sandwiches</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        path: &apos;/tacos&apos;,</span><br><span class="line">        component: Tacos,</span><br><span class="line">        routes: [</span><br><span class="line">            &#123;</span><br><span class="line">                path: &apos;/tacos/bus&apos;,</span><br><span class="line">                component: Bus</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                path: &apos;/tacos/cart&apos;,</span><br><span class="line">                component: Cart</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">const RouteWithSubRoutes = (route) =&gt; (</span><br><span class="line">    &lt;Route path=&#123;route.path&#125; render=&#123;props =&gt; (</span><br><span class="line">        // pass the sub-routes down to keep nesting</span><br><span class="line">        &lt;route.component &#123;...props&#125; routes=&#123;route.routes&#125; /&gt;</span><br><span class="line">    )&#125; /&gt;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">const RouteConfigExample = () =&gt; (</span><br><span class="line">    &lt;Router&gt;</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;ul&gt;</span><br><span class="line">                &lt;li&gt;&lt;Link to=&quot;/tacos&quot;&gt;Tacos&lt;/Link&gt;&lt;/li&gt;</span><br><span class="line">                &lt;li&gt;&lt;Link to=&quot;/sandwiches&quot;&gt;Sandwiches&lt;/Link&gt;&lt;/li&gt;</span><br><span class="line">            &lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">            &#123;routes.map((route, i) =&gt; (</span><br><span class="line">                &lt;RouteWithSubRoutes key=&#123;i&#125; &#123;...route&#125; /&gt;</span><br><span class="line">            ))&#125;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/Router&gt;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">export default RouteConfigExample;</span><br></pre></td></tr></table></figure></p>
+<p>主要思想是：把配置的页面配置到一个叫 routes 的变量里。模式是 path和component 对应的。</p>
+<p>RouteWithSubRoutes 的作用是循环遍历 routes 函数，将对应的组件渲染到对应的位置里。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-关于React 路由嵌套方式的其中一种" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/12/28/关于React 路由嵌套方式的其中一种/" class="article-date">
+  	<time datetime="2018-12-28T08:07:07.629Z" itemprop="datePublished">2018-12-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/28/关于React 路由嵌套方式的其中一种/">
+        关于React 路由嵌套方式的其中一种
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>现在react router v4 的路由嵌套改成这样子了。和之前的大不一样。<br>不过也不是也别麻烦。<br>代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line">import React from &apos;react&apos;</span><br><span class="line">import &#123;</span><br><span class="line">  BrowserRouter as Router,</span><br><span class="line">  Route,</span><br><span class="line">  Link</span><br><span class="line">&#125; from &apos;react-router-dom&apos;</span><br><span class="line"></span><br><span class="line">const BasicExample = () =&gt; (</span><br><span class="line">  &lt;Router&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;ul&gt;</span><br><span class="line">        &lt;li&gt;&lt;Link to=&quot;/&quot;&gt;Home&lt;/Link&gt;&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;&lt;Link to=&quot;/about&quot;&gt;About&lt;/Link&gt;&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;&lt;Link to=&quot;/topics&quot;&gt;Topics&lt;/Link&gt;&lt;/li&gt;</span><br><span class="line">      &lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">      &lt;hr/&gt;</span><br><span class="line"></span><br><span class="line">      &lt;Route exact path=&quot;/&quot; component=&#123;Home&#125;/&gt;</span><br><span class="line">      &lt;Route path=&quot;/about&quot; component=&#123;About&#125;/&gt;</span><br><span class="line">      &lt;Route path=&quot;/topics&quot; component=&#123;Topics&#125;/&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/Router&gt;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">const Home = () =&gt; (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h2&gt;Home&lt;/h2&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">)</span><br><span class="line">const Bus =()=&gt;(&lt;h2&gt;Bus&lt;/h2&gt;);</span><br><span class="line">const Car =(&#123;match&#125;)=&gt;(&lt;h2&gt;Car &#123;match.params.message&#125;&lt;/h2&gt;);</span><br><span class="line">const About = (&#123;match&#125;) =&gt; (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h2&gt;About&lt;/h2&gt;</span><br><span class="line">    &lt;Link to=&#123;`$&#123;match.url&#125;/car/123`&#125;&gt;Car&lt;/Link&gt;</span><br><span class="line">    &lt;Link to=&#123;`$&#123;match.url&#125;/bus`&#125;&gt;Bus&lt;/Link&gt;</span><br><span class="line">    &lt;Route path=&#123;`$&#123;match.url&#125;/car/:message`&#125; component=&#123;Car&#125; /&gt;</span><br><span class="line">    &lt;Route path=&#123;`$&#123;match.url&#125;/bus`&#125; component=&#123;Bus&#125; /&gt;</span><br><span class="line">    &lt;Route exact path=&#123;match.url&#125; component=&#123;()=&gt;(&lt;h2&gt;请选择一辆车&lt;/h2&gt;)&#125; /&gt;</span><br><span class="line"></span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">const Topics = (&#123; match &#125;) =&gt; (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h2&gt;Topics&lt;/h2&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">      &lt;li&gt;</span><br><span class="line">        &lt;Link to=&#123;`$&#123;match.url&#125;/rendering`&#125;&gt;</span><br><span class="line">          Rendering with React</span><br><span class="line">        &lt;/Link&gt;</span><br><span class="line">      &lt;/li&gt;</span><br><span class="line">      &lt;li&gt;</span><br><span class="line">        &lt;Link to=&#123;`$&#123;match.url&#125;/components`&#125;&gt;</span><br><span class="line">          Components</span><br><span class="line">        &lt;/Link&gt;</span><br><span class="line">      &lt;/li&gt;</span><br><span class="line">      &lt;li&gt;</span><br><span class="line">        &lt;Link to=&#123;`$&#123;match.url&#125;/props-v-state`&#125;&gt;</span><br><span class="line">          Props v. State</span><br><span class="line">        &lt;/Link&gt;</span><br><span class="line">      &lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">    &lt;Route path=&#123;`$&#123;match.url&#125;/:topicId`&#125; component=&#123;Topic&#125;/&gt;</span><br><span class="line">    &lt;Route exact path=&#123;match.url&#125; render=&#123;() =&gt; (</span><br><span class="line">      &lt;h3&gt;Please select a topic.&lt;/h3&gt;</span><br><span class="line">    )&#125;/&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">const Topic = (&#123; match &#125;) =&gt; (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h3&gt;&#123;match.params.topicId&#125;&lt;/h3&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">export default BasicExample</span><br></pre></td></tr></table></figure></p>
+<p>和之前相比，Router 标签里多了一个叫match 的东西。通过match来获取当前组件的路径。<br>也是通过match 来获取参数。<br>获取参数代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">const Topic = (&#123; match &#125;) =&gt; (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h3&gt;&#123;match.params.topicId&#125;&lt;/h3&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
+<p>传入的时候以以下方式传入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;Link to=&#123;`$&#123;match.url&#125;/props-v-state`&#125;&gt;</span><br><span class="line">          Props v. State</span><br><span class="line">        &lt;/Link&gt;</span><br><span class="line">&lt;Link to=&#123;`$&#123;match.url&#125;/components`&#125;&gt;</span><br><span class="line">          Components</span><br><span class="line">        &lt;/Link&gt;</span><br><span class="line">&lt;Route path=&#123;`$&#123;match.url&#125;/:topicId`&#125; component=&#123;Topic&#125;/&gt;</span><br></pre></td></tr></table></figure></p>
+<p>但是如果组件是通过Component 建立的,可以通过 this.props.match.params 获取参数。代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">    &lt;div className=&quot;subject-tit&quot;&gt;</span><br><span class="line">       &#123;this.props.match.params.message&#125;</span><br><span class="line">        &lt;a href=&quot;#&quot;&gt;（查看原因）&lt;/a&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div className=&quot;img-box&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;input type=&quot;button&quot; value=&quot;返回首页&quot;/&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-分享邀请码功能" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/12/28/分享邀请码功能/" class="article-date">
+  	<time datetime="2018-12-28T08:06:40.194Z" itemprop="datePublished">2018-12-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/28/分享邀请码功能/">
+        分享邀请码功能
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>分享主要的三个参数：<br>==title==<br>==url==<br>==picurl==</p>
+<h5 id="title"><a href="#title" class="headerlink" title="title:"></a>title:</h5><p>即分享到其他平台显示的标题</p>
+<h5 id="url："><a href="#url：" class="headerlink" title="url："></a>url：</h5><p>即分享到其他平台的连接</p>
+<h5 id="picurl"><a href="#picurl" class="headerlink" title="picurl:"></a>picurl:</h5><p>在其他平台显示的图片</p>
+<h4 id="分享到新浪微博"><a href="#分享到新浪微博" class="headerlink" title="分享到新浪微博"></a>分享到新浪微博</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//分享到新浪微博  </span><br><span class="line">ShareTip.prototype.sharetosina=function(title,url,picurl)  </span><br><span class="line">&#123;  </span><br><span class="line"> var sharesinastring=&apos;http://v.t.sina.com.cn/share/share.php?title=&apos;+title+&apos;&amp;url=&apos;+url+&apos;&amp;content=utf-8&amp;sourceUrl=&apos;+url+&apos;&amp;pic=&apos;+picurl;  </span><br><span class="line"> window.open(sharesinastring,&apos;newwindow&apos;,&apos;height=400,width=400,top=100,left=100&apos;);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="分享到QQ空间"><a href="#分享到QQ空间" class="headerlink" title="分享到QQ空间"></a>分享到QQ空间</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//分享到QQ空间  </span><br><span class="line">ShareTip.prototype.sharetoqqzone=function(title,url,picurl)  </span><br><span class="line">&#123;  </span><br><span class="line"> var shareqqzonestring=&apos;http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?summary=&apos;+title+&apos;&amp;url=&apos;+url+&apos;&amp;pics=&apos;+picurl+&apos;&amp;title=123456&apos;;  </span><br><span class="line"> window.open(shareqqzonestring,&apos;newwindow&apos;,&apos;height=400,width=400,top=100,left=100&apos;);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="分享到QQ"><a href="#分享到QQ" class="headerlink" title="分享到QQ"></a>分享到QQ</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//分享到QQ</span><br><span class="line">ShareTip.prototype.sharetoqq=function (title,url,picurl) &#123;</span><br><span class="line">	var shareqqstring = &apos;http://connect.qq.com/widget/shareqq/index.html?url=&apos;+ url +&apos;&amp;pics=&apos;+ picurl +&apos;&amp;site=qiubite&amp;title=&apos; + title;</span><br><span class="line">	window.open(shareqqstring,&apos;newwindow&apos;,&apos;height=500,width=1000,top=100,left=100&apos;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="复制邀请码"><a href="#复制邀请码" class="headerlink" title="复制邀请码"></a>复制邀请码</h5><ol>
+<li><p>选中文本框中的字</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(codeInput).select();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>复制</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">document.execCommand(&quot;Copy&quot;);</span><br><span class="line">		alert(&quot;复制成功！&quot;);</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-css流布局" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/12/28/css流布局/" class="article-date">
+  	<time datetime="2018-12-28T08:05:40.663Z" itemprop="datePublished">2018-12-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/28/css流布局/">
+        css流布局
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>css可以利用 ==collumn-count== 属性实现瀑布流流布局<br>例子代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">	&lt;title&gt;瀑布流测试&lt;/title&gt;</span><br><span class="line">	&lt;style&gt;</span><br><span class="line">		.water-fall&#123;</span><br><span class="line">			width: 1200px;</span><br><span class="line">			height: auto;</span><br><span class="line">			margin: 0 auto;</span><br><span class="line">			column-count: 4;</span><br><span class="line">			-webkit-column-count:4;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">		.water-fall .item&#123;	</span><br><span class="line">			box-sizing: border-box;</span><br><span class="line">			border: #ccc 1px solid;</span><br><span class="line">			padding: 5px;</span><br><span class="line">			margin-top: 10px;</span><br><span class="line">		&#125;</span><br><span class="line">		.water-fall .item:nth-child(4n+1)&#123;</span><br><span class="line">			background-color: #4e0f0f;</span><br><span class="line">		&#125;</span><br><span class="line">		.water-fall .item:nth-child(4n+2)&#123;</span><br><span class="line">			background-color: #2cc468;</span><br><span class="line">		&#125;</span><br><span class="line">		.water-fall .item:nth-child(4n+3)&#123;</span><br><span class="line">			background-color: #c49c2c;</span><br><span class="line">		&#125;</span><br><span class="line">		.water-fall .item:nth-child(4n)&#123;</span><br><span class="line">			background-color: #c42cbf;</span><br><span class="line">		&#125;</span><br><span class="line">	&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;div class=&quot;water-fall&quot;&gt;</span><br><span class="line">		&lt;div class=&quot;item&quot;&gt;Lorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sit.&lt;/div&gt;</span><br><span class="line">		&lt;div class=&quot;item&quot;&gt;Iste quas nostrum,Iste quas nostrum,Iste quas nostrum,Iste quas nostrum,Iste quas nostrum,Iste quas nostrum,Iste quas nostrum,Iste quas nostrum,Iste quas nostrum,Iste quas nostrum,Iste quas nostrum,Iste quas nostrum,Iste quas nostrum,Iste quas nostrum,Iste quas nostrum,Iste quas nostrum,Iste quas nostrum,Iste quas nostrum,Iste quas nostrum,Iste quas nostrum,Iste quas nostrum,Iste quas nostrum,Iste quas nostrum,Iste quas nostrum,Iste quas nostrum,Iste quas nostrum, corrupti.&lt;/div&gt;</span><br><span class="line">		&lt;div class=&quot;item&quot;&gt;Voluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, dolore minima!&lt;/div&gt;</span><br><span class="line">		&lt;div class=&quot;item&quot;&gt;Amet, et nesciuntAmet, et nesciuntAmet, et nesciuntAmet, et nesciuntAmet, et nesciuntAmet, et nesciuntAmet, et nesciuntAmet, et nesciuntAmet, et nesciuntAmet, et nesciuntAmet, et nesciuntAmet, et nesciuntAmet, et nesciuntAmet, et nesciuntAmet, et nesciuntAmet, et nesciuntAmet, et nesciuntAmet, et nesciuntAmet, et nesciuntAmet, et nesciuntAmet, et nesciuntAmet, et nesciuntAmet, et nesciuntAmet, et nesciuntAmet, et nesciuntAmet, et nesciunt recusandae!&lt;/div&gt;</span><br><span class="line">		&lt;div class=&quot;item&quot;&gt;Assumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimus.&lt;/div&gt;</span><br><span class="line">		&lt;div class=&quot;item&quot;&gt;Voluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optio?&lt;/div&gt;</span><br><span class="line">		&lt;div class=&quot;item&quot;&gt;Voluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniam.&lt;/div&gt;</span><br><span class="line">		&lt;div class=&quot;item&quot;&gt;Nihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibus.&lt;/div&gt;</span><br><span class="line">		&lt;div class=&quot;item&quot;&gt;Eveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquam sed.&lt;/div&gt;</span><br><span class="line">		&lt;div class=&quot;item&quot;&gt;Totam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobis.&lt;/div&gt;</span><br><span class="line">		&lt;div class=&quot;item&quot;&gt;Praesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cum?&lt;/div&gt;</span><br><span class="line">		&lt;div class=&quot;item&quot;&gt;Error odio sunt temporeError odio sunt temporeError odio sunt temporeError odio sunt temporeError odio sunt temporeError odio sunt temporeError odio sunt temporeError odio sunt temporeError odio sunt temporeError odio sunt temporeError odio sunt temporeError odio sunt temporeError odio sunt temporeError odio sunt temporeError odio sunt temporeError odio sunt temporeError odio sunt temporeError odio sunt temporeError odio sunt temporeError odio sunt temporeError odio sunt temporeError odio sunt temporeError odio sunt temporeError odio sunt temporeError odio sunt temporeError odio sunt tempore.&lt;/div&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>只要在外面的div的属性里加上一个属性：collumn-count、-webkit-collumn-count，然后置顶一个值，是这一列显示的列数。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-H5输入框被软键盘遮挡解决办法" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/12/28/H5输入框被软键盘遮挡解决办法/" class="article-date">
+  	<time datetime="2018-12-28T08:05:03.691Z" itemprop="datePublished">2018-12-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/28/H5输入框被软键盘遮挡解决办法/">
+        H5输入框被软键盘遮挡解决办法
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>当input或textarea获得焦点的时候，有可能会被软键盘遮挡住。解决办法如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">window.addEventListener(&apos;resize&apos;, function () &#123;</span><br><span class="line">        if (document.activeElement.tagName === &apos;INPUT&apos; || document.activeElement.tagName === &apos;TEXTAREA&apos;) &#123;</span><br><span class="line">            window.setTimeout(function () &#123;</span><br><span class="line">                let doc: any = document</span><br><span class="line">                doc.activeElement.scrollIntoViewIfNeeded()</span><br><span class="line">            &#125;, 0)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-axios获取图片，后台返回文件流怎么处理" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/12/28/axios获取图片，后台返回文件流怎么处理/" class="article-date">
+  	<time datetime="2018-12-28T08:04:11.725Z" itemprop="datePublished">2018-12-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/28/axios获取图片，后台返回文件流怎么处理/">
+        axios获取图片，后台返回文件流怎么处理
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="今天调一个返回图片的接口，图片是以文件流的格式返回的。"><a href="#今天调一个返回图片的接口，图片是以文件流的格式返回的。" class="headerlink" title="今天调一个返回图片的接口，图片是以文件流的格式返回的。"></a>今天调一个返回图片的接口，图片是以文件流的格式返回的。</h4><h5 id="如何才能正确的显示图片呢？"><a href="#如何才能正确的显示图片呢？" class="headerlink" title="如何才能正确的显示图片呢？"></a>如何才能正确的显示图片呢？</h5><h4 id="1-请求时在header设置返回类型。指定返回类型为-blob"><a href="#1-请求时在header设置返回类型。指定返回类型为-blob" class="headerlink" title="1. 请求时在header设置返回类型。指定返回类型为 ==blob=="></a>1. 请求时在header设置返回类型。指定返回类型为 ==blob==</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * </span><br><span class="line"> * @param &#123;tai&#125; string 生成订阅号海报</span><br><span class="line"> */</span><br><span class="line">static getSubscriptionPicture (&#123;</span><br><span class="line">  tai</span><br><span class="line">&#125;: &#123;tai: string&#125;) &#123;</span><br><span class="line">  return http.post(&#123;</span><br><span class="line">    url: this.subscription,</span><br><span class="line">    data: &#123;&#125;,</span><br><span class="line">    config: &#123;</span><br><span class="line">      requiresAuth: true,</span><br><span class="line">      params: &#123;</span><br><span class="line">        tai</span><br><span class="line">      &#125;,</span><br><span class="line">      responseType: &apos;blob&apos;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-使用原生js自带的-URL-createObjectURL-函数。"><a href="#2-使用原生js自带的-URL-createObjectURL-函数。" class="headerlink" title="2. 使用原生js自带的 ==URL.createObjectURL== 函数。"></a>2. 使用原生js自带的 ==URL.createObjectURL== 函数。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.card = URL.createObjectURL(res.data)</span><br></pre></td></tr></table></figure>
+<h5 id="这样将-this-card-放在img的src上面就行了"><a href="#这样将-this-card-放在img的src上面就行了" class="headerlink" title="这样将==this.card==放在img的src上面就行了"></a>这样将==this.card==放在img的src上面就行了</h5>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-判断手机系统是ios 还是Android" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/12/28/判断手机系统是ios 还是Android/" class="article-date">
+  	<time datetime="2018-12-28T08:03:40.551Z" itemprop="datePublished">2018-12-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/28/判断手机系统是ios 还是Android/">
+        判断手机系统是ios 还是Android
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="判断手机系统是ios-还是Android"><a href="#判断手机系统是ios-还是Android" class="headerlink" title="判断手机系统是ios 还是Android"></a>判断手机系统是ios 还是Android</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var u = navigator.userAgent</span><br><span class="line">var isAndroid = u.indexOf(&apos;Android&apos;) &gt; -1 || u.indexOf(&apos;Adr&apos;) &gt; -1; //android终端</span><br><span class="line">var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-前端使用 jest 做单元测试" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/12/28/前端使用 jest 做单元测试/" class="article-date">
+  	<time datetime="2018-12-28T08:03:09.797Z" itemprop="datePublished">2018-12-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/28/前端使用 jest 做单元测试/">
+        前端使用 jest 做单元测试
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-安装-Jest"><a href="#1-安装-Jest" class="headerlink" title="1. 安装 Jest"></a>1. 安装 Jest</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev jest</span><br></pre></td></tr></table></figure>
+<h3 id="2-在script里面加上下面一句："><a href="#2-在script里面加上下面一句：" class="headerlink" title="2. 在script里面加上下面一句："></a>2. 在script里面加上下面一句：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/ 添加测试命令</span><br><span class="line">&#123;</span><br><span class="line">  &quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;test&quot;: &quot;jest&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-添加被测试文件"><a href="#3-添加被测试文件" class="headerlink" title="3. 添加被测试文件"></a>3. 添加被测试文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 被测试文件 sum.js</span><br><span class="line">function sum(a, b) &#123;</span><br><span class="line">  return a + b;</span><br><span class="line">&#125;</span><br><span class="line">module.exports = sum;</span><br></pre></td></tr></table></figure>
+<h3 id="4-书写测试文件"><a href="#4-书写测试文件" class="headerlink" title="4. 书写测试文件"></a>4. 书写测试文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 测试文件 sum.test.js</span><br><span class="line">const sum = require(‘./sum&apos;);</span><br><span class="line">test(&apos;adds 1 + 2 to equal 3&apos;, () =&gt; &#123;</span><br><span class="line">  expect(sum(1, 2)).toBe(3);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="5-控制台执行"><a href="#5-控制台执行" class="headerlink" title="5. 控制台执行"></a>5. 控制台执行</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm test</span><br><span class="line">// 或者</span><br><span class="line">npm t</span><br></pre></td></tr></table></figure>
+<p><a href="https://blog.csdn.net/u011818572/article/details/81638872" target="_blank" rel="noopener">vue+typescript+jest测试指南</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-git工作流学习" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/12/28/git工作流学习/" class="article-date">
+  	<time datetime="2018-12-28T08:02:23.046Z" itemprop="datePublished">2018-12-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/28/git工作流学习/">
+        git工作流学习
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://blog.csdn.net/zyw0713/article/details/80083431" target="_blank" rel="noopener">git 的工作流程 纯干货</a><br><a href="https://git.ninghao.net/gitflow-workflow.html" target="_blank" rel="noopener">git workflow 工作流</a></p>
+<h4 id="1-有一次线上项目出bug了，需要把master上的项目拉取到本地"><a href="#1-有一次线上项目出bug了，需要把master上的项目拉取到本地" class="headerlink" title="1. 有一次线上项目出bug了，需要把master上的项目拉取到本地"></a>1. 有一次线上项目出bug了，需要把master上的项目拉取到本地</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure>
+<h5 id="然后在本地修改完bug，重新上传到master上"><a href="#然后在本地修改完bug，重新上传到master上" class="headerlink" title="然后在本地修改完bug，重新上传到master上"></a>然后在本地修改完bug，重新上传到master上</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &apos;修改了bug&apos;</span><br><span class="line">git pull    #看看有没有新的提交</span><br><span class="line">git push    #同步到远程仓库</span><br></pre></td></tr></table></figure>
+<h5 id="然后把master上的修改的内容同步到开发分支上，以防下次bug再出现"><a href="#然后把master上的修改的内容同步到开发分支上，以防下次bug再出现" class="headerlink" title="然后把master上的修改的内容同步到开发分支上，以防下次bug再出现"></a>然后把master上的修改的内容同步到开发分支上，以防下次bug再出现</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout feature    #先切换到feature分支（开发分支）</span><br><span class="line">git merge master    #把master分支合并到当前分支</span><br></pre></td></tr></table></figure>
+<h6 id="修改完毕"><a href="#修改完毕" class="headerlink" title="修改完毕"></a>修改完毕</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#Git创建Develop分支的命令</span><br><span class="line">git checkout -b develop master</span><br><span class="line">#将Develop分支发布到Master分支的命令</span><br><span class="line">git checkout master</span><br><span class="line">git merge --no-ff develop</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-CSS属性顺序" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/12/28/CSS属性顺序/" class="article-date">
+  	<time datetime="2018-12-28T08:01:48.600Z" itemprop="datePublished">2018-12-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/28/CSS属性顺序/">
+        CSS属性顺序
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="推荐样式书写顺序"><a href="#推荐样式书写顺序" class="headerlink" title="推荐样式书写顺序"></a>推荐样式书写顺序</h5><ol>
+<li>Position</li>
+<li>Box Model</li>
+<li>Typographic</li>
+<li>Visual</li>
+</ol>
+<p>由于定位（positioning）可以从正常的文档流中移除元素，并且还能覆盖盒模型（box model）相关的样式，因此排在首位。盒模型决定了组件的尺寸和位置，因此排在第二位。</p>
+<p>其他属性只是影响组件的内部（inside）或者是不影响前两组属性，因此排在后面:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">.declaration-order &#123;</span><br><span class="line">    /* Positioning */</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 0;</span><br><span class="line">    right: 0;</span><br><span class="line">    bottom: 0;</span><br><span class="line">    left: 0;</span><br><span class="line">    z-index: 100;</span><br><span class="line">    </span><br><span class="line">    /* Box-model */</span><br><span class="line">    display: block;</span><br><span class="line">    float: right;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100px;</span><br><span class="line">    </span><br><span class="line">    /* Typography */</span><br><span class="line">    font: normal 13px &quot;Helvetica Neue&quot;, sans-serif;</span><br><span class="line">    line-height: 1.5;</span><br><span class="line">    color: #333;</span><br><span class="line">    text-align: center;</span><br><span class="line">    </span><br><span class="line">    /* Visual */</span><br><span class="line">    background-color: #f5f5f5;</span><br><span class="line">    border: 1px solid #e5e5e5;</span><br><span class="line">    border-radius: 3px;</span><br><span class="line">    </span><br><span class="line">    /* Misc */</span><br><span class="line">    opacity: 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>链接的样式请严格按照如下顺序添加：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a:link -&gt; a:visited -&gt; a:hover -&gt; a:active（LoVeHAte）</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://blog.csdn.net/SyKent/article/details/7862172" target="_blank" rel="noopener">规则示例：</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line">.cl &#123;</span><br><span class="line">    display: ;</span><br><span class="line">    visibility: ;</span><br><span class="line">    float: ;</span><br><span class="line">    clear: ;</span><br><span class="line">    </span><br><span class="line">    position: ;</span><br><span class="line">    top: ;</span><br><span class="line">    right: ;</span><br><span class="line">    bottom: ;</span><br><span class="line">    left: ;</span><br><span class="line">    z-index: ;</span><br><span class="line">   </span><br><span class="line">    width: ;</span><br><span class="line">    min-width: ;</span><br><span class="line">    max-width: ;</span><br><span class="line">    height: ;</span><br><span class="line">    min-height: ;</span><br><span class="line">    max-height: ;</span><br><span class="line">    overflow: ;</span><br><span class="line"> </span><br><span class="line">    margin: ;</span><br><span class="line">    margin-top: ;</span><br><span class="line">    margin-right: ;</span><br><span class="line">    margin-bottom: ;</span><br><span class="line">    margin-left: ;</span><br><span class="line"> </span><br><span class="line">    padding: ;</span><br><span class="line">    padding-top: ;</span><br><span class="line">    padding-right: ;</span><br><span class="line">    padding-bottom: ;</span><br><span class="line">    padding-left: ;</span><br><span class="line"> </span><br><span class="line">    border-width: ;</span><br><span class="line">    border-top-width: ;</span><br><span class="line">    border-right-width: ;</span><br><span class="line">    border-bottom-width: ;</span><br><span class="line">    border-left-width: ;</span><br><span class="line"> </span><br><span class="line">    border-style: ;</span><br><span class="line">    border-top-style: ;</span><br><span class="line">    border-right-style: ;</span><br><span class="line">    border-bottom-style: ;</span><br><span class="line">    border-left-style: ;</span><br><span class="line"> </span><br><span class="line">    border-color: ;</span><br><span class="line">    border-top-color: ;</span><br><span class="line">    border-right-color: ;</span><br><span class="line">    border-bottom-color: ;</span><br><span class="line">    border-left-color: ;</span><br><span class="line"> </span><br><span class="line">    outline: ;</span><br><span class="line"> </span><br><span class="line">    list-style: ;</span><br><span class="line"> </span><br><span class="line">    table-layout: ;</span><br><span class="line">    caption-side: ;</span><br><span class="line">    border-collapse: ;</span><br><span class="line">    border-spacing: ;</span><br><span class="line">    empty-cells: ;</span><br><span class="line"> </span><br><span class="line">    font: ;</span><br><span class="line">    font-family: ;</span><br><span class="line">    font-size: ;</span><br><span class="line">    line-height: ;</span><br><span class="line">    font-weight: ;</span><br><span class="line">    text-align: ;</span><br><span class="line">    text-indent: ;</span><br><span class="line">    text-transform: ;</span><br><span class="line">    text-decoration: ;</span><br><span class="line">    letter-spacing: ;</span><br><span class="line">    word-spacing: ;</span><br><span class="line">    white-space: ;</span><br><span class="line">    vertical-align: ;</span><br><span class="line">    color: ;</span><br><span class="line"> </span><br><span class="line">    background: ;</span><br><span class="line">    background-color: ;</span><br><span class="line">    background-image: ;</span><br><span class="line">    background-repeat: ;</span><br><span class="line">    background-position: ;</span><br><span class="line"> </span><br><span class="line">    opacity: ;</span><br><span class="line"> </span><br><span class="line">    cursor: ;</span><br><span class="line"> </span><br><span class="line">    content: ;</span><br><span class="line">    quotes: ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+    </nav>
+  
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2018 sunJsona
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/smackgg/hexo-theme-smackdown" target="_blank">Smackdown</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: true,
+		isPost: false,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/main.js"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>
+
+
+  </div>
+</body>
+</html>
