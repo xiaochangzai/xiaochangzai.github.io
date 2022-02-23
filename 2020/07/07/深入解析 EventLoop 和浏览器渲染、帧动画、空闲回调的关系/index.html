@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>sunJsona的个人博客</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="深入解析 EventLoop 和浏览器渲染、帧动画、空闲回调的关系前言关于 Event Loop 的文章很多，但是有很多只是在讲「宏任务」、「微任务」，我先提出几个问题：  每一轮 Event Loop 都会伴随着渲染吗？ requestAnimationFrame 在哪个阶段执行，在渲染前还是后？在 microTask 的前还是后？ requestIdleCallback 在哪个阶段执行？如何去">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sunJsona的个人博客">
+<meta property="og:url" content="https://xiaochangzai.github.io/2020/07/07/深入解析 EventLoop 和浏览器渲染、帧动画、空闲回调的关系/index.html">
+<meta property="og:site_name" content="sunJsona的个人博客">
+<meta property="og:description" content="深入解析 EventLoop 和浏览器渲染、帧动画、空闲回调的关系前言关于 Event Loop 的文章很多，但是有很多只是在讲「宏任务」、「微任务」，我先提出几个问题：  每一轮 Event Loop 都会伴随着渲染吗？ requestAnimationFrame 在哪个阶段执行，在渲染前还是后？在 microTask 的前还是后？ requestIdleCallback 在哪个阶段执行？如何去">
+<meta property="og:locale" content="Simple Chinese">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_gif/iagNW4Zy9CybCeaJbFaSAcXDDs0DzRf1ibM3WgUtKk03CtgDxSVJTj7MBWJ4DialoCRSKSBBZ9TlF2LcFW0X1cA7Q/640?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/iagNW4Zy9CybCeaJbFaSAcXDDs0DzRf1ibMUJibHdJ6GBkePDg4Zkey2LzaBv1gKAu5AgBPyHAOLlU5eOeia0iaYkUg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/iagNW4Zy9CybCeaJbFaSAcXDDs0DzRf1ibH1iagpF02l9Llib2gVUfdtQJDOPgKSUs6Aia8Wyr2Yibz2zQqmvF6nic1xg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/iagNW4Zy9CybCeaJbFaSAcXDDs0DzRf1ibSlHUmibZcMKaylLsRc98Qrx97E4QB2wicTRsW43qCYSQGEcFYERiaF0sA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_gif/iagNW4Zy9CybCeaJbFaSAcXDDs0DzRf1ibY0FBe5Xv45BwibckaEicIPibqoJ71oHHpKZc69uQpdgRZnHfXibq4UpRLA/640?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_gif/iagNW4Zy9CybCeaJbFaSAcXDDs0DzRf1ib3CMT4Pzibr0agmOHFfQ1Br6J5XWWyoR1mZULRxINMibtjcZDyUNjfbrA/640?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_gif/iagNW4Zy9CybCeaJbFaSAcXDDs0DzRf1ibJn8bJ3kicFiaL3EfFqrkfEr7ALSkDSZ86iblgh9w2ShDzSCXZAYVj0YsA/640?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_gif/iagNW4Zy9CybCeaJbFaSAcXDDs0DzRf1iblAbPkmGQA5dqcZx9zoEM7q6Tq2FQf3404JvKSVRJuoWUPkibWfyNg9A/640?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_gif/iagNW4Zy9CybCeaJbFaSAcXDDs0DzRf1ibnV3ukjqDOVKM7jlRTX9AicjEia4BP9ZxmLDO1atUJS36YUbKGlXWDUfA/640?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1">
+<meta property="og:updated_time" content="2020-07-07T05:00:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="sunJsona的个人博客">
+<meta name="twitter:description" content="深入解析 EventLoop 和浏览器渲染、帧动画、空闲回调的关系前言关于 Event Loop 的文章很多，但是有很多只是在讲「宏任务」、「微任务」，我先提出几个问题：  每一轮 Event Loop 都会伴随着渲染吗？ requestAnimationFrame 在哪个阶段执行，在渲染前还是后？在 microTask 的前还是后？ requestIdleCallback 在哪个阶段执行？如何去">
+<meta name="twitter:image" content="https://mmbiz.qpic.cn/mmbiz_gif/iagNW4Zy9CybCeaJbFaSAcXDDs0DzRf1ibM3WgUtKk03CtgDxSVJTj7MBWJ4DialoCRSKSBBZ9TlF2LcFW0X1cA7Q/640?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1">
+  
+    <link rel="alternative" href="/atom.xml" title="sunJsona的个人博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+
+  <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">sunJsona</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/smackgg/hexo-theme-smackdown">smackdown</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">sunJsona</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">sunJsona</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-深入解析 EventLoop 和浏览器渲染、帧动画、空闲回调的关系" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/07/07/深入解析 EventLoop 和浏览器渲染、帧动画、空闲回调的关系/" class="article-date">
+  	<time datetime="2020-07-07T05:00:13.000Z" itemprop="datePublished">2020-07-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="深入解析-EventLoop-和浏览器渲染、帧动画、空闲回调的关系"><a href="#深入解析-EventLoop-和浏览器渲染、帧动画、空闲回调的关系" class="headerlink" title="深入解析 EventLoop 和浏览器渲染、帧动画、空闲回调的关系"></a>深入解析 EventLoop 和浏览器渲染、帧动画、空闲回调的关系</h2><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关于 Event Loop 的文章很多，但是有很多只是在讲「宏任务」、「微任务」，我先提出几个问题：</p>
+<ol>
+<li>每一轮 Event Loop 都会伴随着渲染吗？</li>
+<li><code>requestAnimationFrame</code> 在哪个阶段执行，在渲染前还是后？在 <code>microTask</code> 的前还是后？</li>
+<li><code>requestIdleCallback</code> 在哪个阶段执行？如何去执行？在渲染前还是后？在 <code>microTask</code> 的前还是后？</li>
+<li><code>resize</code>、<code>scroll</code> 这些事件是何时去派发的。</li>
+</ol>
+<p>这些问题并不是刻意想刁难你，如果你不知道这些，那你可能并不能在遇到一个动画需求的时候合理的选择 <code>requestAnimationFrame</code>，你可能在做一些需求的时候想到了 <code>requestIdleCallback</code>，但是你不知道它运行的时机，只是胆战心惊的去用它，祈祷不要出线上 bug。</p>
+<p>这也是本文想要从规范解读入手，深挖底层的动机之一。本文会酌情从规范中排除掉一些比较晦涩难懂，或者和主流程不太相关的概念。更详细的版本也可以直接去读这个规范，不过比较费时费力。</p>
+<h2 id="事件循环"><a href="#事件循环" class="headerlink" title="事件循环"></a>事件循环</h2><p>我们先依据HTML 官方规范[1]从浏览器的事件循环讲起，因为剩下的 API 都在这个循环中进行，它是浏览器调度任务的基础。</p>
+<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>为了协调事件，用户交互，脚本，渲染，网络任务等，浏览器必须使用本节中描述的事件循环。</p>
+<h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h3><ol>
+<li><p>从任务队列中取出一个<strong>宏任务</strong>并执行。</p>
+</li>
+<li><p>检查微任务队列，执行并清空<strong>微任务</strong>队列，如果在微任务的执行中又加入了新的微任务，也会在这一步一起执行。</p>
+</li>
+<li><p>进入更新渲染阶段，判断是否需要渲染，这里有一个 <code>rendering opportunity</code> 的概念，也就是说不一定每一轮 event loop 都会对应一次浏览 器渲染，要根据屏幕刷新率、页面性能、页面是否在后台运行来共同决定，通常来说这个渲染间隔是固定的。（所以多个 task 很可能在一次渲染之间执行）</p>
+</li>
+<li><ul>
+<li>浏览器会尽可能的保持帧率稳定，例如页面性能无法维持 60fps（每 16.66ms 渲染一次）的话，那么浏览器就会选择 30fps 的更新速率，而不是偶尔丢帧。</li>
+<li>如果浏览器上下文不可见，那么页面会降低到 4fps 左右甚至更低。</li>
+<li>如果满足以下条件，也会跳过渲染：</li>
+</ul>
+</li>
+<li><ol>
+<li>浏览器判断更新渲染不会带来视觉上的改变。</li>
+<li><code>map of animation frame callbacks</code> 为空，也就是帧动画回调为空，可以通过 <code>requestAnimationFrame</code> 来请求帧动画。</li>
+</ol>
+</li>
+<li><p>如果上述的判断决定本轮<strong>不需要渲染</strong>，那么<strong>下面的几步也不会继续运行</strong>：</p>
+<blockquote>
+<p>This step enables the user agent to prevent the steps below from running for other reasons, for example, to ensure certain tasks are executed immediately after each other, with only microtask checkpoints interleaved (and without, e.g., animation frame callbacks interleaved). Concretely, a user agent might wish to coalesce timer callbacks together, with no intermediate rendering updates. 有时候浏览器希望两次「定时器任务」是合并的，他们之间只会穿插着 <code>microTask</code>的执行，而不会穿插屏幕渲染相关的流程（比如<code>requestAnimationFrame</code>，下面会写一个例子）。</p>
+</blockquote>
+</li>
+<li><p>对于需要渲染的文档，如果窗口的大小发生了变化，执行监听的 <code>resize</code> 方法。</p>
+</li>
+<li><p>对于需要渲染的文档，如果页面发生了滚动，执行 <code>scroll</code> 方法。</p>
+</li>
+<li><p>对于需要渲染的文档，执行帧动画回调，也就是 <strong><code>requestAnimationFrame</code></strong> 的回调。（后文会详解）</p>
+</li>
+<li><p>对于需要渲染的文档， 执行 IntersectionObserver 的回调。</p>
+</li>
+<li><p>对于需要渲染的文档，<strong>重新渲染</strong>绘制用户界面。</p>
+</li>
+<li><p>判断 <code>task队列</code>和<code>microTask</code>队列是否都为空，如果是的话，则进行 <code>Idle</code> 空闲周期的算法，判断是否要执行 <strong><code>requestIdleCallback</code></strong> 的回调函数。（后文会详解）</p>
+</li>
+</ol>
+<p>对于<code>resize</code> 和 <code>scroll</code>来说，并不是到了这一步才去执行滚动和缩放，那岂不是要延迟很多？浏览器当然会立刻帮你滚动视图，根据CSSOM 规范[2]所讲，浏览器会保存一个 <code>pending scroll event targets</code>，等到事件循环中的 <code>scroll</code>这一步，去派发一个事件到对应的目标上，驱动它去执行监听的回调函数而已。<code>resize</code>也是同理。</p>
+<p>可以在这个流程中仔细看一下「宏任务」、「微任务」、「渲染」之间的关系。</p>
+<h3 id="多任务队列"><a href="#多任务队列" class="headerlink" title="多任务队列"></a>多任务队列</h3><p><code>task</code> 队列并不是我们想象中的那样只有一个，根据规范里的描述：</p>
+<blockquote>
+<p>An event loop has one or more task queues. For example, a user agent could have one task queue for mouse and key events (to which the user interaction task source is associated), and another to which all other task sources are associated. Then, using the freedom granted in the initial step of the event loop processing model, it could give keyboard and mouse events preference over other tasks three-quarters of the time, keeping the interface responsive but not starving other task queues. Note that in this setup, the processing model still enforces that the user agent would never process events from any one task source out of order.</p>
+</blockquote>
+<p>事件循环中可能会有<strong>一个或多个</strong>任务队列，这些队列分别为了处理：</p>
+<ol>
+<li>鼠标和键盘事件</li>
+<li>其他的一些 Task</li>
+</ol>
+<p>浏览器会在保持任务顺序的前提下，可能分配四分之三的优先权给鼠标和键盘事件，保证用户的输入得到最高优先级的响应，而剩下的优先级交给其他 <code>Task</code>，并且保证不会“饿死”它们。</p>
+<p>这个规范也导致 Vue 2.0.0-rc.7 这个版本 <code>nextTick</code> 采用了从微任务 <code>MutationObserver</code>更换成宏任务 <code>postMessage</code> 而导致了一个 Issue[3]。</p>
+<p>目前由于一些“未知”的原因，jsfiddle 的案例打不开了。简单描述一下就是采用了 <code>task</code> 实现的 <code>nextTick</code>，在用户持续滚动的情况下 <code>nextTick</code> 任务被延后了很久才去执行，导致动画跟不上滚动了。</p>
+<p>迫于无奈，尤大还是改回了 <code>microTask</code> 去实现 <code>nextTick</code>，当然目前来说 <code>promise.then</code>微任务已经比较稳定了，并且 Chrome 也已经实现了 <code>queueMicroTask</code> 这个官方 API。不久的未来，我们想要调用微任务队列的话，也可以节省掉实例化 <code>Promise</code> 在开销了。</p>
+<p>从这个 Issue 的例子中我们可以看出，稍微去深入了解一下规范还是比较有好处的，以免在遇到这种比较复杂的 Bug 的时候一脸懵逼。</p>
+<p>下面的章节中咱们来详细聊聊 <code>requestIdleCallback</code> 和 <code>requestAnimationFrame</code>。</p>
+<h2 id="requestAnimationFrame"><a href="#requestAnimationFrame" class="headerlink" title="requestAnimationFrame"></a>requestAnimationFrame</h2><blockquote>
+<p>以下内容中 <code>requestAnimationFrame</code>简称为<code>rAF</code></p>
+</blockquote>
+<p>在解读规范的过程中，我们发现 <code>requestAnimationFrame</code> 的回调有两个特征：</p>
+<ol>
+<li>在重新渲染前调用。</li>
+<li>很可能在宏任务之后不调用。</li>
+</ol>
+<p>我们来分析一下，为什么要在重新渲染前去调用？因为 <code>rAF</code> 是官方推荐的用来做一些流畅动画所应该使用的 API，做动画不可避免的会去更改 DOM，而如果在渲染之后再去更改 DOM，那就只能等到下一轮渲染机会的时候才能去绘制出来了，这显然是不合理的。</p>
+<p><code>rAF</code>在浏览器决定渲染之前给你最后一个机会去改变 DOM 属性，然后很快在接下来的绘制中帮你呈现出来，所以这是做流畅动画的不二选择。下面我用一个 <code>setTimeout</code>的例子来对比。</p>
+<h3 id="闪烁动画"><a href="#闪烁动画" class="headerlink" title="闪烁动画"></a>闪烁动画</h3><p>假设我们现在想要快速的让屏幕上闪烁 <code>红</code>、<code>蓝</code>两种颜色，保证用户可以观察到，如果我们用 <code>setTimeout</code> 来写，并且带着我们长期的误解「宏任务之间一定会伴随着浏览器绘制」，那么你会得到一个预料之外的结果。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(() =&gt; &#123;</span><br><span class="line">  document.body.style.background = &quot;red&quot;</span><br><span class="line">  setTimeout(() =&gt; &#123;</span><br><span class="line">    document.body.style.background = &quot;blue&quot;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_gif/iagNW4Zy9CybCeaJbFaSAcXDDs0DzRf1ibM3WgUtKk03CtgDxSVJTj7MBWJ4DialoCRSKSBBZ9TlF2LcFW0X1cA7Q/640?wx_fmt=gif&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="img"></p>
+<p>可以看出这个结果是非常不可控的，如果这两个 <code>Task</code> 之间正好遇到了浏览器认定的渲染机会，那么它会重绘，否则就不会。由于这俩宏任务的间隔周期太短了，所以很大概率是不会的。</p>
+<p>如果你把延时调整到 <code>17ms</code> 那么重绘的概率会大很多，毕竟这个是一般情况下 <code>60fps</code> 的一个指标。但是也会出现很多不绘制的情况，所以并不稳定。</p>
+<p>如果你依赖这个 API 来做动画，那么就很可能会造成「掉帧」。</p>
+<p>接下来我们换成 <code>rAF</code> 试试？我们用一个递归函数来模拟 10 次颜色变化的动画。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">let i = 10</span><br><span class="line">let req = () =&gt; &#123;</span><br><span class="line">  i--</span><br><span class="line">  requestAnimationFrame(() =&gt; &#123;</span><br><span class="line">    document.body.style.background = &quot;red&quot;</span><br><span class="line">    requestAnimationFrame(() =&gt; &#123;</span><br><span class="line">      document.body.style.background = &quot;blue&quot;</span><br><span class="line">      if (i &gt; 0) &#123;</span><br><span class="line">        req()</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">req()</span><br></pre></td></tr></table></figure>
+<p>这里由于颜色变化太快，<code>gif</code> 录制软件没办法截出这么高帧率的颜色变换，所以各位可以放到浏览器中自己执行一下试试，我这边直接抛结论，浏览器会非常规律的把这 10 组也就是 20 次颜色变化绘制出来，可以看下 performance 面板记录的表现：</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/iagNW4Zy9CybCeaJbFaSAcXDDs0DzRf1ibMUJibHdJ6GBkePDg4Zkey2LzaBv1gKAu5AgBPyHAOLlU5eOeia0iaYkUg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img"></p>
+<h3 id="定时器合并"><a href="#定时器合并" class="headerlink" title="定时器合并"></a>定时器合并</h3><p>在第一节解读规范的时候，第 4 点中提到了，定时器宏任务可能会直接跳过渲染。</p>
+<p>按照一些常规的理解来说，宏任务之间理应穿插渲染，而定时器任务就是一个典型的宏任务，看一下以下的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(() =&gt; &#123;</span><br><span class="line">  console.log(&quot;sto&quot;)</span><br><span class="line">  requestAnimationFrame(() =&gt; console.log(&quot;rAF&quot;))</span><br><span class="line">&#125;)</span><br><span class="line">setTimeout(() =&gt; &#123;</span><br><span class="line">  console.log(&quot;sto&quot;)</span><br><span class="line">  requestAnimationFrame(() =&gt; console.log(&quot;rAF&quot;))</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">queueMicrotask(() =&gt; console.log(&quot;mic&quot;))</span><br><span class="line">queueMicrotask(() =&gt; console.log(&quot;mic&quot;))</span><br></pre></td></tr></table></figure>
+<p>从直觉上来看，顺序是不是应该是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mic</span><br><span class="line">mic</span><br><span class="line">sto</span><br><span class="line">rAF</span><br><span class="line">sto</span><br><span class="line">rAF</span><br></pre></td></tr></table></figure>
+<p>呢？也就是每一个宏任务之后都紧跟着一次渲染。</p>
+<p>实际上不会，浏览器会合并这两个定时器任务：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mic</span><br><span class="line">mic</span><br><span class="line">sto</span><br><span class="line">sto</span><br><span class="line">rAF</span><br><span class="line">rAF</span><br></pre></td></tr></table></figure>
+<h2 id="requestIdleCallback"><a href="#requestIdleCallback" class="headerlink" title="requestIdleCallback"></a>requestIdleCallback</h2><h3 id="草案解读"><a href="#草案解读" class="headerlink" title="草案解读"></a>草案解读</h3><blockquote>
+<p>以下内容中 <code>requestIdleCallback</code>简称为<code>rIC</code>。</p>
+</blockquote>
+<p>我们都知道 <code>requestIdleCallback</code> 是浏览器提供给我们的空闲调度算法，关于它的简介可以看 MDN 文档[4]，意图是让我们把一些计算量较大但是又没那么紧急的任务放到空闲时间去执行。不要去影响浏览器中优先级较高的任务，比如动画绘制、用户输入等等。</p>
+<p>React 的时间分片渲染就想要用到这个 API，不过目前浏览器支持的不给力，他们是自己去用 <code>postMessage</code> 实现了一套。</p>
+<h4 id="渲染有序进行"><a href="#渲染有序进行" class="headerlink" title="渲染有序进行"></a>渲染有序进行</h4><p>首先看一张图，很精确的描述了这个 API 的意图：</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/iagNW4Zy9CybCeaJbFaSAcXDDs0DzRf1ibH1iagpF02l9Llib2gVUfdtQJDOPgKSUs6Aia8Wyr2Yibz2zQqmvF6nic1xg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img"></p>
+<p>当然，这种有序的 <code>浏览器 -&gt; 用户 -&gt; 浏览器 -&gt; 用户</code> 的调度基于一个前提，就是我们要把任务切分成比较小的片，不能说浏览器把空闲时间让给你了，你去执行一个耗时 <code>10s</code> 的任务，那肯定也会把浏览器给阻塞住的。这就要求我们去读取 <code>rIC</code> 提供给你的 <code>deadline</code> 里的时间，去动态的安排我们切分的小任务。浏览器信任了你，你也不能辜负它呀。</p>
+<h4 id="渲染长期空闲"><a href="#渲染长期空闲" class="headerlink" title="渲染长期空闲"></a>渲染长期空闲</h4><p><img src="https://mmbiz.qpic.cn/mmbiz_png/iagNW4Zy9CybCeaJbFaSAcXDDs0DzRf1ibSlHUmibZcMKaylLsRc98Qrx97E4QB2wicTRsW43qCYSQGEcFYERiaF0sA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img">还有一种情况，也有可能在几帧的时间内浏览器都是空闲的，并没有发生任何影响视图的操作，它也就不需要去绘制页面：这种情况下为什么还是会有 <code>50ms</code> 的 <code>deadline</code> 呢？是因为浏览器为了提前应对一些可能会突发的用户交互操作，比如用户输入文字。如果给的时间太长了，你的任务把主线程卡住了，那么用户的交互就得不到回应了。50ms 可以确保用户在无感知的延迟下得到回应。</p>
+<p>MDN 文档中的幕后任务协作调度 API [5] 介绍的比较清楚，来根据里面的概念做个小实验：</p>
+<p>屏幕中间有个红色的方块，把 MDN 文档中requestAnimationFrame[6]的范例部分的动画代码直接复制过来。</p>
+<p>草案中还提到：</p>
+<ol>
+<li>当浏览器判断这个页面对用户不可见时，这个回调执行的频率可能被降低到 10 秒执行一次，甚至更低。这点在解读 EventLoop 中也有提及。</li>
+<li>如果浏览器的工作比较繁忙的时候，不能保证它会提供空闲时间去执行 <code>rIC</code> 的回调，而且可能会长期的推迟下去。所以如果你需要保证你的任务在一定时间内一定要执行掉，那么你可以给 <code>rIC</code> 传入第二个参数 <code>timeout</code>。<br>这会强制浏览器不管多忙，都在超过这个时间之后去执行 <code>rIC</code> 的回调函数。所以要谨慎使用，因为它会打断浏览器本身优先级更高的工作。</li>
+<li>最长期限为 50 毫秒，是根据研究得出的，研究表明，人们通常认为 100 毫秒内对用户输入的响应是瞬时的。将闲置截止期限设置为 50ms 意味着即使在闲置任务开始后立即发生用户输入，浏览器仍然有剩余的 50ms 可以在其中响应用户输入而不会产生用户可察觉的滞后。</li>
+<li>每次调用 <code>timeRemaining()</code> 函数判断是否有剩余时间的时候，如果浏览器判断此时有优先级更高的任务，那么会动态的把这个值设置为 0，否则就是用预先设置好的 <code>deadline - now</code> 去计算。</li>
+<li>这个 <code>timeRemaining()</code> 的计算非常动态，会根据很多因素去决定，所以不要指望这个时间是稳定的。</li>
+</ol>
+<h3 id="动画例子"><a href="#动画例子" class="headerlink" title="动画例子"></a>动画例子</h3><h4 id="滚动"><a href="#滚动" class="headerlink" title="滚动"></a>滚动</h4><p>如果我鼠标不做任何动作和交互，直接在控制台通过 <code>rIC</code> 去打印这次空闲任务的剩余时间，一般都稳定维持在 <code>49.xx</code> ms，因为此时浏览器没有什么优先级更高的任务要去处理。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_gif/iagNW4Zy9CybCeaJbFaSAcXDDs0DzRf1ibY0FBe5Xv45BwibckaEicIPibqoJ71oHHpKZc69uQpdgRZnHfXibq4UpRLA/640?wx_fmt=gif&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="img"></p>
+<p>而如果我不停的滚动浏览器，不断的触发浏览器的重新绘制的话，这个时间就变的非常不稳定了。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_gif/iagNW4Zy9CybCeaJbFaSAcXDDs0DzRf1ib3CMT4Pzibr0agmOHFfQ1Br6J5XWWyoR1mZULRxINMibtjcZDyUNjfbrA/640?wx_fmt=gif&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="img"></p>
+<p>通过这个例子，你可以更加有体感的感受到什么样叫做「繁忙」，什么样叫做「空闲」。</p>
+<h4 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h4><p>这个动画的例子很简单，就是利用<code>rAF</code>在每帧渲染前的回调中把方块的位置向右移动 10px。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot; /&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">      #SomeElementYouWantToAnimate &#123;</span><br><span class="line">        height: 200px;</span><br><span class="line">        width: 200px;</span><br><span class="line">        background: red;</span><br><span class="line">      &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;div id=&quot;SomeElementYouWantToAnimate&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">      var start = null</span><br><span class="line">      var element = document.getElementById(&quot;SomeElementYouWantToAnimate&quot;)</span><br><span class="line">      element.style.position = &quot;absolute&quot;</span><br><span class="line"></span><br><span class="line">      function step(timestamp) &#123;</span><br><span class="line">        if (!start) start = timestamp</span><br><span class="line">        var progress = timestamp - start</span><br><span class="line">        element.style.left = Math.min(progress / 10, 200) + &quot;px&quot;</span><br><span class="line">        if (progress &lt; 2000) &#123;</span><br><span class="line">          window.requestAnimationFrame(step)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      // 动画</span><br><span class="line">      window.requestAnimationFrame(step)</span><br><span class="line"></span><br><span class="line">      // 空闲调度</span><br><span class="line">      window.requestIdleCallback(() =&gt; &#123;</span><br><span class="line">        alert(&quot;rIC&quot;)</span><br><span class="line">      &#125;)</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>注意在最后我加了一个 <code>requestIdleCallback</code> 的函数，回调里会 <code>alert(&#39;rIC&#39;)</code>，来看一下演示效果：</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_gif/iagNW4Zy9CybCeaJbFaSAcXDDs0DzRf1ibJn8bJ3kicFiaL3EfFqrkfEr7ALSkDSZ86iblgh9w2ShDzSCXZAYVj0YsA/640?wx_fmt=gif&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="img"></p>
+<p><code>alert</code> 在最开始的时候就执行了，为什么会这样呢一下，想一下「空闲」的概念，我们每一帧仅仅是把 <code>left</code> 的值移动了一下，做了这一个简单的渲染，没有占满空闲时间，所以可能在最开始的时候，浏览器就找到机会去调用 <code>rIC</code> 的回调函数了。</p>
+<p>我们简单的修改一下 <code>step</code> 函数，在里面加一个很重的任务，1000 次循环打印。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function step(timestamp) &#123;</span><br><span class="line">  if (!start) start = timestamp</span><br><span class="line">  var progress = timestamp - start</span><br><span class="line">  element.style.left = Math.min(progress / 10, 200) + &quot;px&quot;</span><br><span class="line">  let i = 1000</span><br><span class="line">  while (i &gt; 0) &#123;</span><br><span class="line">    console.log(&quot;i&quot;, i)</span><br><span class="line">    i--</span><br><span class="line">  &#125;</span><br><span class="line">  if (progress &lt; 2000) &#123;</span><br><span class="line">    window.requestAnimationFrame(step)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>再来看一下它的表现：</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_gif/iagNW4Zy9CybCeaJbFaSAcXDDs0DzRf1iblAbPkmGQA5dqcZx9zoEM7q6Tq2FQf3404JvKSVRJuoWUPkibWfyNg9A/640?wx_fmt=gif&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="img"></p>
+<p>其实和我们预期的一样，由于浏览器的每一帧都”太忙了”,导致它真的就无视我们的 <code>rIC</code> 函数了。</p>
+<p>如果给 <code>rIC</code> 函数加一个 <code>timeout</code> 呢：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 空闲调度</span><br><span class="line">window.requestIdleCallback(</span><br><span class="line">  () =&gt; &#123;</span><br><span class="line">    alert(&quot;rID&quot;)</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123; timeout: 500 &#125;,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_gif/iagNW4Zy9CybCeaJbFaSAcXDDs0DzRf1ibnV3ukjqDOVKM7jlRTX9AicjEia4BP9ZxmLDO1atUJS36YUbKGlXWDUfA/640?wx_fmt=gif&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="img"></p>
+<p>浏览器会在大概 <code>500ms</code> 的时候，不管有多忙，都去强制执行 <code>rIC</code> 函数，这个机制可以防止我们的空闲任务被“饿死”。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过本文的学习过程，我自己也打破了很多对于 Event Loop 以及 rAF、rIC 函数的固有错误认知，通过本文我们可以整理出以下的几个关键点。</p>
+<ol>
+<li>事件循环不一定每轮都伴随着重渲染，但是一定会伴随着微任务执行。</li>
+<li>决定浏览器视图是否渲染的因素很多，浏览器是非常聪明的。</li>
+<li><code>requestAnimationFrame</code>在重新渲染屏幕之前执行，非常适合用来做动画。</li>
+<li><code>requestIdleCallback</code>在渲染屏幕之后执行，并且是否有空执行要看浏览器的调度，如果你一定要它在某个时间内执行，请使用 <code>timeout</code>参数。</li>
+<li><code>resize</code>和<code>scroll</code>事件其实自带节流，它只在 Event Loop 的渲染阶段去执行事件。</li>
+</ol>
+<p>另外，本文也是对于规范的解读，规范里的一些术语比较晦涩难懂，所以我也结合了一些自己的理解去写这篇文章，如果有错误的地方欢迎各位小伙伴指出。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>HTML 规范文档[7]</p>
+<p>W3C 标准[8]</p>
+<p>Vue 源码详解之 nextTick：MutationObserver 只是浮云，microtask 才是核心！[9]（强烈推荐这篇文章）</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/07/07/常用链接/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          常用链接
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/07/07/用django创建一个项目/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">用django创建一个项目</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="ds-share share" data-thread-key="深入解析 EventLoop 和浏览器渲染、帧动画、空闲回调的关系" data-title="" data-url="https://xiaochangzai.github.io/2020/07/07/深入解析 EventLoop 和浏览器渲染、帧动画、空闲回调的关系/"  data-images="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg" data-content="">
+    <div class="ds-share-inline">
+      <ul  class="ds-share-icons-16">
+      	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+      </ul>
+      <div class="ds-share-icons-more">
+      </div>
+    </div>
+ </div>
+ 
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2022 sunJsona
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/smackgg/hexo-theme-smackdown" target="_blank">Smackdown</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/main.js"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>
+
+
+  </div>
+</body>
+</html>

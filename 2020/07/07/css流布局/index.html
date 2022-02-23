@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>css流布局 | sunJsona的个人博客</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="css可以利用 ==collumn-count== 属性实现瀑布流流布局例子代码如下：1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;	&amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;	&amp;l">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css流布局">
+<meta property="og:url" content="https://xiaochangzai.github.io/2020/07/07/css流布局/index.html">
+<meta property="og:site_name" content="sunJsona的个人博客">
+<meta property="og:description" content="css可以利用 ==collumn-count== 属性实现瀑布流流布局例子代码如下：1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;	&amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;	&amp;l">
+<meta property="og:locale" content="Simple Chinese">
+<meta property="og:updated_time" content="2020-07-07T05:00:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="css流布局">
+<meta name="twitter:description" content="css可以利用 ==collumn-count== 属性实现瀑布流流布局例子代码如下：1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;	&amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;	&amp;l">
+  
+    <link rel="alternative" href="/atom.xml" title="sunJsona的个人博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+
+  <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">sunJsona</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/smackgg/hexo-theme-smackdown">smackdown</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">sunJsona</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">sunJsona</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-css流布局" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/07/07/css流布局/" class="article-date">
+  	<time datetime="2020-07-07T05:00:13.000Z" itemprop="datePublished">2020-07-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      css流布局
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>css可以利用 ==collumn-count== 属性实现瀑布流流布局<br>例子代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">	&lt;title&gt;瀑布流测试&lt;/title&gt;</span><br><span class="line">	&lt;style&gt;</span><br><span class="line">		.water-fall&#123;</span><br><span class="line">			width: 1200px;</span><br><span class="line">			height: auto;</span><br><span class="line">			margin: 0 auto;</span><br><span class="line">			column-count: 4;</span><br><span class="line">			-webkit-column-count:4;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">		.water-fall .item&#123;	</span><br><span class="line">			box-sizing: border-box;</span><br><span class="line">			border: #ccc 1px solid;</span><br><span class="line">			padding: 5px;</span><br><span class="line">			margin-top: 10px;</span><br><span class="line">		&#125;</span><br><span class="line">		.water-fall .item:nth-child(4n+1)&#123;</span><br><span class="line">			background-color: #4e0f0f;</span><br><span class="line">		&#125;</span><br><span class="line">		.water-fall .item:nth-child(4n+2)&#123;</span><br><span class="line">			background-color: #2cc468;</span><br><span class="line">		&#125;</span><br><span class="line">		.water-fall .item:nth-child(4n+3)&#123;</span><br><span class="line">			background-color: #c49c2c;</span><br><span class="line">		&#125;</span><br><span class="line">		.water-fall .item:nth-child(4n)&#123;</span><br><span class="line">			background-color: #c42cbf;</span><br><span class="line">		&#125;</span><br><span class="line">	&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;div class=&quot;water-fall&quot;&gt;</span><br><span class="line">		&lt;div class=&quot;item&quot;&gt;Lorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sit.&lt;/div&gt;</span><br><span class="line">		&lt;div class=&quot;item&quot;&gt;Iste quas nostrum,Iste quas nostrum,Iste quas nostrum,Iste quas nostrum,Iste quas nostrum,Iste quas nostrum,Iste quas nostrum,Iste quas nostrum,Iste quas nostrum,Iste quas nostrum,Iste quas nostrum,Iste quas nostrum,Iste quas nostrum,Iste quas nostrum,Iste quas nostrum,Iste quas nostrum,Iste quas nostrum,Iste quas nostrum,Iste quas nostrum,Iste quas nostrum,Iste quas nostrum,Iste quas nostrum,Iste quas nostrum,Iste quas nostrum,Iste quas nostrum,Iste quas nostrum, corrupti.&lt;/div&gt;</span><br><span class="line">		&lt;div class=&quot;item&quot;&gt;Voluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, doloreVoluptas dolor, dolore minima!&lt;/div&gt;</span><br><span class="line">		&lt;div class=&quot;item&quot;&gt;Amet, et nesciuntAmet, et nesciuntAmet, et nesciuntAmet, et nesciuntAmet, et nesciuntAmet, et nesciuntAmet, et nesciuntAmet, et nesciuntAmet, et nesciuntAmet, et nesciuntAmet, et nesciuntAmet, et nesciuntAmet, et nesciuntAmet, et nesciuntAmet, et nesciuntAmet, et nesciuntAmet, et nesciuntAmet, et nesciuntAmet, et nesciuntAmet, et nesciuntAmet, et nesciuntAmet, et nesciuntAmet, et nesciuntAmet, et nesciuntAmet, et nesciuntAmet, et nesciunt recusandae!&lt;/div&gt;</span><br><span class="line">		&lt;div class=&quot;item&quot;&gt;Assumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimusAssumenda vitae omnis possimus.&lt;/div&gt;</span><br><span class="line">		&lt;div class=&quot;item&quot;&gt;Voluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optioVoluptas quis dolores optio?&lt;/div&gt;</span><br><span class="line">		&lt;div class=&quot;item&quot;&gt;Voluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniamVoluptatibus esse beatae veniam.&lt;/div&gt;</span><br><span class="line">		&lt;div class=&quot;item&quot;&gt;Nihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibusNihil tempora beatae voluptatibus.&lt;/div&gt;</span><br><span class="line">		&lt;div class=&quot;item&quot;&gt;Eveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquamEveniet adipisci, quisquam sed.&lt;/div&gt;</span><br><span class="line">		&lt;div class=&quot;item&quot;&gt;Totam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobisTotam eaque quos nobis.&lt;/div&gt;</span><br><span class="line">		&lt;div class=&quot;item&quot;&gt;Praesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cumPraesentium vero corrupti cum?&lt;/div&gt;</span><br><span class="line">		&lt;div class=&quot;item&quot;&gt;Error odio sunt temporeError odio sunt temporeError odio sunt temporeError odio sunt temporeError odio sunt temporeError odio sunt temporeError odio sunt temporeError odio sunt temporeError odio sunt temporeError odio sunt temporeError odio sunt temporeError odio sunt temporeError odio sunt temporeError odio sunt temporeError odio sunt temporeError odio sunt temporeError odio sunt temporeError odio sunt temporeError odio sunt temporeError odio sunt temporeError odio sunt temporeError odio sunt temporeError odio sunt temporeError odio sunt temporeError odio sunt temporeError odio sunt tempore.&lt;/div&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>只要在外面的div的属性里加上一个属性：collumn-count、-webkit-collumn-count，然后置顶一个值，是这一列显示的列数。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/07/07/VScode 设置/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          VScode 设置
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/07/07/axios获取图片，后台返回文件流怎么处理/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">axios获取图片，后台返回文件流怎么处理</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="ds-share share" data-thread-key="css流布局" data-title="css流布局" data-url="https://xiaochangzai.github.io/2020/07/07/css流布局/"  data-images="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg" data-content="css流布局">
+    <div class="ds-share-inline">
+      <ul  class="ds-share-icons-16">
+      	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+      </ul>
+      <div class="ds-share-icons-more">
+      </div>
+    </div>
+ </div>
+ 
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2022 sunJsona
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/smackgg/hexo-theme-smackdown" target="_blank">Smackdown</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/main.js"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>
+
+
+  </div>
+</body>
+</html>

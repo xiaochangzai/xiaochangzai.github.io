@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>TypeScript-变量、基本类型和运算符 | sunJsona的个人博客</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="基本类型      基本类型有boolean、number、string、array、void。所有类型在TypeScript中，都是一个唯一的顶层的Any Type 类型的自类型。any关键字代表这种类型。    类型 声明方式     boolean var isDone:boolean=false   number var height = 6;   string var name:stri">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TypeScript-变量、基本类型和运算符">
+<meta property="og:url" content="https://xiaochangzai.github.io/2020/07/07/TypeScript-变量、基本类型和运算符/index.html">
+<meta property="og:site_name" content="sunJsona的个人博客">
+<meta property="og:description" content="基本类型      基本类型有boolean、number、string、array、void。所有类型在TypeScript中，都是一个唯一的顶层的Any Type 类型的自类型。any关键字代表这种类型。    类型 声明方式     boolean var isDone:boolean=false   number var height = 6;   string var name:stri">
+<meta property="og:locale" content="Simple Chinese">
+<meta property="og:updated_time" content="2020-07-07T05:00:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TypeScript-变量、基本类型和运算符">
+<meta name="twitter:description" content="基本类型      基本类型有boolean、number、string、array、void。所有类型在TypeScript中，都是一个唯一的顶层的Any Type 类型的自类型。any关键字代表这种类型。    类型 声明方式     boolean var isDone:boolean=false   number var height = 6;   string var name:stri">
+  
+    <link rel="alternative" href="/atom.xml" title="sunJsona的个人博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+
+  <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">sunJsona</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/smackgg/hexo-theme-smackdown">smackdown</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">sunJsona</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">sunJsona</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-TypeScript-变量、基本类型和运算符" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/07/07/TypeScript-变量、基本类型和运算符/" class="article-date">
+  	<time datetime="2020-07-07T05:00:13.000Z" itemprop="datePublished">2020-07-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      TypeScript-变量、基本类型和运算符
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>基本类型    </p>
+<p> 基本类型有<code>boolean</code>、<code>number</code>、<code>string</code>、<code>array</code>、<code>void</code>。所有类型在<code>TypeScript</code>中，都是一个唯一的顶层的<code>Any Type</code> 类型的自类型。<code>any</code>关键字代表这种类型。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th style="text-align:center">声明方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>boolean</td>
+<td style="text-align:center">var isDone:boolean=false</td>
+</tr>
+<tr>
+<td>number</td>
+<td style="text-align:center">var height = 6;</td>
+</tr>
+<tr>
+<td>string</td>
+<td style="text-align:center">var name:string=”bob</td>
+</tr>
+<tr>
+<td>array</td>
+<td style="text-align:center">var list:number[]=[1,2,3]</td>
+</tr>
+<tr>
+<td>enum</td>
+<td style="text-align:center">enum Color {Red,Green,Blue}</td>
+</tr>
+<tr>
+<td>any</td>
+<td style="text-align:center">var notsure:any = 4;notsure = “maybe a string instaed”; notsure = false;</td>
+</tr>
+</tbody>
+</table>
+<p>在TypeScript中，我们不能把null或undefind当作类型使用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var testVar : null;//错误，类型错误</span><br><span class="line">var testVar : undefined;//错误，找不到undefined</span><br></pre></td></tr></table></figure></p>
+<p><code>var</code>、<code>let</code>和<code>const</code></p>
+<p>在TypeScript中，当声明一个变量时，可以使用var、let和const关键字<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var mynum = 1;</span><br><span class="line">let isValid:boolean = true;</span><br><span class="line">const PI : number = 3.141592654;</span><br></pre></td></tr></table></figure></p>
+<p>联合类型<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var path :string[]|string;</span><br><span class="line">path  = &apos;/temp/log.xml&apos;;</span><br><span class="line">path = [&apos;/temp/log.xml&apos;,&apos;/temp/error.xml&apos;];</span><br></pre></td></tr></table></figure></p>
+<p>类型别名</p>
+<p><code>TypeScript</code>允许用<code>type</code>关键字声明类型别名<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">type PrimitiveArray = Array&lt;string|number|boolean&gt;;</span><br><span class="line">type MyNumber = numbe;</span><br><span class="line">type NgScope = ng.IScope;</span><br><span class="line">type Callback = () =&gt; void;</span><br></pre></td></tr></table></figure></p>
+<p>函数</p>
+<p>1.具名函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function greet(name?:string):string&#123;</span><br><span class="line"> if(name)&#123;</span><br><span class="line">  return &quot;Hi,&quot; + name;</span><br><span class="line"> &#125;else&#123;</span><br><span class="line">  return &quot;Hi!&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>2.匿名函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var greet:(name?:string) =&gt; :string = function(name:string):string&#123;</span><br><span class="line">if(name)&#123;</span><br><span class="line">  return &quot;Hi,&quot; + name;</span><br><span class="line"> &#125;else&#123;</span><br><span class="line">  return &quot;Hi!&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>类<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">class Character&#123;</span><br><span class="line">  fullname:string;</span><br><span class="line">  constructor(firstname:string,lastname:string)&#123;</span><br><span class="line">    this.fullname = firstname + &quot;  &quot; + lastname;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"> greet(name?:string)&#123;</span><br><span class="line">   if(name)&#123;</span><br><span class="line">     return &quot;Hi!&quot; + name + &quot;!my name is &quot;  + this.fullnamel;</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">     return &quot;Hi! my name is &quot; + this fullname ;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">var spark = new Character(&quot;Jacob&quot;,&quot;Keyes&quot;);</span><br><span class="line">var msg = spark.greet();//&quot;Hi! my name is Jocob Keyes&quot;;</span><br><span class="line">var msg1 = spark.greet(&quot;Dr. Halsey&quot;);//&quot;Hi!Dr. Hasey! my name is Jacob Keyes&quot;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/07/07/React里面如何使用jQuery 和 jQuery 的插件/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          React 里面如何使用jQuery 和 jQuery 的插件
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/07/07/VScode 设置/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">VScode 设置</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="ds-share share" data-thread-key="TypeScript-变量、基本类型和运算符" data-title="TypeScript-变量、基本类型和运算符" data-url="https://xiaochangzai.github.io/2020/07/07/TypeScript-变量、基本类型和运算符/"  data-images="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg" data-content="TypeScript-变量、基本类型和运算符">
+    <div class="ds-share-inline">
+      <ul  class="ds-share-icons-16">
+      	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+      </ul>
+      <div class="ds-share-icons-more">
+      </div>
+    </div>
+ </div>
+ 
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2022 sunJsona
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/smackgg/hexo-theme-smackdown" target="_blank">Smackdown</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/main.js"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>
+
+
+  </div>
+</body>
+</html>

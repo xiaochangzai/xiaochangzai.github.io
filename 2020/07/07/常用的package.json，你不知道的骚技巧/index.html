@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>sunJsona的个人博客</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="常用的package.json，还有这多你不知道的骚技巧前端小黑 前端梦想家;) 今天  前言 🤔在每个项目的根目录下面，一般都会有一个 package.json 文件，其定义了运行项目所需要的各种依赖和项目的配置信息（如名称、版本、许可证等元数据）。 大多数人对 package.json 文件的了解，仅停留在：   项目名称、项目构建版本、许可证的定义； 依赖定义（包括 dependencie">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sunJsona的个人博客">
+<meta property="og:url" content="https://xiaochangzai.github.io/2020/07/07/常用的package.json，你不知道的骚技巧/index.html">
+<meta property="og:site_name" content="sunJsona的个人博客">
+<meta property="og:description" content="常用的package.json，还有这多你不知道的骚技巧前端小黑 前端梦想家;) 今天  前言 🤔在每个项目的根目录下面，一般都会有一个 package.json 文件，其定义了运行项目所需要的各种依赖和项目的配置信息（如名称、版本、许可证等元数据）。 大多数人对 package.json 文件的了解，仅停留在：   项目名称、项目构建版本、许可证的定义； 依赖定义（包括 dependencie">
+<meta property="og:locale" content="Simple Chinese">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/ib46ibiblQLaTHHUa1cpmuicWPBNPJlGhpTccYpB5dY09SLtJcqE4LSiaynFGUCjicoJPdqDFry7Az3krYIjJA4bSk0Q/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_jpg/XP4dRIhZqqUQV8Z3TJGIH6Fas9pDtDhZdz15AQSbOGRhWwiaHPR7erLWVLIkAEhppxON6fQ7s3qJGsl5PCIxdag/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_jpg/XP4dRIhZqqUQV8Z3TJGIH6Fas9pDtDhZjJM9a9pkaghUlWpzV32cZ0k2uaoHd1lgA7jGWXMhlXWMzov3MMCNOA/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_jpg/XP4dRIhZqqUQV8Z3TJGIH6Fas9pDtDhZSTu3002rLOrljRicE48ia9Dv0C2oZDJdNptaJVH84gTiaHzR1Z8IRk4kw/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_gif/XP4dRIhZqqUQV8Z3TJGIH6Fas9pDtDhZYIvjp4sgSuUrLRKxKzz6WwgiaMIhOrRmWsqkEA9IEwzTFCXywtOZKhA/640?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_jpg/XP4dRIhZqqUQV8Z3TJGIH6Fas9pDtDhZm07FyYHeh30OrsggekZ88BHAe6qpicQD4vDkt1WHWjZBeIhSZuRLYew/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_jpg/XP4dRIhZqqUQV8Z3TJGIH6Fas9pDtDhZ3IXOcuKe4lswmxkIpwiaia0qgDYbXAFQVVuLzvwmsFfrTyooqnic7LbgQ/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_jpg/XP4dRIhZqqUQV8Z3TJGIH6Fas9pDtDhZEiaqlsl4iaJ6icZYO9HKRC9ibtK5lz0eMWneQIWyncjHEOp00iaxPebeGag/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:image" content="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==">
+<meta property="og:image" content="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==">
+<meta property="og:image" content="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==">
+<meta property="og:image" content="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==">
+<meta property="og:image" content="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==">
+<meta property="og:image" content="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==">
+<meta property="og:image" content="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==">
+<meta property="og:updated_time" content="2020-07-07T05:00:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="sunJsona的个人博客">
+<meta name="twitter:description" content="常用的package.json，还有这多你不知道的骚技巧前端小黑 前端梦想家;) 今天  前言 🤔在每个项目的根目录下面，一般都会有一个 package.json 文件，其定义了运行项目所需要的各种依赖和项目的配置信息（如名称、版本、许可证等元数据）。 大多数人对 package.json 文件的了解，仅停留在：   项目名称、项目构建版本、许可证的定义； 依赖定义（包括 dependencie">
+<meta name="twitter:image" content="https://mmbiz.qpic.cn/mmbiz_png/ib46ibiblQLaTHHUa1cpmuicWPBNPJlGhpTccYpB5dY09SLtJcqE4LSiaynFGUCjicoJPdqDFry7Az3krYIjJA4bSk0Q/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1">
+  
+    <link rel="alternative" href="/atom.xml" title="sunJsona的个人博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+
+  <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">sunJsona</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/smackgg/hexo-theme-smackdown">smackdown</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">sunJsona</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">sunJsona</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-常用的package.json，你不知道的骚技巧" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/07/07/常用的package.json，你不知道的骚技巧/" class="article-date">
+  	<time datetime="2020-07-07T05:00:13.000Z" itemprop="datePublished">2020-07-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="常用的package-json，还有这多你不知道的骚技巧"><a href="#常用的package-json，还有这多你不知道的骚技巧" class="headerlink" title="常用的package.json，还有这多你不知道的骚技巧"></a>常用的package.json，还有这多你不知道的骚技巧</h2><p>前端小黑 <a href="javascript:void(0" target="_blank" rel="noopener">前端梦想家</a>;) <em>今天</em></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/ib46ibiblQLaTHHUa1cpmuicWPBNPJlGhpTccYpB5dY09SLtJcqE4LSiaynFGUCjicoJPdqDFry7Az3krYIjJA4bSk0Q/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img"></p>
+<h2 id="前言-🤔"><a href="#前言-🤔" class="headerlink" title="前言 🤔"></a>前言 🤔</h2><p>在每个项目的根目录下面，一般都会有一个 <code>package.json</code> 文件，其定义了运行项目所需要的各种依赖和项目的配置信息（如名称、版本、许可证等元数据）。</p>
+<p>大多数人对 <code>package.json</code> 文件的了解，仅停留在：</p>
+<ul>
+<li><ul>
+<li>项目名称、项目构建版本、许可证的定义；</li>
+<li>依赖定义（包括 <code>dependencies</code> 字段，<code>devDependencies</code> 字段）；</li>
+<li>使用<code>scripts</code>字段指定运行脚本命令的 <code>npm</code> 命令行缩写。</li>
+</ul>
+</li>
+</ul>
+<p>其实，<code>package.json</code> 的作用远不止于此，我们可以通过新增配置项实现更强大的功能，下面将带你重新认识  <code>package.json</code>。</p>
+<h2 id="由简入繁，丰富项目的-package-json"><a href="#由简入繁，丰富项目的-package-json" class="headerlink" title="由简入繁，丰富项目的 package.json"></a>由简入繁，丰富项目的 package.json</h2><h3 id="简单版的-package-json"><a href="#简单版的-package-json" class="headerlink" title="简单版的 package.json"></a>简单版的 package.json</h3><p>当我们新建一个名称为 <code>my-test</code> 的项目时，使用 <code>yarn init -y</code> 或 <code>npm init -y</code> 命令后，在项目目录下会新增一个 <code>package.json</code>文件，内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">&quot;name&quot;: &quot;my-test&quot;, # 项目名称</span><br><span class="line">&quot;version&quot;: &quot;1.0.0&quot;, # 项目版本（格式：大版本.次要版本.小版本）</span><br><span class="line">&quot;description&quot;: &quot;&quot;, # 项目描述</span><br><span class="line">&quot;main&quot;: &quot;index.js&quot;, # 入口文件</span><br><span class="line">&quot;scripts&quot;: &#123; # 指定运行脚本命令的 npm 命令行缩写</span><br><span class="line">&quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">&quot;keywords&quot;: [], # 关键词</span><br><span class="line">&quot;author&quot;: &quot;&quot;, # 作者</span><br><span class="line">&quot;license&quot;: &quot;ISC&quot; # 许可证</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看到，<code>package.json</code> 文件的内容是一个 <code>JSON</code> 对象，对象的每一个成员就是当前项目的一项配置。</p>
+<h3 id="必备属性（name-amp-version）"><a href="#必备属性（name-amp-version）" class="headerlink" title="必备属性（name &amp; version）"></a>必备属性（name &amp; version）</h3><ul>
+<li><code>package.json</code> 中有非常多的配置项，其中必须填写的两个字段分别是 <code>name</code> 字段和 <code>version</code> 字段，它们是组成一个 <code>npm</code> 模块的唯一标识。</li>
+</ul>
+<h4 id="name-字段"><a href="#name-字段" class="headerlink" title="name 字段"></a>name 字段</h4><p><code>name</code> 字段定义了模块的名称，其命名时需要遵循官方的一些规范和建议：</p>
+<ul>
+<li><ul>
+<li>模块名会成为模块 <code>url</code>、命令行中的一个参数或者一个文件夹名称，任何非 <code>url</code> 安全的字符在模块名中都不能使用（我们可以使用 <code>validate-npm-package-name</code> 包来检测模块名是否合法）；</li>
+<li>语义化模块名，可以帮助开发者更快的找到需要的模块，并且避免意外获取错误的模块；</li>
+<li>若模块名称中存在一些符号，将符号去除后不得与现有的模块名重复，例如：由于 <code>react-router-dom</code> 已经存在，<code>react.router.dom</code>、<code>reactrouterdom</code> 都不可以再创建。</li>
+</ul>
+</li>
+</ul>
+<p><code>name</code> 字段不能与其他模块名重复，我们可以执行以下命令查看模块名是否已经被使用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm view &lt;packageName&gt;</span><br></pre></td></tr></table></figure>
+<p>如果模块存在，可以查看该模块的一些基本信息：</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/XP4dRIhZqqUQV8Z3TJGIH6Fas9pDtDhZdz15AQSbOGRhWwiaHPR7erLWVLIkAEhppxON6fQ7s3qJGsl5PCIxdag/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img"></p>
+<p>如果该模块名从未被使用过，则会抛出 404 错误：</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/XP4dRIhZqqUQV8Z3TJGIH6Fas9pDtDhZjJM9a9pkaghUlWpzV32cZ0k2uaoHd1lgA7jGWXMhlXWMzov3MMCNOA/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img"></p>
+<p>或者，我们也可以去 <code>npm</code> 上输入模块名，如果搜不到，则可以使用该模块名。</p>
+<h4 id="version-字段"><a href="#version-字段" class="headerlink" title="version 字段"></a>version 字段</h4><p><code>npm</code> 包中的模块版本都需要遵循 <code>SemVer</code> 规范，该规范的标准版本号采用 <code>X.Y.Z</code> 的格式，其中 <code>X</code>、<code>Y</code> 和 <code>Z</code> 均为非负的整数，且禁止在数字前方补零：</p>
+<ul>
+<li><ul>
+<li><code>X</code> 是主版本号(major)：修改了不兼容的 API</li>
+<li><code>Y</code> 是次版本号(minor)：新增了向下兼容的功能</li>
+<li><code>Z</code> 为修订号(patch)：修正了向下兼容的问题</li>
+</ul>
+</li>
+</ul>
+<p>当某个版本改动比较大、并非稳定而且可能无法满足预期的兼容性需求时，我们可能要先发布一个先行版本。</p>
+<p>先行版本号可以加到<code>主版本号.次版本号.修订号</code>的后面，通过 <code>-</code> 号连接一连串以句点分隔的标识符和版本编译信息：</p>
+<ul>
+<li><ul>
+<li>内部版本(alpha)</li>
+<li>公测版本(beta)</li>
+<li>正式版本的候选版本rc（即 Release candiate）</li>
+</ul>
+</li>
+</ul>
+<p>我们可以执行以下命令查看模块的版本：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm view &lt;packageName&gt; version # 查看某个模块的最新版本</span><br><span class="line">npm view &lt;packageName&gt; versions # 查看某个模块的所有历史版本</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+<p>查看 <code>antd</code> 的最新版本：<img src="https://mmbiz.qpic.cn/mmbiz_jpg/XP4dRIhZqqUQV8Z3TJGIH6Fas9pDtDhZSTu3002rLOrljRicE48ia9Dv0C2oZDJdNptaJVH84gTiaHzR1Z8IRk4kw/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img"></p>
+<p>查看 <code>antd</code> 的所有历史版本：</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_gif/XP4dRIhZqqUQV8Z3TJGIH6Fas9pDtDhZYIvjp4sgSuUrLRKxKzz6WwgiaMIhOrRmWsqkEA9IEwzTFCXywtOZKhA/640?wx_fmt=gif&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="img"></p>
+<p>可以看到，<code>antd</code> 是严格按照 <code>SemVer</code> 规范来发版的，版本号是严格按照<code>主版本号.次版本号.修订号</code>的格式命名和严格递增的，在发布的版本改动较大时，还会先发布<code>alpha</code>、<code>beta</code>、<code>rc</code>等先行版本。</p>
+<h3 id="描述信息（description-amp-keywords）"><a href="#描述信息（description-amp-keywords）" class="headerlink" title="描述信息（description &amp; keywords）"></a>描述信息（description &amp; keywords）</h3><ul>
+<li><code>description</code> 字段用于添加模块的描述信息，便于用户了解该模块。</li>
+<li><code>keywords</code> 字段用于给模块添加关键字。</li>
+<li>当我们使用 <code>npm</code> 检索模块时，会对模块中的 <code>description</code> 字段和 <code>keywords</code> 字段进行匹配，写好 <code>package.json</code>中的 <code>description</code> 和 <code>keywords</code> 将有利于增加我们模块的曝光率。</li>
+</ul>
+<h3 id="安装项目依赖（dependencies-amp-devDependencies）"><a href="#安装项目依赖（dependencies-amp-devDependencies）" class="headerlink" title="安装项目依赖（dependencies &amp; devDependencies）"></a>安装项目依赖（dependencies &amp; devDependencies）</h3><p><code>dependencies</code>字段指定了项目运行所依赖的模块（生产环境使用），如 <code>antd</code>、 <code>react</code>、 <code>moment</code>等插件库：</p>
+<ul>
+<li><ul>
+<li>它们是我们生产环境所需要的依赖项，在把项目作为一个 <code>npm</code> 包的时候，用户安装 <code>npm</code> 包时只会安装 <code>dependencies</code> 里面的依赖。</li>
+</ul>
+</li>
+</ul>
+<p><code>devDependencies</code> 字段指定了项目开发所需要的模块（开发环境使用），如 <code>webpack</code>、<code>typescript</code>、<code>babel</code>等：</p>
+<ul>
+<li><ul>
+<li>在代码打包提交线上时，我们并不需要这些工具，所以我们将它放入 <code>devDependencies</code> 中。</li>
+</ul>
+</li>
+</ul>
+<p>如果一个模块不在 <code>package.json</code> 文件之中，我们可以单独安装这个模块，并使用相应的参数，将其写入 <code>dependencies</code> 字段/ <code>devDependencies</code> 字段中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 使用 npm</span><br><span class="line">npm install &lt;package...&gt; --save # 写入 dependencies 属性</span><br><span class="line">npm install &lt;package...&gt; --save-dev # 写入 devDependencies 属性</span><br><span class="line"></span><br><span class="line"># 使用 yarn</span><br><span class="line">yarn add &lt;package...&gt; # 写入 dependencies 属性</span><br><span class="line">yarn add &lt;package...&gt; --dev # 写入 devDependencies 属性</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+<p>有了 <code>package.json</code> 文件，开发直接使用 <code>npm install</code> / <code>yarn install</code> 命令，就会在当前目录中自动安装所需要的模块，安装完成项目所需的运行和开发环境就配置好了。</p>
+<h3 id="简化终端命令（scripts）"><a href="#简化终端命令（scripts）" class="headerlink" title="简化终端命令（scripts）"></a>简化终端命令（scripts）</h3><p><code>scripts</code> 字段是 <code>package.json</code> 中的一种元数据功能，它接受一个对象，对象的属性为可以通过 <code>npm run</code>运行的脚本，值为实际运行的命令（通常是终端命令），如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">&quot;start&quot;: &quot;node index.js&quot;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p>将终端命令放入 <code>scripts</code> 字段，既可以记录它们又可以实现轻松重用。</p>
+<h3 id="定义项目入口（main）"><a href="#定义项目入口（main）" class="headerlink" title="定义项目入口（main）"></a>定义项目入口（main）</h3><p><code>main</code> 字段是 <code>package.json</code> 中的另一种元数据功能，它可以用来指定加载的入口文件。假如你的项目是一个 <code>npm</code> 包，当用户安装你的包后，<code>require(&#39;my-module&#39;)</code> 返回的是 <code>main</code> 字段中所列出文件的 <code>module.exports</code> 属性。</p>
+<p>当不指定<code>main</code> 字段时，默认值是模块根目录下面的<code>index.js</code> 文件。</p>
+<h3 id="发布文件配置（files）"><a href="#发布文件配置（files）" class="headerlink" title="发布文件配置（files）"></a>发布文件配置（files）</h3><p><code>files</code> 字段用于描述我们使用 <code>npm publish</code> 命令后推送到 <code>npm</code> 服务器的文件列表，如果指定文件夹，则文件夹内的所有内容都会包含进来。</p>
+<p>我们可以查看下载的 <code>antd</code> 的 <code>package.json</code> 的<code>files</code> 字段，内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;files&quot;: [</span><br><span class="line">&quot;dist&quot;,</span><br><span class="line">&quot;lib&quot;,</span><br><span class="line">&quot;es&quot;</span><br><span class="line">],</span><br></pre></td></tr></table></figure>
+<p>可以看到下载后的 <code>antd</code> 包是下面的目录结构：</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/XP4dRIhZqqUQV8Z3TJGIH6Fas9pDtDhZm07FyYHeh30OrsggekZ88BHAe6qpicQD4vDkt1WHWjZBeIhSZuRLYew/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img"></p>
+<p>另外，我们还可以通过配置一个 <code>.npmignore</code> 文件来排除一些文件， 防止大量的垃圾文件推送到 <code>npm</code> 上。</p>
+<h3 id="定义私有模块（private）"><a href="#定义私有模块（private）" class="headerlink" title="定义私有模块（private）"></a>定义私有模块（private）</h3><p>一般公司的非开源项目，都会设置 <code>private</code> 属性的值为 <code>true</code>，这是因为 <code>npm</code> 拒绝发布私有模块，通过设置该字段可以防止私有模块被无意间发布出去。</p>
+<h3 id="指定模块适用系统（os）"><a href="#指定模块适用系统（os）" class="headerlink" title="指定模块适用系统（os）"></a>指定模块适用系统（os）</h3><p>假如我们开发了一个模块，只能跑在 <code>darwin</code> 系统下，我们需要保证 <code>windows</code> 用户不会安装到该模块，从而避免发生不必要的错误。</p>
+<p>这时候，使用 <code>os</code> 属性则可以帮助我们实现以上的需求，该属性可以指定模块适用系统的系统，或者指定不能安装的系统黑名单（当在系统黑名单中的系统中安装模块则会报错）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&quot;os&quot; : [ &quot;darwin&quot;, &quot;linux&quot; ] # 适用系统</span><br><span class="line">&quot;os&quot; : [ &quot;!win32&quot; ] # 黑名单</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Tips：在 <code>node</code> 环境下可以使用 <code>process.platform</code> 来判断操作系统。</p>
+</blockquote>
+<h3 id="指定模块适用-cpu-架构（cpu）"><a href="#指定模块适用-cpu-架构（cpu）" class="headerlink" title="指定模块适用 cpu 架构（cpu）"></a>指定模块适用 cpu 架构（cpu）</h3><p>和上面的 <code>os</code> 字段类似，我们可以用 <code>cpu</code> 字段更精准的限制用户安装环境：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&quot;cpu&quot; : [ &quot;x64&quot;, &quot;ia32&quot; ] # 适用 cpu</span><br><span class="line">&quot;cpu&quot; : [ &quot;!arm&quot;, &quot;!mips&quot; ] # 黑名单</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Tips：在 <code>node</code> 环境下可以使用 <code>process.arch</code> 来判断 <code>cpu</code> 架构。</p>
+</blockquote>
+<h3 id="指定项目-node-版本（engines）"><a href="#指定项目-node-版本（engines）" class="headerlink" title="指定项目 node 版本（engines）"></a>指定项目 node 版本（engines）</h3><p>有时候，新拉一个项目的时候，由于和其他开发使用的 <code>node</code> 版本不同，导致会出现很多奇奇怪怪的问题（如某些依赖安装报错、依赖安装完项目跑不起来等）。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/XP4dRIhZqqUQV8Z3TJGIH6Fas9pDtDhZ3IXOcuKe4lswmxkIpwiaia0qgDYbXAFQVVuLzvwmsFfrTyooqnic7LbgQ/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img"></p>
+<p>为了实现项目开箱即用的伟大理想，这时候可以使用 <code>package.json</code> 的 <code>engines</code> 字段来指定项目 node 版本：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;engines&quot;: &#123;</span><br><span class="line">&quot;node&quot;: &quot;&gt;= 8.16.0&quot;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p>该字段也可以指定适用的 <code>npm</code> 版本：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;engines&quot;: &#123;</span><br><span class="line">&quot;npm&quot;: &quot;&gt;= 6.9.0&quot;</span><br><span class="line"> &#125;,</span><br></pre></td></tr></table></figure>
+<p>需要注意的是，engines属性仅起到一个说明的作用，当用户版本不符合指定值时也不影响依赖的安装。</p>
+<h3 id="自定义命令（bin）"><a href="#自定义命令（bin）" class="headerlink" title="自定义命令（bin）"></a>自定义命令（bin）</h3><p>用过 <code>vue-cli</code>，<code>create-react-app</code>等脚手架的朋友们，不知道你们有没有好奇过，为什么安装这些脚手架后，就可以使用类似 <code>vue create</code>/<code>create-react-app</code>之类的命令，其实这和 <code>package.json</code> 中的 <code>bin</code> 字段有关。</p>
+<p><code>bin</code> 字段用来指定各个内部命令对应的可执行文件的位置。当<code>package.json</code> 提供了 <code>bin</code> 字段后，即相当于做了一个命令名和本地文件名的映射。</p>
+<p>当用户安装带有 <code>bin</code> 字段的包时，</p>
+<ul>
+<li><ul>
+<li>如果是全局安装，<code>npm</code> 将会使用符号链接把这些文件链接到<code>/usr/local/node_modules/.bin/</code>；</li>
+<li>如果是本地安装，会链接到<code>./node_modules/.bin/</code>。</li>
+</ul>
+</li>
+</ul>
+<p>举个 🌰，如果要使用 <code>my-app-cli</code> 作为命令时，可以配置以下 <code>bin</code> 字段：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;bin&quot;: &#123;</span><br><span class="line">&quot;my-app-cli&quot;: &quot;./bin/cli.js&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码指定，<code>my-app-cli</code> 命令对应的可执行文件为 <code>bin</code> 子目录下的 <code>cli.js</code>，因此在安装了 <code>my-app-cli</code> 包的项目中，就可以很方便地利用 <code>npm</code>执行脚本：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">  start: &apos;node node_modules/.bin/my-app-cli&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/XP4dRIhZqqUQV8Z3TJGIH6Fas9pDtDhZEiaqlsl4iaJ6icZYO9HKRC9ibtK5lz0eMWneQIWyncjHEOp00iaxPebeGag/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="img"></p>
+<p>咦，怎么看起来和 <code>vue create</code>/<code>create-react-app</code>之类的命令不太像？原因：</p>
+<ul>
+<li><ul>
+<li>当需要 <code>node</code> 环境时就需要加上 <code>node</code> 前缀</li>
+<li>如果加上 <code>node</code> 前缀，就需要指定 <code>my-app-cli</code> 的路径 -&gt; <code>node_modules/.bin</code>，否则 <code>node my-app-cli</code>会去查找当前路径下的 <code>my-app-cli.js</code>，这样肯定是不对。</li>
+</ul>
+</li>
+</ul>
+<p>若要实现像 <code>vue create</code>/<code>create-react-app</code>之类的命令一样简便的方式，则可以在上文提到的 <code>bin</code> 子目录下可执行文件<code>cli.js</code> 中的第一行写入以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env node</span><br></pre></td></tr></table></figure>
+<p>这行命令的作用是告诉系统用 <code>node</code> 解析，这样命令就可以简写成 <code>my-app-cli</code> 了。</p>
+<h3 id="React-项目相关"><a href="#React-项目相关" class="headerlink" title="React 项目相关"></a>React 项目相关</h3><h4 id="设置应用根路径（homepage）"><a href="#设置应用根路径（homepage）" class="headerlink" title="设置应用根路径（homepage）"></a>设置应用根路径（homepage）</h4><p>当我们使用 <code>create-react-app</code> 脚手架搭建的 <code>React</code> 项目，默认是使用内置的 <code>webpack</code> 配置，当<code>package.json</code> 中不配置 <code>homepage</code> 属性时，build 打包之后的文件资源应用路径默认是  <code>/</code>，如下图：</p>
+<p><img src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt="img"></p>
+<p>一般来说，我们打包的静态资源会部署在 <code>CDN</code> 上，为了让我们的应用知道去哪里加载资源，则需要我们设置一个根路径，这时可以通过 <code>package.json</code> 中的 <code>homepage</code> 字段设置应用的根路径。</p>
+<p>当我们设置了 <code>homepage</code> 属性后：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">&quot;homepage&quot;: &quot;https://xxxx.cdn/my-project&quot;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>打包后的资源路径就会加上 <code>homepage</code> 的地址：</p>
+<p><img src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt="img"></p>
+<h4 id="开发环境解决跨域问题（proxy）"><a href="#开发环境解决跨域问题（proxy）" class="headerlink" title="开发环境解决跨域问题（proxy）"></a>开发环境解决跨域问题（proxy）</h4><p>在做前后端分离的项目的时候，调用接口时则会遇到跨域的问题，当在开发环境中时，可以通过配置 <code>package.json</code> 中的 <code>proxy</code> 来解决跨域问题，配置如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">&quot;proxy&quot;: &quot;http://localhost:4000&quot;  // 配置你要请求的服务器地址</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意，当 <code>create-react-app</code> 的版本高于 2.0 版本的时候在 <code>package.json</code> 中只能配置 <code>string</code> 类型，这意味着如果要使用 <code>package.json</code> 来解决跨域问题，则只能代理一个服务器地址。</p>
+<p>如果要代理多个服务器地址时，则需要安装 <code>http-proxy-middleware</code> ，在 <code>src</code> 目录下新建 <code>setupProxy.js</code> ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">const proxy = require(&quot;http-proxy-middleware&quot;);</span><br><span class="line"></span><br><span class="line">module.exports = function(app) &#123;</span><br><span class="line">  app.use(</span><br><span class="line">    proxy(&quot;/base&quot;, &#123;</span><br><span class="line">      target: &quot;http://localhost:4000&quot;,</span><br><span class="line">      changeOrigin: true</span><br><span class="line">    &#125;)</span><br><span class="line">  );</span><br><span class="line">  app.use(</span><br><span class="line">    proxy(&quot;/fans&quot;, &#123;</span><br><span class="line">      target: &quot;http://localhost:5000&quot;,</span><br><span class="line">      changeOrigin: true</span><br><span class="line">    &#125;)</span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="根据开发环境采用不同的全局变量值（自定义字段）"><a href="#根据开发环境采用不同的全局变量值（自定义字段）" class="headerlink" title="根据开发环境采用不同的全局变量值（自定义字段）"></a>根据开发环境采用不同的全局变量值（自定义字段）</h4><p>假设有这么一个组件，当组件被点击时，在开发环境时是跳转测试环境的 <code>sentry</code> 地址，在正式环境时则跳转正式环境的 <code>sentry</code> 地址。</p>
+<p>首先，通过配置前面提到的 <code>scripts</code> 字段，实现环境变量（NODE_ENV）的设置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">&quot;start&quot;: &quot;NODE_ENV=development node scripts/start.js&quot;,</span><br><span class="line">&quot;build&quot;: &quot;NODE_ENV=production node scripts/build.js&quot;,</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p>项目启动起来后，在代码中我们可以通过 <code>process.env.NODE_ENV</code> 访问到 <code>NODE_ENV</code> 的值。</p>
+<h5 id="方案一"><a href="#方案一" class="headerlink" title="方案一"></a>方案一</h5><p>我们可以在组件中写类似以下的判断代码，根据不同环境给 <code>sentryUrl</code> 设置不同的值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let sentryUrl;</span><br><span class="line">if (process.env.NODE_ENV === &apos;development&apos;) &#123;</span><br><span class="line">    sentryUrl = &apos;test-sentry.xxx.com&apos;;</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    sentryUrl = &apos;sentry.xxx.com&apos;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这么做好像没毛病，但是深入一想，如果有多个组件，要根据不同的环境使用不同的服务（多种服务）地址，如果按照上面的写法，项目中将存在许多重复的判断代码，且当服务地址发生变化时，包含这些服务地址的组件都需要相应的做改动，这样明显是不合理的。</p>
+<p><img src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt="img"></p>
+<h5 id="方案二"><a href="#方案二" class="headerlink" title="方案二"></a>方案二</h5><p>解决方案：相关服务的地址配置在 <code>package.json</code>中，同时修改项目的 <code>webpack</code> 配置。</p>
+<p>注：修改项目的 <code>webpack</code> 配置需要 eject 项目的 <code>webpack</code> 配置（更多细节可阅读 👉：react + typescript 项目的定制化过程）。</p>
+<p>在项目根目录下使用 <code>yarn eject</code> 成功 eject 出配置后，可以发现项目目录的变化如下：</p>
+<p><img src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt="img"></p>
+<p>如果需要定制化项目，一般就是在 <code>config</code> 目录下对默认的 <code>webpack</code> 配置进行修改，在这里我们需要关注 <code>config/path.js</code> 和 <code>config/env.js</code> 两个文件：</p>
+<ul>
+<li><ul>
+<li><code>env.js</code> 的主要目的在于读取 <code>env</code> 配置文件并将 <code>env</code> 的配置信息给到全局变量 <code>process.env</code> ；</li>
+<li><code>path.js</code> 的主要目的在于为项目提供各种路径，包括构建路径、 <code>public</code> 路径等。</li>
+</ul>
+</li>
+</ul>
+<p>由于本文的重点不是学习 <code>webpack</code> 配置，这里仅介绍如何实现【根据开发环境采用不同的全局变量值】的功能。</p>
+<p>首先，需要在 <code>package.json</code> 中配置以下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">&quot;start&quot;: &quot;NODE_ENV=development node scripts/start.js&quot;,</span><br><span class="line">&quot;build&quot;: &quot;NODE_ENV=production node scripts/build.js&quot;,</span><br><span class="line">&#125;,</span><br><span class="line">&quot;sentryPath&quot;: &#123;</span><br><span class="line">&quot;dev&quot;: &quot;https://test-sentry.xxx.com&quot;,</span><br><span class="line">&quot;prod&quot;: &quot;https://sentry.xxx.com&quot;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>然后，修改 <code>path.js</code> 文件，内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">// 重写 getPublicUrl 方法</span><br><span class="line">const getPublicUrl = (appPackageJson, pathName) =&gt; &#123;</span><br><span class="line">let path;</span><br><span class="line">switch (process.env.DEPLOY_ENV) &#123;</span><br><span class="line">case&apos;development&apos;:</span><br><span class="line">      path = require(appPackageJson)[pathName].dev;</span><br><span class="line">break;</span><br><span class="line">case&apos;production&apos;:</span><br><span class="line">      path = require(appPackageJson)[pathName].prod;</span><br><span class="line">break;</span><br><span class="line">default:</span><br><span class="line">      path = envPublicUrl || require(appPackageJson).homepage;</span><br><span class="line">  &#125;</span><br><span class="line">return path;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 新增 getSentryPath 方法</span><br><span class="line">const getSentryPath = (appPackageJson) =&gt; &#123;</span><br><span class="line">return getPublicUrl(appPackageJson, &apos;sentryPath&apos;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// config after eject: we&apos;re in ./config/</span><br><span class="line">module.exports = &#123;</span><br><span class="line">  ...,</span><br><span class="line">sentryUrl: getSentryPath(resolveApp(&apos;package.json&apos;)), // 新增</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>最后，修改 <code>env.js</code> 文件，内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">// 修改 getClientEnvironment 方法</span><br><span class="line">function getClientEnvironment(publicUrl) &#123;</span><br><span class="line">const raw = Object.keys(process.env)</span><br><span class="line">    .filter(key =&gt; REACT_APP.test(key))</span><br><span class="line">    .reduce(</span><br><span class="line">(env, key) =&gt; &#123;</span><br><span class="line">        ...</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">NODE_ENV: process.env.NODE_ENV || &apos;development&apos;,</span><br><span class="line">PUBLIC_URL: publicUrl,</span><br><span class="line">SENTRY_URL: paths.sentryUrl // 新增</span><br><span class="line">      &#125;</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">const stringified = &#123;</span><br><span class="line">    ...</span><br><span class="line">  &#125;;</span><br><span class="line">return &#123; raw, stringified &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过上面的配置，我们就可以在组件中通过 <code>process.env.SENTRY_URL</code> 获取到 <code>sentry</code> 服务的地址了，虽然看起来比方案一繁琐，但是这种收益是长期的，如要新增一个  <code>sonarqube</code> 服务，同理实现即可，通过使用 <code>package.json</code> 也可以清楚的看到当前服务在不同环境下使用的地址。</p>
+<h2 id="总结-👀"><a href="#总结-👀" class="headerlink" title="总结 👀"></a>总结 👀</h2><p>本文介绍了 <code>package.json</code> 的多种常见的配置字段及作用，并通过例子加深大家对 <code>package.json</code>这些字段的理解。</p>
+<p>除了一些常用字段，还介绍了在<code>React</code> 项目中 <code>package.json</code> 文件能实现的一些功能进行介绍。</p>
+<blockquote>
+<p>以上内容如有遗漏错误，欢迎留言 ✍️ 指出，一起进步 💪💪💪</p>
+</blockquote>
+<blockquote>
+<p>如果觉得本文对你有帮助，🏀🏀 留下你宝贵的 👍</p>
+</blockquote>
+<h2 id="参考资料-📖"><a href="#参考资料-📖" class="headerlink" title="参考资料 📖"></a>参考资料 📖</h2><ol>
+<li>Creating a package.json file</li>
+<li>package.json bin的作用</li>
+<li>在开发环境中代理 API 请求</li>
+<li>react + typescript 项目的定制化过程</li>
+<li>React学习笔记</li>
+</ol>
+<p><img src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt="img"></p>
+<p>❤️ 爱心三连击</p>
+<p>1.看到这里了就点个在看支持下吧，你的「在看」是我创作的动力。</p>
+<p>2.关注公众号前端梦想家，「一起学前端」！</p>
+<p>3.添加微信【qdw1370336125】，拉你进技术交流群一起学习。</p>
+<p><img src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt="img"></p>
+<p>在看点这里</p>
+<p><img src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt="img"></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzUyNDA2NTg5NQ==&amp;mid=2247483774&amp;idx=1&amp;sn=4b08fd64305903332bf91dbce5c8f334&amp;chksm=fa324c76cd45c560498645dc358fe78563c102680141669395e82c4ff7bfc46bc6148add56f6&amp;mpshare=1&amp;scene=1&amp;srcid=&amp;sharer_sharetime=1590968877589&amp;sharer_shareid=77ba8debb81295e7116ea85bee64bb55&amp;key=4f01d58ec7196d07e1a6b63018e94327b4cd830a3ce0919a971a5f7163a9e0896564f9e79d7c1d4b3473c32c982b1a82e5db44b6e4a43753b9e782dc93e2337b98fe4cf8e2c2c740817c4eba5fb189cf&amp;ascene=1&amp;uin=NzQ1NDc4NDEz&amp;devicetype=Windows+10+x64&amp;version=62090070&amp;lang=zh_CN&amp;exportkey=A0InUXE8bcG3xlivD2WokMc%3D&amp;pass_ticket=bypY3bZPAuT2pGmEIdf5siU1%2BBXphIvIdFpgwz46qIgh0JUKPgcVYYVNhoAUpQAl&amp;winzoom=1##" target="_blank" rel="noopener">阅读原文</a></p>
+<p>阅读 93</p>
+<p> 在看8</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/07/07/各群主分享的学习资源/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/07/07/常用链接/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">常用链接</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="ds-share share" data-thread-key="常用的package.json，你不知道的骚技巧" data-title="" data-url="https://xiaochangzai.github.io/2020/07/07/常用的package.json，你不知道的骚技巧/"  data-images="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg" data-content="">
+    <div class="ds-share-inline">
+      <ul  class="ds-share-icons-16">
+      	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+      </ul>
+      <div class="ds-share-icons-more">
+      </div>
+    </div>
+ </div>
+ 
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2022 sunJsona
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/smackgg/hexo-theme-smackdown" target="_blank">Smackdown</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/main.js"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>
+
+
+  </div>
+</body>
+</html>

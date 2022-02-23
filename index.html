@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>sunJsona的个人博客</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="sunJsona的个人博客">
+<meta property="og:url" content="https://xiaochangzai.github.io/index.html">
+<meta property="og:site_name" content="sunJsona的个人博客">
+<meta property="og:locale" content="Simple Chinese">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="sunJsona的个人博客">
+  
+    <link rel="alternative" href="/atom.xml" title="sunJsona的个人博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+
+  <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">sunJsona</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/smackgg/hexo-theme-smackdown">smackdown</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">sunJsona</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">sunJsona</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap">
+  
+    <article id="post-React源码学习/Renderer原理解析" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2022/02/23/React源码学习/Renderer原理解析/" class="article-date">
+  	<time datetime="2022-02-23T10:46:23.000Z" itemprop="datePublished">2022-02-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="React源码2-Renderer渲染器"><a href="#React源码2-Renderer渲染器" class="headerlink" title="React源码2 Renderer渲染器"></a>React源码2 Renderer渲染器</h1><h2 id="什么是渲染器"><a href="#什么是渲染器" class="headerlink" title="什么是渲染器"></a>什么是渲染器</h2><p>在<a href="React架构.md">React架构</a>这篇文章中已经介绍过了，所谓渲染器就是专门把虚拟DOM节点转成真实DOM节点的公共方法。</p>
+<p><code>render</code>阶段始于<code>performSyncWorkOnRoot</code>（同步更新）或<code>performConcurrentWorkOnRoot</code>（异步更新）方法。</p>
+<p>两个方法最终调用到<code>workLoopSync</code>或<code>workLoopConcurrent</code>两个函数，如下：<br><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 同步更新</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">workLoopSync</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">while</span> (workInProgress !== <span class="literal">null</span>) &#123;</span><br><span class="line">    performUnitOfWork(workInProgress);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 异步更新</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">workLoopConcurrent</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">while</span> (workInProgress !== <span class="literal">null</span> &amp;&amp; !shouldYield()) &#123;</span><br><span class="line">    performUnitOfWork(workInProgress);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>从代码中我们可以看出，更新过程中都会判断<code>workInProgress</code>，而异步更新会调用<code>shouldYield()</code>函数的判断</p>
+<h3 id="shouldYield"><a href="#shouldYield" class="headerlink" title="shouldYield"></a><code>shouldYield</code></h3><p>异步任务在处理的时候会调用<code>shouldYield</code>，<code>shouldYield</code>会判断是不是已经超时了，超时暂时先不做。<br><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">shouldYield</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (deadline === <span class="literal">null</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (deadline.timeRemaining() &gt; timeHeuristicForUnitOfWork) &#123;</span><br><span class="line">      <span class="comment">// Disregard deadline.didTimeout. Only expired work should be flushed</span></span><br><span class="line">      <span class="comment">// during a timeout. This path is only hit for non-expired work.</span></span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    deadlineDidExpire = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="performUnitOfWork"><a href="#performUnitOfWork" class="headerlink" title="performUnitOfWork"></a><code>performUnitOfWork</code></h3><p><code>performUnitOfWork</code>函数最主要的功能就是调用<code>beginWork()</code>和 <code>completeUnitOfWork()</code>两个函数。<code>beginWork()</code>为捕获阶段，此阶段会采取深度优先的方式遍历节点，并完成Fiber树创建以及diff算法。<code>completeUnitOfWork()</code>为冒泡阶段，此阶段要完成生命周期（部分）的调用，形成<code>effectlist</code>等</p>
+<h3 id="递归遍历"><a href="#递归遍历" class="headerlink" title="递归遍历"></a>递归遍历</h3><p>前面也讲过，渲染的时候需要调用递归遍历虚拟节点。那么在“递”和“归”的过程中，具体要做哪些工作呢？</p>
+<h4 id="“递”阶段"><a href="#“递”阶段" class="headerlink" title="“递”阶段"></a>“递”阶段</h4><p>递阶段会从<code>Fiber的RootFiber</code>开始深度优先遍历，为遍历到的每一个方法调用<code>beginWork</code>方法。</p>
+<p><code>beginWork</code> 的工作内容是往传入的Fiber节点上添加子节点。并使两个节点连接起来。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">beginWork</span>(<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">  current: Fiber | <span class="literal">null</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">  workInProgress: Fiber,</span></span></span><br><span class="line"><span class="function"><span class="params">  renderLanes: Lanes,</span></span></span><br><span class="line"><span class="function"><span class="params"></span>): <span class="title">Fiber</span> | <span class="title">null</span> </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> updateLanes = workInProgress.lanes;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (current !== <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> oldProps = current.memoizedProps;</span><br><span class="line">    <span class="keyword">const</span> newProps = workInProgress.pendingProps;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (</span><br><span class="line">      oldProps !== newProps ||</span><br><span class="line">      hasLegacyContextChanged() ||</span><br><span class="line">      <span class="comment">// 如果实现因热重载而改变，则强制重新渲染</span></span><br><span class="line">      (__DEV__ ? workInProgress.type !== current.type : <span class="literal">false</span>)</span><br><span class="line">    ) &#123;</span><br><span class="line">      <span class="comment">// ...更新阶段的处理</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!includesSomeLane(renderLanes, updateLanes)) &#123;</span><br><span class="line">      <span class="comment">// </span></span><br><span class="line">      <span class="comment">//...</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> ((current.effectTag &amp; ForceUpdateForLegacySuspense) !== NoEffect) &#123;</span><br><span class="line">        </span><br><span class="line">        didReceiveUpdate = <span class="literal">false</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="comment">/* 该didReceiveUpdate变量代表本次更新中本Fiber节点是否有变化 */</span></span><br><span class="line">    didReceiveUpdate = <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当第一次渲染，会根据 <code>workInProgress.tag</code> 来根据组件类型分别处理<br><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> (workInProgress.tag) &#123;</span><br><span class="line">  <span class="keyword">case</span> IndeterminateComponent: </span><br><span class="line">    <span class="comment">// ...省略</span></span><br><span class="line">  <span class="keyword">case</span> LazyComponent: </span><br><span class="line">    <span class="comment">// ...省略</span></span><br><span class="line">  <span class="keyword">case</span> FunctionComponent: &#123;</span><br><span class="line">      <span class="keyword">const</span> Component = workInProgress.type;</span><br><span class="line">      <span class="keyword">const</span> unresolvedProps = workInProgress.pendingProps;</span><br><span class="line">      <span class="keyword">const</span> resolvedProps =</span><br><span class="line">        workInProgress.elementType === Component</span><br><span class="line">          ? unresolvedProps</span><br><span class="line">          : resolveDefaultProps(Component, unresolvedProps);</span><br><span class="line">      <span class="keyword">return</span> updateFunctionComponent(</span><br><span class="line">        current,</span><br><span class="line">        workInProgress,</span><br><span class="line">        Component,</span><br><span class="line">        resolvedProps,</span><br><span class="line">        renderLanes,</span><br><span class="line">      );</span><br><span class="line">    &#125;</span><br><span class="line">  <span class="keyword">case</span> ClassComponent: </span><br><span class="line">    <span class="comment">// ...省略</span></span><br><span class="line">  <span class="keyword">case</span> HostRoot:</span><br><span class="line">    <span class="comment">// ...省略</span></span><br><span class="line">  <span class="keyword">case</span> HostComponent:</span><br><span class="line">    <span class="comment">// ...省略</span></span><br><span class="line">  <span class="keyword">case</span> HostText:</span><br><span class="line">    <span class="comment">// ...省略</span></span><br><span class="line">  <span class="comment">// ...省略其他类型</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这里注意 <code>updateFunctionComponent</code> 方法，并不是真正的把真实的dom节点渲染到浏览器上，而是先做个标记，到<code>commit</code>阶段再统一做渲染。</p>
+<p><code>current</code> 用来区分是 <code>mount</code> 还是 创建还是更新。如果当前<code>Fiber</code>不存在的话，就会创建一个新的<code>Fiber</code>节点。</p>
+<h4 id="“归”阶段"><a href="#“归”阶段" class="headerlink" title="“归”阶段"></a>“归”阶段</h4><p>在“归”阶段会调用<code>completeWork (opens new window)</code>处理<code>Fiber</code>节点。</p>
+<p>当某个<code>Fiber</code>节点执行完<code>completeWork</code>，如果其存在兄弟<code>Fiber</code>节点（即<code>fiber.sibling !== null）</code>，会进入其兄弟<code>Fiber</code>的“递”阶段。</p>
+<p>如果不存在兄弟<code>Fiber</code>，会进入父级<code>Fiber</code>的“归”阶段。</p>
+<p>“递”和“归”阶段会交错执行直到“归”到<code>rootFiber</code>。至此，render阶段的工作就结束了。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (next === <span class="literal">null</span>) &#123;</span><br><span class="line">  <span class="comment">// workInProgress已经不存在子树，就开始进行"归"阶段</span></span><br><span class="line">  completeUnitOfWork(unitOfWork);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="comment">// next是beginWork调用后的返回值workInProgress.child</span></span><br><span class="line">  workInProgress = next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个时候会调用 <code>completeUnitOfWork</code> 方法，此方法的作用是处理标记的<code>EffectList</code></p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 执行effect相关</span></span><br><span class="line"> <span class="keyword">if</span> (returnFiber.firstEffect === <span class="literal">null</span>) &#123;</span><br><span class="line">   returnFiber.firstEffect = completedWork.firstEffect;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">if</span> (completedWork.lastEffect !== <span class="literal">null</span>) &#123;</span><br><span class="line">   <span class="keyword">if</span> (returnFiber.lastEffect !== <span class="literal">null</span>) &#123;</span><br><span class="line">     returnFiber.lastEffect.nextEffect = completedWork.firstEffect;</span><br><span class="line">   &#125;</span><br><span class="line">   returnFiber.lastEffect = completedWork.lastEffect;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">if</span> (effectTag &gt; PerformedWork) &#123;</span><br><span class="line">   <span class="keyword">if</span> (returnFiber.lastEffect !== <span class="literal">null</span>) &#123;</span><br><span class="line">     returnFiber.lastEffect.nextEffect = completedWork;</span><br><span class="line">   &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">     returnFiber.firstEffect = completedWork;</span><br><span class="line">   &#125;</span><br><span class="line">   returnFiber.lastEffect = completedWork;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://image-static.segmentfault.com/361/416/3614163625-c4e10f3d78b6b123_fix732" alt=""></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-React源码学习/React架构" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2022/02/23/React源码学习/React架构/" class="article-date">
+  	<time datetime="2022-02-23T06:03:59.188Z" itemprop="datePublished">2022-02-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="React-源码学习1-React架构"><a href="#React-源码学习1-React架构" class="headerlink" title="React 源码学习1-React架构"></a>React 源码学习1-React架构</h1><h2 id="老的架构-React15的架构"><a href="#老的架构-React15的架构" class="headerlink" title="老的架构-React15的架构"></a>老的架构-React15的架构</h2><p>React15使用的架构主要分两层:</p>
+<ul>
+<li>Reconciler(协调器)</li>
+<li>Renderer(渲染器)</li>
+</ul>
+<p>协调器负责找出组件的变化，也就是我们说的diff，而Renderer负责渲染组件。首先为了方便我们后续更好的理解，先略微讲一下Render工作</p>
+<h2 id="JSX"><a href="#JSX" class="headerlink" title="JSX"></a>JSX</h2><p><a href="https://reactjs.org/docs/introducing-jsx.html" target="_blank" rel="noopener">JSX官网</a><br><a href="https://reactjs.org/" target="_blank" rel="noopener">React官网</a></p>
+<p>在这之前我们先将一下JSX，React 使用 JSX 来替代常规的 JavaScript。JSX 是一个看起来很像 XML 的 JavaScript 语法扩展。是FaceBook公司为了方便我们编写代码，研究出的一套特殊语法。JSX的优点有以下几个方面: </p>
+<ul>
+<li>JSX 执行更快，因为它在编译为 JavaScript 代码后进行了优化。</li>
+<li>它是类型安全的，在编译过程中就能发现错误。</li>
+<li>使用 JSX 编写模板更加简单快速。<br>我们看以下代码: </li>
+</ul>
+<p>代码1:<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HelloMessage</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        Hello &#123;<span class="keyword">this</span>.props.name&#125;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">ReactDOM.render(</span></span><br><span class="line"><span class="regexp">  &lt;HelloMessage name="Taylor" /</span>&gt;,</span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">'hello-example'</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<p>代码2:<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HelloMessage</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> React.createElement(</span><br><span class="line">      <span class="string">"div"</span>,</span><br><span class="line">      <span class="literal">null</span>,</span><br><span class="line">      <span class="string">"Hello "</span>,</span><br><span class="line">      <span class="keyword">this</span>.props.name</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(React.createElement(HelloMessage, &#123; <span class="attr">name</span>: <span class="string">"Taylor"</span> &#125;), <span class="built_in">document</span>.getElementById(<span class="string">'hello-example'</span>));</span><br></pre></td></tr></table></figure></p>
+<p>猜测一下这两段代码有什么区别?</p>
+<p>其实就是写法上不一样而已，实际的效果是一模一样的。那我们不妨猜测一下JSX的作用？</p>
+<p><code>JSX 会被babel编译成React.createElement方式运行</code>。<br>那到这里，我们继续往下猜测，<code>React.createElement</code> 方法是做什么的？</p>
+<h3 id="React-createElement-方法"><a href="#React-createElement-方法" class="headerlink" title="React.createElement 方法"></a>React.createElement 方法</h3><p>我们知道，Vue 和React 框架都是基于虚拟dom的。那么React.createDom 方法就是创建虚拟dom节点的方法。那如果存在组件嵌套的情况，在第三个参数那里可以调用React.createElement 去创建一个节点。最后得到一整个虚拟dom节点，交给render函数进行渲染。</p>
+<h2 id="ReactDom-render"><a href="#ReactDom-render" class="headerlink" title="ReactDom.render"></a>ReactDom.render</h2><p>ReactDom.render 这个函数从名字上来看就可以猜出它是干什么的，就是专门用来把虚拟dom节点转成真实dom节点，最后挂载带页面上。也就是我们说的渲染。那我们可以思考一下，这个dom节点如果很大会怎么样？对就是会卡顿。于是需要在render之前做一下diff。</p>
+<p>React 是一个跨平台的框架，所以有多套Renderer。每当Renderer接到Reconciler的通知，Renderer会根据平台来渲染。</p>
+<h2 id="Reconciler-协调器"><a href="#Reconciler-协调器" class="headerlink" title="Reconciler(协调器)"></a>Reconciler(协调器)</h2><p>协调器的作用是 负责找出变化的组件。每当有组件需要更新时，协调器需要做如下工作:</p>
+<ul>
+<li>调用函数组件、或class组件的render方法，将返回的JSX转化为虚拟DOM</li>
+<li>将虚拟DOM和上次更新时的虚拟DOM对比</li>
+<li>通过对比找出本次更新中变化的虚拟DOM</li>
+<li>通知Renderer将变化的虚拟DOM渲染到页面上</li>
+</ul>
+<h2 id="老架构的缺点"><a href="#老架构的缺点" class="headerlink" title="老架构的缺点"></a>老架构的缺点</h2><p>即使有diff算法来优化性能，但如果dom层级很深的话，由于React使用递归的方式来遍历虚拟dom节点，必然会造成视觉上的卡顿。</p>
+<h3 id="递归更新的缺点"><a href="#递归更新的缺点" class="headerlink" title="递归更新的缺点"></a>递归更新的缺点</h3><p>由于递归执行，所以更新一旦开始，中途就无法中断。当层级很深时，递归更新时间超过了16ms，用户交互就会卡顿。</p>
+<h2 id="新的React架构"><a href="#新的React架构" class="headerlink" title="新的React架构"></a>新的React架构</h2><p>React16架构可以分为三层：</p>
+<ul>
+<li>Scheduler（调度器）—— 调度任务的优先级，高优任务优先进入Reconciler</li>
+<li>Reconciler（协调器）—— 负责找出变化的组件</li>
+<li><p>Renderer（渲染器）—— 负责将变化的组件渲染到页面上</p>
+<p>那么什么是调度器？</p>
+<h3 id="Fiber-的三层含义"><a href="#Fiber-的三层含义" class="headerlink" title="Fiber 的三层含义"></a>Fiber 的三层含义</h3><ul>
+<li>作为架构来说，之前React15的Reconciler采用递归的方式执行，数据保存在递归调用栈中，所以被称为stack Reconciler。React16的Reconciler基于Fiber节点实现，被称为Fiber Reconciler。</li>
+</ul>
+</li>
+<li><p>作为静态的数据结构来说，每个Fiber节点对应一个React element，保存了该组件的类型（函数组件/类组件/原生组件…）、对应的DOM节点等信息。</p>
+</li>
+<li><p>作为动态的工作单元来说，每个Fiber节点保存了本次更新中该组件改变的状态、要执行的工作（需要被删除/被插入页面中/被更新…）。</p>
+<h3 id="调度器"><a href="#调度器" class="headerlink" title="调度器"></a>调度器</h3><p>我们知道React16最大的更新就是新增了Fiber架构，Fiber架构把一个完整的渲染任务拆成很多个小任务，分成不同的优先级。增量渲染（把渲染任务拆分成块，匀到多帧），十任务渲染更流畅，避免卡顿现象。</p>
+</li>
+</ul>
+<p>调度器处理完任务的优先级，将需要渲染的任务传递给协调器，进行diff。最后传递给renderer进行渲染。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-npm/mvn在mac安装遇到的坑" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2022/02/23/npm/mvn在mac安装遇到的坑/" class="article-date">
+  	<time datetime="2022-02-23T05:46:10.756Z" itemprop="datePublished">2022-02-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>首先说说常规的安装</p>
+<h3 id="1-下载nvm-使用nvm来管理Node版本"><a href="#1-下载nvm-使用nvm来管理Node版本" class="headerlink" title="1. 下载nvm,使用nvm来管理Node版本"></a>1. 下载nvm,使用nvm来管理Node版本</h3><p>命令行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-使用nvm来下载node-并管理node版本"><a href="#2-使用nvm来下载node-并管理node版本" class="headerlink" title="2. 使用nvm来下载node,并管理node版本"></a>2. 使用nvm来下载node,并管理node版本</h3><p>常见命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">nvm install stable ## 安装最新稳定版 node</span><br><span class="line">nvm install &lt;version&gt; ## 安装指定版本</span><br><span class="line">nvm uninstall &lt;version&gt; ## 删除已安装的指定版本</span><br><span class="line">nvm use &lt;version&gt; ## 切换使用指定的版本node</span><br><span class="line">nvm ls ## 列出所有安装的版本</span><br><span class="line">nvm ls-remote ## 列出所有远程服务器的版本</span><br><span class="line">nvm current ## 显示当前的版本</span><br><span class="line">nvm alias &lt;name&gt; &lt;version&gt; ## 给不同的版本号添加别名</span><br><span class="line">nvm unalias &lt;name&gt; ## 删除已定义的别名</span><br><span class="line">nvm reinstall-packages &lt;version&gt; ## 在当前版本 node 环境下，重新全局安装指定版本号的 npm 包</span><br><span class="line">nvm alias default [node版本号] ##设置默认版本</span><br></pre></td></tr></table></figure></p>
+<p>上面的安装大家都可以信手拈来，这里就不赘述，主要说一下这其中有个大家需要注意的坑点。<code>敲重点啦！</code></p>
+<h3 id="坑点一：安装之前必须把本地环境清理干净"><a href="#坑点一：安装之前必须把本地环境清理干净" class="headerlink" title="坑点一：安装之前必须把本地环境清理干净"></a>坑点一：安装之前必须把本地环境清理干净</h3><p>在安装node前，首先要考虑后续会不会切换版本，如果需要，必须要求nvm在Node安装之前</p>
+<ul>
+<li>先安装<code>nvm</code></li>
+</ul>
+<p>在通过<code>nvm</code>安装自己需要的<code>node</code></p>
+<p>否则，在<code>nvm</code>安装之前的安装的<code>node</code>是不会被<code>nvm</code>管理起来的！</p>
+<p>那如果已经安装了<code>node</code>，却还要使用<code>nvm</code>管理版本的话，怎么办？我很不幸的告诉你，你需要删除已安装的<code>node</code>。</p>
+<p>​ 下面是删除的<code>Node</code>和<code>npm</code>的命令，在终端中执行即可。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo npm uninstall npm -g</span><br><span class="line">sudo rm -rf /usr/local/lib/node /usr/local/lib/node_modules /var/db/receipts/org.nodejs.*</span><br><span class="line">sudo rm -rf /usr/local/include/node /Users/$USER/.npm</span><br><span class="line">sudo rm /usr/local/bin/node</span><br><span class="line">sudo rm /usr/local/share/man/man1/node.1</span><br><span class="line">sudo rm /usr/local/lib/dtrace/node.d</span><br></pre></td></tr></table></figure></p>
+<h3 id="坑点二：关闭终端nvm失效"><a href="#坑点二：关闭终端nvm失效" class="headerlink" title="坑点二：关闭终端nvm失效"></a>坑点二：关闭终端<code>nvm</code>失效</h3><p>对于一般的终端，默认是bash窗口，所以在安装完<code>nvm</code>后，根据如下图提示，进行操作</p>
+<p>配置环境变量(无 <code>.bash_profile</code>)</p>
+<p>添加 <code>.bash_profile</code>在终端键入<code>touch ~/.bash_profile</code></p>
+<p>打开 <code>.bash_profile</code>在终端键入<code>open -e .bash_profile</code></p>
+<p>在 <code>.basn_profile</code>中输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export NVM_DIR=&quot;$HOME/.nvm&quot;</span><br><span class="line">[ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;&amp; \. &quot;$NVM_DIR/nvm.sh&quot;  # This loads nvm</span><br><span class="line">[ -s &quot;$NVM_DIR/bash_completion&quot; ] &amp;&amp; \. &quot;$NVM_DIR/bash_completion&quot;  # This loads nvm bash_completion</span><br></pre></td></tr></table></figure></p>
+<p>配置生效<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.bash_profile</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-docker/docker学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2022/02/23/docker/docker学习笔记/" class="article-date">
+  	<time datetime="2022-02-23T05:41:08.341Z" itemprop="datePublished">2022-02-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="添加docker权限给当前用户（可以使docker命令免sudo）"><a href="#添加docker权限给当前用户（可以使docker命令免sudo）" class="headerlink" title="# 添加docker权限给当前用户（可以使docker命令免sudo）"></a># 添加docker权限给当前用户（可以使docker命令免sudo）</h2><h4 id="1-添加-docker-group"><a href="#1-添加-docker-group" class="headerlink" title="1. 添加 docker group"></a>1. 添加 docker group</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sunchang@sunchang-PC:~$ sudo groupadd docker</span><br><span class="line">groupadd：“docker”组已存在</span><br></pre></td></tr></table></figure>
+<h4 id="2-将用户添加到docker组"><a href="#2-将用户添加到docker组" class="headerlink" title="2. 将用户添加到docker组"></a>2. 将用户添加到docker组</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sunchang@sunchang-PC:~$ sudo gpasswd -a <span class="variable">$&#123;USER&#125;</span> docker</span><br><span class="line">正在将用户“sunchang”加入到“docker”组中</span><br></pre></td></tr></table></figure>
+<h4 id="3-重启docker服务"><a href="#3-重启docker服务" class="headerlink" title="3. 重启docker服务"></a>3. 重启docker服务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sunchang@sunchang-PC:~$ sudo service docker restart</span><br></pre></td></tr></table></figure>
+<h4 id="4-查看用户组及成员"><a href="#4-查看用户组及成员" class="headerlink" title="4. 查看用户组及成员"></a>4. 查看用户组及成员</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sunchang@sunchang-PC:~$ cat /etc/group | grep docker</span><br><span class="line">docker:x:997:sunchang</span><br></pre></td></tr></table></figure>
+<h2 id="运行一个HelloWorld"><a href="#运行一个HelloWorld" class="headerlink" title="运行一个HelloWorld"></a>运行一个HelloWorld</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run ubuntu <span class="built_in">echo</span> <span class="string">"Hello World"</span></span><br></pre></td></tr></table></figure>
+<p>解释： 使用ubuntu 镜像创建一个容器，并在这个容器里运行命令： <code>echo &quot;Hello World&quot;</code></p>
+<h2 id="让运行的容器实现对话能力"><a href="#让运行的容器实现对话能力" class="headerlink" title="让运行的容器实现对话能力"></a>让运行的容器实现对话能力</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -i -t ubuntu /bin/bash</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>-t:</strong>  在新容器内指定一个伪终端或终端。</li>
+<li><strong>-i:</strong>  允许你对容器内的标准输入 (STDIN) 进行交互。<br>可以通过运行 exit 命令或者使用 CTRL+D 来退出容器。<h4 id="启动容器（后台模式）"><a href="#启动容器（后台模式）" class="headerlink" title="启动容器（后台模式）"></a>启动容器（后台模式）</h4>使用以下命令创建一个以进程方式运行的容器<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker run -d ubuntu /bin/sh -c &quot;while true; do echo hello world; sleep 1; done&quot;</span><br><span class="line"></span><br><span class="line">2b1b7a428627c51ab8810d541d759f072b4fc75487eed05812646b8534a2fe63</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>这个时候，只是输出了一个id，这个是容器的id。</p>
+<h4 id="如何将本地目录映射到宿主机里？"><a href="#如何将本地目录映射到宿主机里？" class="headerlink" title="如何将本地目录映射到宿主机里？"></a>如何将本地目录映射到宿主机里？</h4><p>docker run 参数后面添加 -v /path/to/local:/path/to/target，注意的是windows系统需要按如下格式写：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 80:80 -v /D/docker/web:/usr/share/nginx/html/web -d nginx</span><br></pre></td></tr></table></figure></p>
+<p>-p 映射端口号，如果要映射多个端口号，可以写多个 -p。如:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 80:80 -p:443:443 -d nginx</span><br></pre></td></tr></table></figure></p>
+<p>-d 在后台运行</p>
+<h4 id="vim编辑文件"><a href="#vim编辑文件" class="headerlink" title="vim编辑文件"></a>vim编辑文件</h4><p>不是所有的容器都自带vim，像nginx的容器默认是没有vim的。这个时候需要手动安装:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt-get install vim</span><br></pre></td></tr></table></figure></p>
+<p>这样就可以啦~</p>
+<h3 id="查看正在运行的容器"><a href="#查看正在运行的容器" class="headerlink" title="查看正在运行的容器"></a>查看正在运行的容器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker ps</span><br><span class="line"></span><br><span class="line">CONTAINER ID        IMAGE                  COMMAND              ...  </span><br><span class="line">5917eac21c36        ubuntu:15.10           <span class="string">"/bin/sh -c 'while t…"</span>    ...</span><br></pre></td></tr></table></figure>
+<p>输出详情介绍：</p>
+<p><strong>CONTAINER ID:</strong>  容器 ID。</p>
+<p><strong>IMAGE:</strong>  使用的镜像。</p>
+<p><strong>COMMAND:</strong>  启动容器时运行的命令。</p>
+<p><strong>CREATED:</strong>  容器的创建时间。</p>
+<p><strong>STATUS:</strong>  容器状态。</p>
+<p>状态有7种：</p>
+<ul>
+<li>created（已创建）</li>
+<li>restarting（重启中）</li>
+<li>running 或 Up（运行中）</li>
+<li>removing（迁移中）</li>
+<li>paused（暂停）</li>
+<li>exited（停止）</li>
+<li>dead（死亡）</li>
+</ul>
+<p><strong>PORTS:</strong>  容器的端口信息和使用的连接类型（tcp\udp）。</p>
+<p><strong>NAMES:</strong>  自动分配的容器名称。</p>
+<h2 id="查看容器日志"><a href="#查看容器日志" class="headerlink" title="查看容器日志"></a>查看容器日志</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker logs 2b1b7a428627</span><br></pre></td></tr></table></figure>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/47c371cc298e49a9b0401c82f6c6d6d2~tplv-k3u1fbpfcp-watermark.image?" alt="image.png"></p>
+<h2 id="停止容器"><a href="#停止容器" class="headerlink" title="停止容器"></a>停止容器</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stop amazing_cori</span><br></pre></td></tr></table></figure>
+<h2 id="重启容器"><a href="#重启容器" class="headerlink" title="重启容器"></a>重启容器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stop amazing_cori</span><br></pre></td></tr></table></figure>
+<h2 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker attach 1e560fca3906</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Microsoft Windows [版本 10.0.19042.804]</span><br><span class="line">(c) 2020 Microsoft Corporation. 保留所有权利。</span><br><span class="line"></span><br><span class="line">C:\Users\hz21087108&gt;docker ps</span><br><span class="line">CONTAINER ID   IMAGE     COMMAND   CREATED        STATUS        PORTS     NAMES</span><br><span class="line">8b07524256a1   ubuntu    <span class="string">"bash"</span>    22 hours ago   Up 22 hours             vigorous_banach</span><br><span class="line"></span><br><span class="line">C:\Users\hz21087108&gt;docker attach 8b07524256a1</span><br><span class="line">root@8b07524256a1:/<span class="comment"># ls</span></span><br><span class="line">bin  boot  dev  etc  home  lib  lib32  lib64  libx32  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var</span><br><span class="line">root@8b07524256a1:/<span class="comment">#</span></span><br></pre></td></tr></table></figure>
+<h3 id="注意：-如果从这个容器退出，会导致这个容器停止-Ctl-D"><a href="#注意：-如果从这个容器退出，会导致这个容器停止-Ctl-D" class="headerlink" title="注意： 如果从这个容器退出，会导致这个容器停止(Ctl + D)"></a>注意： 如果从这个容器退出，会导致这个容器停止(Ctl + D)</h3><h2 id="exec-命令"><a href="#exec-命令" class="headerlink" title="exec 命令"></a>exec 命令</h2><p>使用容器执行命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it 243c32535da7 bash</span><br></pre></td></tr></table></figure></p>
+<h3 id="注意：-如果从这个容器退出，容器不会停止。所以进入容器的时候要使用exec-而不是-attach-。"><a href="#注意：-如果从这个容器退出，容器不会停止。所以进入容器的时候要使用exec-而不是-attach-。" class="headerlink" title="注意： 如果从这个容器退出，容器不会停止。所以进入容器的时候要使用exec 而不是 attach 。"></a>注意： 如果从这个容器退出，容器不会停止。所以进入容器的时候要使用<code>exec</code> 而不是 <code>attach</code> 。</h3><h2 id="删除容器"><a href="#删除容器" class="headerlink" title="删除容器"></a>删除容器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rm -f 1e560fca3906</span><br></pre></td></tr></table></figure>
+<h3 id="f-force的缩写，强制删除。"><a href="#f-force的缩写，强制删除。" class="headerlink" title="-f: --force的缩写，强制删除。"></a>-f: <code>--force</code>的缩写，强制删除。</h3><h2 id="清理掉所有处于终止状态的容器"><a href="#清理掉所有处于终止状态的容器" class="headerlink" title="清理掉所有处于终止状态的容器"></a>清理掉所有处于终止状态的容器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container prune</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\hz21087108&gt;docker container prune</span><br><span class="line">WARNING! This will remove all stopped containers.</span><br><span class="line">Are you sure you want to <span class="built_in">continue</span>? [y/N] y</span><br><span class="line">Deleted Containers:</span><br><span class="line">8b07524256a17d161e34d3c4577c3d59513e1d45028ac942e763170140b72867</span><br><span class="line">a61ede1df2433c977135f84fb5f5616040c8be1d1666958f8fe61164e38764ab</span><br><span class="line">c866412441ac925395e7a874d28b0e7ff1578b13ca905b657b7dc2f71b120330</span><br><span class="line">cc2bf6cb885b24df037e3022a8e27bd7682cdcd38a5b8d62f5b0b7bc06064a64</span><br><span class="line">c0e18126807e507b9a46107cdebbcf851795c2a2a32016d1a37bbfac0f31ee8b</span><br><span class="line">c75514cf5a47ac346de4e912151b761daf50f5494c5412d63a748c94cbf47128</span><br><span class="line">f34c9768ab1721aa297f3917280b6b9646cfe1655145c6a54bcf6684ae80ef0d</span><br><span class="line"></span><br><span class="line">Total reclaimed space: 2.906kB</span><br><span class="line"></span><br><span class="line">C:\Users\hz21087108&gt;docker ps -a</span><br><span class="line">CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES</span><br><span class="line"></span><br><span class="line">C:\Users\hz21087108&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="查看web容器信息"><a href="#查看web容器信息" class="headerlink" title="查看web容器信息"></a>查看web容器信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker ps</span><br><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
+<p><code>-a</code> 是显示全部容器，包括不在运行中的</p>
+<h2 id="查看指定容器的端口映射"><a href="#查看指定容器的端口映射" class="headerlink" title="查看指定容器的端口映射"></a>查看指定容器的端口映射</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker port bf08b7f2cd89</span><br><span class="line">5000/tcp -&gt; 0.0.0.0:5000</span><br></pre></td></tr></table></figure>
+<h2 id="查看web应用程序的日志"><a href="#查看web应用程序的日志" class="headerlink" title="查看web应用程序的日志"></a>查看web应用程序的日志</h2><p><code>docker logs [容器ID或者名字]</code> 可以查看容器的标准输出, <code>-f</code> 参数可以让容器log标准输出。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-CSS属性顺序" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/07/07/CSS属性顺序/" class="article-date">
+  	<time datetime="2020-07-07T05:00:13.000Z" itemprop="datePublished">2020-07-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/07/CSS属性顺序/">
+        CSS属性顺序
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="推荐样式书写顺序"><a href="#推荐样式书写顺序" class="headerlink" title="推荐样式书写顺序"></a>推荐样式书写顺序</h5><ol>
+<li>Position</li>
+<li>Box Model</li>
+<li>Typographic</li>
+<li>Visual</li>
+</ol>
+<p>由于定位（positioning）可以从正常的文档流中移除元素，并且还能覆盖盒模型（box model）相关的样式，因此排在首位。盒模型决定了组件的尺寸和位置，因此排在第二位。</p>
+<p>其他属性只是影响组件的内部（inside）或者是不影响前两组属性，因此排在后面:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">.declaration-order &#123;</span><br><span class="line">    /* Positioning */</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 0;</span><br><span class="line">    right: 0;</span><br><span class="line">    bottom: 0;</span><br><span class="line">    left: 0;</span><br><span class="line">    z-index: 100;</span><br><span class="line">    </span><br><span class="line">    /* Box-model */</span><br><span class="line">    display: block;</span><br><span class="line">    float: right;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100px;</span><br><span class="line">    </span><br><span class="line">    /* Typography */</span><br><span class="line">    font: normal 13px &quot;Helvetica Neue&quot;, sans-serif;</span><br><span class="line">    line-height: 1.5;</span><br><span class="line">    color: #333;</span><br><span class="line">    text-align: center;</span><br><span class="line">    </span><br><span class="line">    /* Visual */</span><br><span class="line">    background-color: #f5f5f5;</span><br><span class="line">    border: 1px solid #e5e5e5;</span><br><span class="line">    border-radius: 3px;</span><br><span class="line">    </span><br><span class="line">    /* Misc */</span><br><span class="line">    opacity: 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>链接的样式请严格按照如下顺序添加：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a:link -&gt; a:visited -&gt; a:hover -&gt; a:active（LoVeHAte）</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://blog.csdn.net/SyKent/article/details/7862172" target="_blank" rel="noopener">规则示例：</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line">.cl &#123;</span><br><span class="line">    display: ;</span><br><span class="line">    visibility: ;</span><br><span class="line">    float: ;</span><br><span class="line">    clear: ;</span><br><span class="line">    </span><br><span class="line">    position: ;</span><br><span class="line">    top: ;</span><br><span class="line">    right: ;</span><br><span class="line">    bottom: ;</span><br><span class="line">    left: ;</span><br><span class="line">    z-index: ;</span><br><span class="line">   </span><br><span class="line">    width: ;</span><br><span class="line">    min-width: ;</span><br><span class="line">    max-width: ;</span><br><span class="line">    height: ;</span><br><span class="line">    min-height: ;</span><br><span class="line">    max-height: ;</span><br><span class="line">    overflow: ;</span><br><span class="line"> </span><br><span class="line">    margin: ;</span><br><span class="line">    margin-top: ;</span><br><span class="line">    margin-right: ;</span><br><span class="line">    margin-bottom: ;</span><br><span class="line">    margin-left: ;</span><br><span class="line"> </span><br><span class="line">    padding: ;</span><br><span class="line">    padding-top: ;</span><br><span class="line">    padding-right: ;</span><br><span class="line">    padding-bottom: ;</span><br><span class="line">    padding-left: ;</span><br><span class="line"> </span><br><span class="line">    border-width: ;</span><br><span class="line">    border-top-width: ;</span><br><span class="line">    border-right-width: ;</span><br><span class="line">    border-bottom-width: ;</span><br><span class="line">    border-left-width: ;</span><br><span class="line"> </span><br><span class="line">    border-style: ;</span><br><span class="line">    border-top-style: ;</span><br><span class="line">    border-right-style: ;</span><br><span class="line">    border-bottom-style: ;</span><br><span class="line">    border-left-style: ;</span><br><span class="line"> </span><br><span class="line">    border-color: ;</span><br><span class="line">    border-top-color: ;</span><br><span class="line">    border-right-color: ;</span><br><span class="line">    border-bottom-color: ;</span><br><span class="line">    border-left-color: ;</span><br><span class="line"> </span><br><span class="line">    outline: ;</span><br><span class="line"> </span><br><span class="line">    list-style: ;</span><br><span class="line"> </span><br><span class="line">    table-layout: ;</span><br><span class="line">    caption-side: ;</span><br><span class="line">    border-collapse: ;</span><br><span class="line">    border-spacing: ;</span><br><span class="line">    empty-cells: ;</span><br><span class="line"> </span><br><span class="line">    font: ;</span><br><span class="line">    font-family: ;</span><br><span class="line">    font-size: ;</span><br><span class="line">    line-height: ;</span><br><span class="line">    font-weight: ;</span><br><span class="line">    text-align: ;</span><br><span class="line">    text-indent: ;</span><br><span class="line">    text-transform: ;</span><br><span class="line">    text-decoration: ;</span><br><span class="line">    letter-spacing: ;</span><br><span class="line">    word-spacing: ;</span><br><span class="line">    white-space: ;</span><br><span class="line">    vertical-align: ;</span><br><span class="line">    color: ;</span><br><span class="line"> </span><br><span class="line">    background: ;</span><br><span class="line">    background-color: ;</span><br><span class="line">    background-image: ;</span><br><span class="line">    background-repeat: ;</span><br><span class="line">    background-position: ;</span><br><span class="line"> </span><br><span class="line">    opacity: ;</span><br><span class="line"> </span><br><span class="line">    cursor: ;</span><br><span class="line"> </span><br><span class="line">    content: ;</span><br><span class="line">    quotes: ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-CSS笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/07/07/CSS笔记/" class="article-date">
+  	<time datetime="2020-07-07T05:00:13.000Z" itemprop="datePublished">2020-07-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/07/CSS笔记/">
+        CSS笔记
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="1-自定义字体"><a href="#1-自定义字体" class="headerlink" title="1. 自定义字体"></a>1. 自定义字体</h4><p>有的时候系统自带的字体并不能满足我们的字体。有时候我们会在网页上放一些比较炫酷的字体。但是怎么在网页上显示呢？</p>
+<hr>
+<p> 把使用的字体下载下来，然后找一个字体转化的官网，生成不同所需要的字体格式。推荐一个<a href="https://www.fontke.com/tool/convfont/" target="_blank" rel="noopener">字客</a>。<br> 把生成的字体下载下来。在css文件里写上如下代码：<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@font-face &#123;</span><br><span class="line">font-family: &apos;Monotype Corsiva&apos;;</span><br><span class="line">src: url(&apos;../font/Monotype Corsiva.eot&apos;); /* IE9 Compat Modes */</span><br><span class="line">src: url(&apos;../font/Monotype Corsiva.eot?#iefix&apos;) format(&apos;embedded-opentype&apos;), /* IE6-IE8 */</span><br><span class="line">        url(&apos;../font/Monotype Corsiva.woff&apos;) format(&apos;woff&apos;), /* Modern Browsers */</span><br><span class="line">        url(&apos;../font/Monotype Corsiva.ttf&apos;)  format(&apos;truetype&apos;), /* Safari, Android, iOS */</span><br><span class="line">        url(&apos;../font/Monotype Corsiva.svg#Monotype Corsiva&apos;) format(&apos;svg&apos;); /* Legacy iOS */</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+<p>   其中 ==../font/Monotype Corsiva.eot== 是我的字体文件路径。<br>   ==font-family== 写的是字体名称。</p>
+<h5 id="2-自定义滚动条样式"><a href="#2-自定义滚动条样式" class="headerlink" title="2. 自定义滚动条样式"></a>2. 自定义滚动条样式</h5><p>   有时候我不不太喜欢浏览器自带的滚动条样式，大大的影响了网页的美观。那么怎么去自定义浏览器滚动条样式呢？</p>
+<h6 id="1-Chrom-浏览器"><a href="#1-Chrom-浏览器" class="headerlink" title="1. Chrom 浏览器"></a>1. Chrom 浏览器</h6>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">   ::-webkit-scrollbar</span><br><span class="line">&#123;</span><br><span class="line">    width: 6px;</span><br><span class="line">    height: 6px;</span><br><span class="line">&#125;</span><br><span class="line">::-webkit-scrollbar-track-piece</span><br><span class="line">&#123;</span><br><span class="line">    background-color: #CCCCCC;</span><br><span class="line">    -webkit-border-radius: 6px;</span><br><span class="line">&#125;</span><br><span class="line">::-webkit-scrollbar-thumb:vertical</span><br><span class="line">&#123;</span><br><span class="line">    height: 5px;</span><br><span class="line">    background-color: #999999;</span><br><span class="line">    -webkit-border-radius: 6px;</span><br><span class="line">&#125;</span><br><span class="line">::-webkit-scrollbar-thumb:horizontal</span><br><span class="line">&#123;</span><br><span class="line">    width: 5px;</span><br><span class="line">    background-color: #CCCCCC;</span><br><span class="line">    -webkit-border-radius: 6px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="2-IE-浏览器"><a href="#2-IE-浏览器" class="headerlink" title="2. IE 浏览器"></a>2. IE 浏览器</h6>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">   /*滚动条*/</span><br><span class="line">body&#123;overflow-y:auto;overflow-x:hidden;height:580px;</span><br><span class="line">scrollbar-arrow-color:#302D30; /*三角箭头的颜色*/</span><br><span class="line">scrollbar-face-color:#000; /*立体滚动条的颜色（包括箭头部分的背景色）*/</span><br><span class="line">scrollbar-3dlight-color:#302D30; /*立体滚动条亮边的颜色*/</span><br><span class="line">scrollbar-highlight-color:#302D30; /*滚动条的高亮颜色（左阴影？）*/</span><br><span class="line">scrollbar-shadow-color:#302D30; /*立体滚动条阴影的颜色*/</span><br><span class="line">scrollbar-darkshadow-color:#302D30; /*立体滚动条外阴影的颜色*/</span><br><span class="line">scrollbar-track-color:#302D30; /*立体滚动条背景颜色*/</span><br><span class="line">scrollbar-base-color:#302D30; /*滚动条的基色*/&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h5 id="3-CSS3-box-flex-属性"><a href="#3-CSS3-box-flex-属性" class="headerlink" title="3. CSS3 box-flex 属性"></a>3. CSS3 box-flex 属性</h5><p>子元素平分父元素的宽度：</p>
+<p>定义两个可伸缩的 p 元素。如果父元素的总宽度是 300 像素，则 #p1 的宽度是 100 像素，而 #p2 的宽度是 200 像素:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#p1</span><br><span class="line">&#123;</span><br><span class="line">-moz-box-flex:1.0; /* Firefox */</span><br><span class="line">-webkit-box-flex:1.0; /* Safari 和 Chrome */</span><br><span class="line">box-flex:1.0;</span><br><span class="line">border:1px solid red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#p2</span><br><span class="line">&#123;</span><br><span class="line">-moz-box-flex:2.0; /* Firefox */</span><br><span class="line">-webkit-box-flex:2.0; /* Safari 和 Chrome */</span><br><span class="line">box-flex:2.0;</span><br><span class="line">border:1px solid blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h5 id="4-只显示三行文本，多余的显示…"><a href="#4-只显示三行文本，多余的显示…" class="headerlink" title="4. 只显示三行文本，多余的显示…"></a>4. 只显示三行文本，多余的显示…</h5> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> display: -webkit-box;</span><br><span class="line">-webkit-line-clamp: 3;</span><br><span class="line">-webkit-box-orient: vertical;</span><br><span class="line">overflow: hidden;</span><br></pre></td></tr></table></figure>
+<p> <a href="http://note.youdao.com/noteshare?id=cd68645a8d2bcc02a0f68b426dbcd729" target="_blank" rel="noopener">React.child.children 的用法 笔记</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-H5输入框被软键盘遮挡解决办法" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/07/07/H5输入框被软键盘遮挡解决办法/" class="article-date">
+  	<time datetime="2020-07-07T05:00:13.000Z" itemprop="datePublished">2020-07-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/07/H5输入框被软键盘遮挡解决办法/">
+        H5输入框被软键盘遮挡解决办法
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>当input或textarea获得焦点的时候，有可能会被软键盘遮挡住。解决办法如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">window.addEventListener(&apos;resize&apos;, function () &#123;</span><br><span class="line">        if (document.activeElement.tagName === &apos;INPUT&apos; || document.activeElement.tagName === &apos;TEXTAREA&apos;) &#123;</span><br><span class="line">            window.setTimeout(function () &#123;</span><br><span class="line">                let doc: any = document</span><br><span class="line">                doc.activeElement.scrollIntoViewIfNeeded()</span><br><span class="line">            &#125;, 0)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-JQuery源码之自调用匿名函数" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/07/07/JQuery源码之自调用匿名函数/" class="article-date">
+  	<time datetime="2020-07-07T05:00:13.000Z" itemprop="datePublished">2020-07-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/07/JQuery源码之自调用匿名函数/">
+        JQuery源码之自调用匿名函数
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>JQuery的自调用匿名函数如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(function(window,undefind)&#123;</span><br><span class="line">    var jQuery = ...</span><br><span class="line">    //...</span><br><span class="line">    window.jQuery = window.$ = jQuery;</span><br><span class="line">&#125;)(window)</span><br></pre></td></tr></table></figure></p>
+<h5 id="1-为什么要创建这样一个自调用匿名函数？"><a href="#1-为什么要创建这样一个自调用匿名函数？" class="headerlink" title="1. 为什么要创建这样一个自调用匿名函数？"></a>1. 为什么要创建这样一个自调用匿名函数？</h5><p>目的是创建一个特殊的函数作用域，防止 ==命名冲突==</p>
+<h5 id="2-为什么要为自调用匿名函数设置参数window，并传入window对象？"><a href="#2-为什么要为自调用匿名函数设置参数window，并传入window对象？" class="headerlink" title="2. 为什么要为自调用匿名函数设置参数window，并传入window对象？"></a>2. 为什么要为自调用匿名函数设置参数window，并传入window对象？</h5><p>是为了让window变成局部变量。这样在jQuery访问window对象时，不用把作用域链回退到顶层作用域。</p>
+<h5 id="3-为什么要为自调用匿名函数设置参数undefined？"><a href="#3-为什么要为自调用匿名函数设置参数undefined？" class="headerlink" title="3. 为什么要为自调用匿名函数设置参数undefined？"></a>3. 为什么要为自调用匿名函数设置参数undefined？</h5><p>特殊值undefined是window对象的一个属性。执行以下语句会弹出 true:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert(&quot;undefined&quot; in window)</span><br></pre></td></tr></table></figure></p>
+<p>通过把参数undefined作为局部变量使用，但是又不传入任何值，可以缩短查找undefined时的作用域链</p>
+<p>另外，通过这种方式可以确保undefined的值是undefined，因为undefined有可能会辈重写为新的值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">undefined = &quot;now its defined&quot;;</span><br><span class="line">alert(undefined);</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-IDEA快捷键" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/07/07/IDEA快捷键/" class="article-date">
+  	<time datetime="2020-07-07T05:00:13.000Z" itemprop="datePublished">2020-07-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="IDEA-光标类的操作"><a href="#IDEA-光标类的操作" class="headerlink" title="IDEA 光标类的操作"></a><a href="https://www.cnblogs.com/toov5/p/11616478.html" target="_blank" rel="noopener">IDEA 光标类的操作</a></h1><p>1、Ctrl+Alt+Left/Right 光标定位到上一个/下一个浏览位置处；</p>
+<p>2、Ctrl+Shift+Backspace 光标定位到上次修改的地方；</p>
+<p>3、Alt+Up/Down 移动光标到上一个/下一个方法开始处；</p>
+<p>4、Ctrl+Left/Right 移动光标到前一个/后一个单词处，加 Shift 键，产生选中效果；</p>
+<p>5、Ctrl+[/] 移动光标到前/后代码块，加 Shift 键，产生选中效果；</p>
+<p>6、Ctrl+W 按语法选中代码，连续按会有其他效果，加 Shift 键，产生反向选中效果；</p>
+<p>7、F2 快速定位到下一个错误和警告处，加 Shift 键，定位到上一个错误处；</p>
+<p>8、Ctrl+”+/-“ 当前方法展开/折叠，加 Shift 键，全部方法展开/折叠；</p>
+<p>9、Ctrl+Alt+T 在选中代码情况下，Surround With(if/else/try catch…) 快速包裹代码；</p>
+<p>10、Ctrl+Alt+V 提出选中内容为局部变量。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-React npm 环境搭建" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/07/07/React npm 环境搭建/" class="article-date">
+  	<time datetime="2020-07-07T05:00:13.000Z" itemprop="datePublished">2020-07-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/07/React npm 环境搭建/">
+        React npm 环境搭建
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="1-安装淘宝镜像"><a href="#1-安装淘宝镜像" class="headerlink" title="1. 安装淘宝镜像"></a>1. 安装淘宝镜像</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br><span class="line">$ npm config set registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+<h4 id="2-使用-create-react-app-快速构建-React-开发环境"><a href="#2-使用-create-react-app-快速构建-React-开发环境" class="headerlink" title="2. 使用 create-react-app 快速构建 React 开发环境"></a>2. 使用 create-react-app 快速构建 React 开发环境</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm install -g create-react-app</span><br><span class="line">$ create-react-app my-app</span><br><span class="line">$ cd my-app/</span><br><span class="line">$ npm start</span><br></pre></td></tr></table></figure>
+<h4 id="3-使用外部React组件"><a href="#3-使用外部React组件" class="headerlink" title="3. 使用外部React组件"></a>3. 使用外部React组件</h4><p>test.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; Component &#125; from &apos;react&apos;;</span><br><span class="line">class Test extends Component&#123;</span><br><span class="line">	render () &#123;</span><br><span class="line">		return (&lt;div&gt;1234&lt;/div&gt;)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">export default Test;</span><br></pre></td></tr></table></figure></p>
+<p>index.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import React from &apos;react&apos;;</span><br><span class="line">import ReactDOM from &apos;react-dom&apos;;</span><br><span class="line">import &apos;./index.css&apos;;</span><br><span class="line">import App from &apos;./App&apos;;</span><br><span class="line">import Test from &apos;./test&apos;;</span><br><span class="line">import registerServiceWorker from &apos;./registerServiceWorker&apos;;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(&lt;Test /&gt;, document.getElementById(&apos;root&apos;));</span><br><span class="line">registerServiceWorker();</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
+  
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2022 sunJsona
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/smackgg/hexo-theme-smackdown" target="_blank">Smackdown</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: true,
+		isPost: false,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/main.js"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>
+
+
+  </div>
+</body>
+</html>

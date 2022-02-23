@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>sunJsona的个人博客</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="sunJsona的个人博客">
+<meta property="og:url" content="https://xiaochangzai.github.io/page/3/index.html">
+<meta property="og:site_name" content="sunJsona的个人博客">
+<meta property="og:locale" content="Simple Chinese">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="sunJsona的个人博客">
+  
+    <link rel="alternative" href="/atom.xml" title="sunJsona的个人博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+
+  <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">sunJsona</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/smackgg/hexo-theme-smackdown">smackdown</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">sunJsona</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">sunJsona</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap">
+  
+    <article id="post-django入门之模板的用法" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/07/07/django入门之模板的用法/" class="article-date">
+  	<time datetime="2020-07-07T05:00:13.000Z" itemprop="datePublished">2020-07-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/07/django入门之模板的用法/">
+        django入门之模板的用法
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="1-为什么要使用模板？"><a href="#1-为什么要使用模板？" class="headerlink" title="1.为什么要使用模板？"></a>1.为什么要使用模板？</h5><p>  看下以前的代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#-*- coding:utf-8 -*-</span><br><span class="line">from django.shortcuts import render</span><br><span class="line">from django.http import HttpResponse</span><br><span class="line"># Create your views here.</span><br><span class="line"></span><br><span class="line">def index(request):</span><br><span class="line">    return HttpResponse(t.render(&quot;&lt;h1&gt;Hello,World!&lt;/h1&gt;&quot;))</span><br></pre></td></tr></table></figure>
+<p> 这里是把页面以字符串的形式返回。如果页面有点多，页面内容有点多的话，就得返回写好的html网页了。</p>
+<h5 id="2-使用写好的网页。"><a href="#2-使用写好的网页。" class="headerlink" title="2. 使用写好的网页。"></a>2. 使用写好的网页。</h5><p>首先得引入django的模板加载器，代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">from django.template import loader,Context</span><br></pre></td></tr></table></figure></p>
+<p>然后要创建一个加载器，和一个返回动态数据的Context对象，最后返回个模板。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def index(request):</span><br><span class="line">    t = loader.get_template(&quot;index.html&quot;)</span><br><span class="line">    c = Context(&#123;&quot;title&quot;:&quot;django模板添加动态数据&quot;&#125;)</span><br><span class="line">    return HttpResponse(t.render(c))</span><br></pre></td></tr></table></figure></p>
+<h5 id="3-创建模板。然后在你的app文件夹下，也就是和你的views-py同级目录下新建个文件夹templates，并在templates文件夹下创建个html文件，这里叫index-html"><a href="#3-创建模板。然后在你的app文件夹下，也就是和你的views-py同级目录下新建个文件夹templates，并在templates文件夹下创建个html文件，这里叫index-html" class="headerlink" title="3. 创建模板。然后在你的app文件夹下，也就是和你的views.py同级目录下新建个文件夹templates，并在templates文件夹下创建个html文件，这里叫index.html"></a>3. 创建模板。然后在你的app文件夹下，也就是和你的views.py同级目录下新建个文件夹templates，并在templates文件夹下创建个html文件，这里叫index.html</h5><h5 id="4-编辑模板。打开index-html，随意输入点html代码"><a href="#4-编辑模板。打开index-html，随意输入点html代码" class="headerlink" title="4. 编辑模板。打开index.html，随意输入点html代码"></a>4. 编辑模板。打开index.html，随意输入点html代码</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">      &lt;h1&gt;Hello,django!&lt;/h1&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p> 最后你可以运行服务器，在cmd中打开项目目录，输入命令：<code>manage.py runserver</code> 或者 <code>python manage.py runserver</code>，然后你会看到如下界面：<br><img src="https://sunchang.oss-cn-beijing.aliyuncs.com/image/828578-20170104205957675-468248005.png" alt=""></p>
+<p>你可以打开你的浏览器，在导航栏中输入地址: <code>http://127.0.0.1:8000/blog/index</code> ，<code>blog</code>是指你的应用名，我的是<code>blog</code>。然后你就可以看到你的<code>index.html</code>了。</p>
+<h5 id="5-在模板里获取动态数据"><a href="#5-在模板里获取动态数据" class="headerlink" title="5. 在模板里获取动态数据"></a>5. 在模板里获取动态数据</h5><p>打开<code>index.html</code>的编辑界面，在需要输出的地方加上<code>{{需要输出的变量}}</code>。比如我上面的代码里传入了<code>title</code>，在<code>html</code>里只要写<code>{{title}}</code>就行了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;title&gt;Hello,&#123;&#123;title&#125;&#125;&lt;/title&gt;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-git基本命令" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/07/07/git基本命令/" class="article-date">
+  	<time datetime="2020-07-07T05:00:13.000Z" itemprop="datePublished">2020-07-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/07/git基本命令/">
+        git基本命令
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="git基本命令"><a href="#git基本命令" class="headerlink" title="git基本命令"></a>git基本命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">git status //查看当前git情况 参数-s</span><br><span class="line">git init //git 初始化</span><br><span class="line">git config --global user.name &apos;&apos;//设置用户名</span><br><span class="line">git config --global user.email &apos;&apos;//设置email</span><br><span class="line">git config --list //查看配置</span><br><span class="line">git clone &apos;仓库地址&apos; //复制远程仓库到本地</span><br><span class="line">git add file // 提交文件到临时仓库</span><br><span class="line">git rm -cached &apos;文件路径&apos; 从临时仓库删除</span><br><span class="line">git commit -m &apos;描述内容&apos; // 把临时仓库文件提交到本地仓库</span><br><span class="line">git push -u origin master //提交到远程仓库</span><br><span class="line">git pull origin master从远程仓库拉回来</span><br><span class="line">git pull --rebase</span><br><span class="line">git diff</span><br><span class="line">git log </span><br><span class="line">git reset --hard 哈希值的前六位//回滚到之前的版本</span><br><span class="line">git branch v2 //添加一个分支v2</span><br><span class="line">git branch gh-pages //添加个可以直接浏览的分支 //浏览地址 sorry510.github.io/仓库名</span><br><span class="line">git checkout gh-pages </span><br><span class="line">git push origin gh-pages</span><br></pre></td></tr></table></figure>
+<p>设置密码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.password &quot;xxxxxx(your password)&quot;</span><br></pre></td></tr></table></figure></p>
+<p>设置远程仓库地址<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin https://sorry510:xp28344655@github.com/sorry510/cms</span><br><span class="line">git remote -v 查看远程仓库地址</span><br><span class="line">git remote set-url origin https://github.com/sorry510/cms 修改地址</span><br><span class="line"></span><br><span class="line">git fetch origin php 更新远程上的php分支</span><br></pre></td></tr></table></figure></p>
+<p>提交到远程仓库设置权限<br>修改.git/config<br>remote “origin”]<br>    url = <a href="https://github.com/sorry510/test.git" target="_blank" rel="noopener">https://github.com/sorry510/test.git</a><br>改为<br>remote “origin”]<br>    url = https://用户名:密码@github.com/sorry510/test.git<br>    例如//url = <a href="https://sorry510:xp28344655@github.com/sorry510/test.git" target="_blank" rel="noopener">https://sorry510:xp28344655@github.com/sorry510/test.git</a></p>
+<h2 id="vi常用快捷键"><a href="#vi常用快捷键" class="headerlink" title="vi常用快捷键"></a>vi常用快捷键</h2><p>正常模式<br>启动vim后默认位于正常模式。不论位于什么模式，按下<esc>键(有时需要按两下）<br>都会进入正常模式。<br>ctrl+r 撤销 +u<br>插入模式<br>在正常模式中按下i, I, a, A等键（后面系列文章会详细介绍），会进入插入模式。</esc></p>
+<p>命令模式<br>在正常模式中，按下：（冒号）键，会进入命令模式。<br>:w   保存文件但不退出vi<br>:w file 将修改另外保存到file中，不退出vi<br>:w!   强制保存，不推出vi<br>:wq  保存文件并退出vi<br>:wq! 强制保存文件，并退出vi<br>:q  不保存文件，退出vi<br>:q! 不保存文件，强制退出vi<br>:e! 放弃所有修改，从上次保存文件开始再编辑</p>
+<p>:set nu 显示行数</p>
+<p>可视模式<br>在正常模式按下v, V, <ctrl>+v，可以进入可视模式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;chen.jinlong@vmicloud.com&quot;</span><br><span class="line"></span><br><span class="line">①   cd ~/.ssh/    【如果没有对应的文件夹，则执行  mkdir  ./.ssh】</span><br><span class="line">②  git config --global user.name &quot;xb12369&quot;</span><br><span class="line">③  git config --global user.email &quot;1234@qq.com&quot;</span><br><span class="line">④  ssh-keygen -t rsa -C &quot;1234@qq.com&quot;</span><br></pre></td></tr></table></figure></ctrl></p>
+<p>合并分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git merge --no-ff  分支</span><br><span class="line"></span><br><span class="line">git checkout -b develop origin/develop</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-git工作流学习" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/07/07/git工作流学习/" class="article-date">
+  	<time datetime="2020-07-07T05:00:13.000Z" itemprop="datePublished">2020-07-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/07/git工作流学习/">
+        git工作流学习
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://blog.csdn.net/zyw0713/article/details/80083431" target="_blank" rel="noopener">git 的工作流程 纯干货</a><br><a href="https://git.ninghao.net/gitflow-workflow.html" target="_blank" rel="noopener">git workflow 工作流</a></p>
+<h4 id="1-有一次线上项目出bug了，需要把master上的项目拉取到本地"><a href="#1-有一次线上项目出bug了，需要把master上的项目拉取到本地" class="headerlink" title="1. 有一次线上项目出bug了，需要把master上的项目拉取到本地"></a>1. 有一次线上项目出bug了，需要把master上的项目拉取到本地</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure>
+<h5 id="然后在本地修改完bug，重新上传到master上"><a href="#然后在本地修改完bug，重新上传到master上" class="headerlink" title="然后在本地修改完bug，重新上传到master上"></a>然后在本地修改完bug，重新上传到master上</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &apos;修改了bug&apos;</span><br><span class="line">git pull    #看看有没有新的提交</span><br><span class="line">git push    #同步到远程仓库</span><br></pre></td></tr></table></figure>
+<h5 id="然后把master上的修改的内容同步到开发分支上，以防下次bug再出现"><a href="#然后把master上的修改的内容同步到开发分支上，以防下次bug再出现" class="headerlink" title="然后把master上的修改的内容同步到开发分支上，以防下次bug再出现"></a>然后把master上的修改的内容同步到开发分支上，以防下次bug再出现</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout feature    #先切换到feature分支（开发分支）</span><br><span class="line">git merge master    #把master分支合并到当前分支</span><br></pre></td></tr></table></figure>
+<h6 id="修改完毕"><a href="#修改完毕" class="headerlink" title="修改完毕"></a>修改完毕</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#Git创建Develop分支的命令</span><br><span class="line">git checkout -b develop master</span><br><span class="line">#将Develop分支发布到Master分支的命令</span><br><span class="line">git checkout master</span><br><span class="line">git merge --no-ff develop</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-springboot 如何解决跨域问题" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/07/07/springboot 如何解决跨域问题/" class="article-date">
+  	<time datetime="2020-07-07T05:00:13.000Z" itemprop="datePublished">2020-07-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/07/springboot 如何解决跨域问题/">
+        springboot 如何解决跨域问题
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>spring boot 如何解决跨域问题？<br>在spring config.java 里配置。如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">public class SpringMvcConfig &#123;</span><br><span class="line">    @Bean</span><br><span class="line">    public Filter corsFilter()&#123;</span><br><span class="line">        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();</span><br><span class="line">        CorsConfiguration config = new CorsConfiguration();</span><br><span class="line">        config.addAllowedOrigin(&quot;*&quot;);</span><br><span class="line">        config.addAllowedHeader(&quot;*&quot;);</span><br><span class="line">        config.addAllowedMethod(&quot;OPTIONS&quot;);</span><br><span class="line">        config.addAllowedMethod(&quot;HEAD&quot;);</span><br><span class="line">        config.addAllowedMethod(&quot;GET&quot;);</span><br><span class="line">        config.addAllowedMethod(&quot;PUT&quot;);</span><br><span class="line">        config.addAllowedMethod(&quot;POST&quot;);</span><br><span class="line">        config.addAllowedMethod(&quot;DELETE&quot;);</span><br><span class="line">        config.addAllowedMethod(&quot;PATCH&quot;);</span><br><span class="line">        source.registerCorsConfiguration(&quot;/**&quot;, config);</span><br><span class="line">        return new CorsFilter(source);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>@Configration 表示是系统配置。不用在xml文件中配置，项目可以自动执行配置代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">config.addAllowedOrigin(&quot;*&quot;);</span><br></pre></td></tr></table></figure></p>
+<p>这句话的意思是设置允许请求的域名。*代表所有的都允许。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-only-child 用法 React click事件" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/07/07/only-child 用法 React click事件/" class="article-date">
+  	<time datetime="2020-07-07T05:00:13.000Z" itemprop="datePublished">2020-07-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/07/only-child 用法 React click事件/">
+        only-child 用法 React click事件
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天遇到了一个需求：</p>
+<p>案例列表有的会有两个图片，有的有一个图片。两个图片中间又要留出空隙。一般做法都是用js解决。而我的想法是能用css解决的，就不用js</p>
+<p>我的思路是：only-child 处理有一个图片的情况。<br>nth-child(2) 处理有两个图片下的间距问题。代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#case-list .case-item .imgs img&#123;</span><br><span class="line">	width: 300px;</span><br><span class="line">	height: 300px;</span><br><span class="line">	display: block;</span><br><span class="line">	float: left;</span><br><span class="line">&#125;</span><br><span class="line">#case-list .case-item .imgs img:nth-child(2)&#123;</span><br><span class="line">	margin-left: 16px;</span><br><span class="line">&#125;</span><br><span class="line">#case-list .case-item .imgs img:only-child&#123;</span><br><span class="line">	width: 610px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>所有主流浏览器均支持 :only-child 选择器，除了 IE8 及更早的版本。</p>
+<p><a href="http://note.youdao.com/noteshare?id=50abee06b14c1ff465032d07289ccaa0" target="_blank" rel="noopener">JQuery源码之自调用匿名函数</a></p>
+<hr>
+<p>React 添加事件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">_init_ = (function(window,undefined)&#123;</span><br><span class="line">	return &#123;</span><br><span class="line">		getWidthOfClient:function()&#123;</span><br><span class="line">			var width = document.body.clientWidth;</span><br><span class="line">			var container = document.getElementById(&quot;container&quot;);</span><br><span class="line">			//container.style.width = width + &quot;px&quot;;</span><br><span class="line">		&#125;,</span><br><span class="line">		bindBannerClickHandeler()&#123;</span><br><span class="line">			var pos_left = 0;</span><br><span class="line">			var Banner = React.createClass(&#123;</span><br><span class="line">				prevHandle:function()&#123;</span><br><span class="line">					pos_left = -300;</span><br><span class="line">				&#125;,</span><br><span class="line">				render:function()&#123;</span><br><span class="line">					return &lt;div&gt;</span><br><span class="line">						&lt;img className=&quot;logo&quot; src=&quot;img/logo.png&quot; &gt;&lt;/img&gt;</span><br><span class="line">						&lt;div className=&quot;img-list&quot; style=&#123;&#123;left:pos_left&#125;&#125;&gt;</span><br><span class="line">							&lt;div className=&quot;banner-box&quot;&gt;</span><br><span class="line">								&lt;img src=&quot;img/banner2.png&quot;&gt;&lt;/img&gt;</span><br><span class="line">								&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">								&lt;div className=&quot;banner-box&quot;&gt;</span><br><span class="line">									&lt;img src=&quot;img/banner2.png&quot;&gt;&lt;/img&gt;</span><br><span class="line">									&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">									&lt;div className=&quot;banner-box&quot;&gt;</span><br><span class="line">										&lt;img src=&quot;img/banner2.png&quot;&gt;&lt;/img&gt;</span><br><span class="line">										&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">									&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">									&lt;div className=&quot;modal-box&quot;&gt;</span><br><span class="line">										&lt;div className=&quot;width-base height-max auto&quot;&gt;</span><br><span class="line">											&lt;span className=&quot;prev&quot; onClick=&#123;this.prevHandle&#125;&gt;&lt;/span&gt;</span><br><span class="line">											&lt;span className=&quot;next&quot;&gt;&lt;/span&gt;</span><br><span class="line">										&lt;/div&gt;</span><br><span class="line">									&lt;/div&gt;</span><br><span class="line">					&lt;/div&gt;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;);</span><br><span class="line"></span><br><span class="line">			ReactDOM.render(&lt;Banner /&gt;,document.getElementById(&quot;banner&quot;))</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)(window)</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-一些JS骚操作" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/07/07/一些JS骚操作/" class="article-date">
+  	<time datetime="2020-07-07T05:00:13.000Z" itemprop="datePublished">2020-07-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/07/一些JS骚操作/">
+        一些JS骚操作
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、强制类型转换"><a href="#一、强制类型转换" class="headerlink" title="一、强制类型转换"></a>一、强制类型转换</h2><h5 id="1-1-string强制转换为数字"><a href="#1-1-string强制转换为数字" class="headerlink" title="1.1 string强制转换为数字"></a>1.1 string强制转换为数字</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//可以用*1来转化为数字((实际上是调用.valueOf方法) 然后使用Number.isNaN来判断是否为NaN，或者使用 a !== a 来判断是否为NaN)</span><br><span class="line">&apos;32&apos; * 1            // 32</span><br><span class="line">&apos;ds&apos; * 1            // NaN</span><br><span class="line">null * 1            // 0</span><br><span class="line">undefined * 1    // NaN</span><br><span class="line">1  * &#123; valueOf: ()=&gt;&apos;3&apos; &#125;        // 3</span><br><span class="line">//使用+来转化字符串为数字</span><br><span class="line">+ &apos;123&apos;            // 123</span><br><span class="line">+ &apos;ds&apos;               // NaN</span><br><span class="line">+ &apos;&apos;                    // 0</span><br><span class="line">+ null              // 0</span><br><span class="line">+ undefined    // NaN</span><br><span class="line">+ &#123; valueOf: ()=&gt;&apos;3&apos; &#125;    // 3</span><br></pre></td></tr></table></figure>
+<h5 id="1-2-使用Boolean过滤数组中的所有假值"><a href="#1-2-使用Boolean过滤数组中的所有假值" class="headerlink" title="1.2 使用Boolean过滤数组中的所有假值"></a>1.2 使用Boolean过滤数组中的所有假值</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const compact = arr =&gt; arr.filter(Boolean)</span><br><span class="line">compact([0, 1, false, 2, &apos;&apos;, 3, &apos;a&apos;, &apos;e&apos; * 23, NaN, &apos;s&apos;, 34])</span><br></pre></td></tr></table></figure>
+<h5 id="1-3-数值取整-–去除小数点后面的值"><a href="#1-3-数值取整-–去除小数点后面的值" class="headerlink" title="1.3 数值取整 –去除小数点后面的值"></a>1.3 数值取整 –去除小数点后面的值</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">~~2.33</span><br><span class="line">2.33 | 0</span><br><span class="line">2.33 &gt;&gt; 0</span><br><span class="line">//Math.floor()向下取整,值永远只会变小</span><br></pre></td></tr></table></figure>
+<h5 id="1-4-判断奇偶数-负数同样适用"><a href="#1-4-判断奇偶数-负数同样适用" class="headerlink" title="1.4 判断奇偶数,负数同样适用"></a>1.4 判断奇偶数,负数同样适用</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const num=3;</span><br><span class="line">!!(num &amp; 1)                    // true</span><br><span class="line">!!(num % 2)                    // true</span><br><span class="line">//以上两种形式返回true的都是奇数</span><br></pre></td></tr></table></figure>
+<h5 id="JS-amp-amp-妙用-多重if-else-选择情况"><a href="#JS-amp-amp-妙用-多重if-else-选择情况" class="headerlink" title="JS|| &amp;&amp; 妙用 多重if else 选择情况"></a>JS|| &amp;&amp; 妙用 多重if else 选择情况</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">假设对成长速度显示规定如下:</span><br><span class="line">成长速度为5显示1个箭头</span><br><span class="line">成长速度为10显示2个箭头</span><br><span class="line">成长速度为12显示3个箭头</span><br><span class="line">成长速度为15显示4个箭头</span><br><span class="line">其他显示为0个箭头</span><br><span class="line">*/</span><br><span class="line">//一般代码</span><br><span class="line">var add_level = 0; </span><br><span class="line">if(add_step == 5)&#123; </span><br><span class="line">add_level = 1; </span><br><span class="line">&#125; </span><br><span class="line">else if(add_step == 10)&#123; </span><br><span class="line">add_level = 2; </span><br><span class="line">&#125; </span><br><span class="line">else if(add_step == 12)&#123; </span><br><span class="line">add_level = 3; </span><br><span class="line">&#125; </span><br><span class="line">else if(add_step == 15)&#123; </span><br><span class="line">add_level = 4; </span><br><span class="line">&#125; </span><br><span class="line">else &#123; </span><br><span class="line">add_level = 0; </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">//好一点的switch</span><br><span class="line">var add_level = 0; </span><br><span class="line">switch(add_step)&#123; </span><br><span class="line">    case 5 : add_level = 1; </span><br><span class="line">    break; </span><br><span class="line">    case 10 : add_level = 2; </span><br><span class="line">    break; </span><br><span class="line">    case 12 : add_level = 3; </span><br><span class="line">    break; </span><br><span class="line">    case 15 : add_level = 4; </span><br><span class="line">    break; </span><br><span class="line">    default : add_level = 0; </span><br><span class="line">    break; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//更好一点的</span><br><span class="line">var add_level = (add_step==5 &amp;&amp; 1) || (add_step==10 &amp;&amp; 2) || (add_step==12 &amp;&amp; 3) || (add_step==15 &amp;&amp; 4) || 0; </span><br><span class="line"></span><br><span class="line">//还有更好的</span><br><span class="line">var add_level=&#123;&apos;5&apos;:1,&apos;10&apos;:2,&apos;12&apos;:3,&apos;15&apos;:4&#125;[add_step] || 0;</span><br></pre></td></tr></table></figure>
+<h2 id="二、函数"><a href="#二、函数" class="headerlink" title="二、函数"></a>二、函数</h2><h5 id="2-1-惰性载入函数"><a href="#2-1-惰性载入函数" class="headerlink" title="2.1 惰性载入函数"></a>2.1 惰性载入函数</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">//这个判断依据在整个项目运行期间一般不会变化，所以判断分支在整个项目运行期间只会运行某个特定分支，那么就可以考虑惰性载入函数</span><br><span class="line">function foo()&#123;</span><br><span class="line">    if(a !== b)&#123;</span><br><span class="line">        console.log(&apos;aaa&apos;)</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        console.log(&apos;bbb&apos;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 优化后</span><br><span class="line">function foo()&#123;</span><br><span class="line">    if(a != b)&#123;</span><br><span class="line">        foo = function()&#123;</span><br><span class="line">            console.log(&apos;aaa&apos;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        foo = function()&#123;</span><br><span class="line">            console.log(&apos;bbb&apos;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return foo();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="2-2-动态添加js"><a href="#2-2-动态添加js" class="headerlink" title="2.2 动态添加js"></a>2.2 动态添加js</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//动态添加js</span></span><br><span class="line"><span class="built_in">document</span>.write(<span class="string">"&lt;script src='"</span> + context.path + <span class="string">"/resource/apps/logger.js'&gt;&lt;/script&gt;"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 动态添加JS</span></span><br><span class="line"><span class="comment"> * @param &#123;Object&#125; js</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadJs</span>(<span class="params">js</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> s = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</span><br><span class="line">    s.setAttribute(<span class="string">'type'</span>, <span class="string">'text/javascript'</span>);</span><br><span class="line">    s.setAttribute(<span class="string">'src'</span>, js);</span><br><span class="line">    <span class="keyword">var</span> content = <span class="built_in">document</span>.getElementById(<span class="string">"container-fluid"</span>);</span><br><span class="line">    content.appendChild(s);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="三、数组"><a href="#三、数组" class="headerlink" title="三、数组"></a>三、数组</h2><h5 id="3-1-reduce方法同时实现map和filter"><a href="#3-1-reduce方法同时实现map和filter" class="headerlink" title="3.1 reduce方法同时实现map和filter"></a>3.1 reduce方法同时实现map和filter</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> numbers = [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>];</span><br><span class="line"><span class="keyword">const</span> doubledOver50 = numbers.reduce(<span class="function">(<span class="params">finalList, num,currentIndex,numbers</span>) =&gt;</span> &#123;</span><br><span class="line">  </span><br><span class="line">  <span class="built_in">console</span>.log(finalList);</span><br><span class="line">  <span class="built_in">console</span>.log(num);</span><br><span class="line">  <span class="built_in">console</span>.log(currentIndex);</span><br><span class="line">  <span class="built_in">console</span>.log(numbers);</span><br><span class="line">  num = num * <span class="number">2</span>;</span><br><span class="line">  <span class="keyword">if</span> (num &gt; <span class="number">50</span>) &#123;</span><br><span class="line">    finalList.push(num);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> finalList;</span><br><span class="line">&#125;, []);</span><br></pre></td></tr></table></figure>
+<h5 id="五种方法实现值交换"><a href="#五种方法实现值交换" class="headerlink" title="五种方法实现值交换"></a>五种方法实现值交换</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">1.</span> <span class="keyword">var</span> temp = a; a = b; b = temp; <span class="comment">//(传统，但需要借助临时变量)</span></span><br><span class="line"> </span><br><span class="line"><span class="number">2.</span> a ^= b; b ^= a; a ^= b; <span class="comment">//(需要两个整数)</span></span><br><span class="line"> </span><br><span class="line"><span class="number">3.</span> b = [a, a = b][<span class="number">0</span>] <span class="comment">//(借助数组)</span></span><br><span class="line"> </span><br><span class="line"><span class="number">4.</span> [a, b] = [b, a]; <span class="comment">//(ES6，解构赋值)</span></span><br><span class="line"> </span><br><span class="line"><span class="number">5.</span> a = a + b; b = a - b; a = a - b; <span class="comment">//(小学奥赛题)</span></span><br></pre></td></tr></table></figure>
+<h5 id="去掉小数部分"><a href="#去掉小数部分" class="headerlink" title="去掉小数部分"></a>去掉小数部分</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">parseInt(num)</span><br><span class="line"> </span><br><span class="line">~~num</span><br><span class="line"> </span><br><span class="line">num &gt;&gt; 0</span><br><span class="line"> </span><br><span class="line">num | 0</span><br></pre></td></tr></table></figure>
+<h5 id="判断x是否是整数"><a href="#判断x是否是整数" class="headerlink" title="判断x是否是整数"></a>判断x是否是整数</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">function isInt(x) &#123;</span><br><span class="line"> </span><br><span class="line">  return (x ^ 0) === x</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">// return Math.round(x) === x</span><br><span class="line"> </span><br><span class="line">// return (typeof x === &apos;number&apos;) &amp;&amp; (x % 1 === 0)</span><br><span class="line"> </span><br><span class="line">// ES6 -&gt; Number.isInteger()</span><br></pre></td></tr></table></figure>
+<h5 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// ES6</span><br><span class="line"> </span><br><span class="line">Array.from(new Set(arr))</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">// ES5</span><br><span class="line"> </span><br><span class="line">arr.filter(function(ele, index, array)&#123;</span><br><span class="line"> </span><br><span class="line">    return index===array.indexOf(ele)</span><br><span class="line"> </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h5 id="数组最大值"><a href="#数组最大值" class="headerlink" title="数组最大值"></a>数组最大值</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function maxArr(arr) &#123;</span><br><span class="line"> </span><br><span class="line"> return Math.max.apply(null, arr)</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="数组最小值"><a href="#数组最小值" class="headerlink" title="数组最小值"></a>数组最小值</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function minArr(arr) &#123;</span><br><span class="line"> </span><br><span class="line"> return Math.min.apply(null, arr)</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="随机获取数组的一个成员"><a href="#随机获取数组的一个成员" class="headerlink" title="随机获取数组的一个成员"></a>随机获取数组的一个成员</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function randomOne(arr) &#123;</span><br><span class="line"> </span><br><span class="line"> return arr[Math.floor(Math.random() * arr.length)]</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="产生随机颜色"><a href="#产生随机颜色" class="headerlink" title="产生随机颜色"></a>产生随机颜色</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function getRandomColor() &#123;</span><br><span class="line"> </span><br><span class="line">    return `#$&#123;Math.random().toString(16).substr(2, 6)&#125;`</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="随机生成指定长度字符串"><a href="#随机生成指定长度字符串" class="headerlink" title="随机生成指定长度字符串"></a>随机生成指定长度字符串</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function randomStr(n) &#123;</span><br><span class="line">    let standard = &apos;abcdefghijklmnopqrstuvwxyz9876543210&apos;</span><br><span class="line">    let len = standard.length</span><br><span class="line">    let result = &apos;&apos;</span><br><span class="line"></span><br><span class="line">    for (let i = 0; i &lt; n; i++) &#123;</span><br><span class="line">        result += standard.charAt(Math.floor(Math.random() * len))</span><br><span class="line">  &#125;</span><br><span class="line">  return result</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JSON.parse(JSON.stringify(obj))</span><br></pre></td></tr></table></figure>
+<p>##### </p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-公司内部笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/07/07/公司内部笔记/" class="article-date">
+  	<time datetime="2020-07-07T05:00:13.000Z" itemprop="datePublished">2020-07-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://192.168.188.111/login/Login.jsp?logintype=1" target="_blank" rel="noopener">雅戈尔OA系统</a></p>
+<p>工号: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># npm&amp;yarn 换源&amp;命令删除node_modules</span><br></pre></td></tr></table></figure></p>
+<p>1.查看当前源<br>npm<br>yarn config get registry<br>2、切换为淘宝源<br>yarn<br>npm config set registry <a href="https://registry.npm.taobao.org" target="_blank" rel="noopener">https://registry.npm.taobao.org</a><br>3、或者切换为自带的<br>npm<br>yarn config set registry <a href="https://registry.yarnpkg.com" target="_blank" rel="noopener">https://registry.yarnpkg.com</a><br>4、删除 node_modules<br> 安装 rimraf<br> npm install rimraf -g<br>使用命令删除<br>rimraf node_modules<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#### 本地排程号-工厂</span><br></pre></td></tr></table></figure></p>
+<p>西服：2019-J502<br>时装：2020-TX<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">liantong_0518</span><br><span class="line"></span><br><span class="line">```home.vue</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;container&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;screen-container&quot;&gt;</span><br><span class="line">      &lt;van-swipe-cell</span><br><span class="line">        v-for=&quot;(item, index) in screenList&quot;</span><br><span class="line">        :disabled=&quot;!item.hasEnter&quot;</span><br><span class="line">        :key=&quot;index&quot;&gt;</span><br><span class="line">        &lt;van-row</span><br><span class="line">          :class=&quot;`screenItem $&#123;Number(screenIndex) === index ? &apos;screenActive&apos; : &apos;&apos;&#125;`&quot;</span><br><span class="line">          @click=&quot;screenChange(item, index)&quot;</span><br><span class="line">        &gt;</span><br><span class="line">          &lt;van-col class=&quot;content&quot;&gt;</span><br><span class="line">            &lt;p&gt;&#123;&#123; item.scrname &#125;&#125;&lt;/p&gt;</span><br><span class="line">            &lt;p&gt;编号：&#123;&#123; item.scrid &#125;&#125;&lt;/p&gt;</span><br><span class="line">            &lt;p v-if=&quot;item.createtime&quot;&gt;创建时间：&#123;&#123; item.createtime.slice(0,10) &#125;&#125;&lt;/p&gt;</span><br><span class="line">          &lt;/van-col&gt;</span><br><span class="line">          &lt;van-col class=&quot;content&quot;&gt;</span><br><span class="line">            &lt;img :src=&quot;require(`@/assets/$&#123;item.scrid&#125;.png`)&quot; alt=&quot;&quot;&gt;</span><br><span class="line">          &lt;/van-col&gt;</span><br><span class="line">        &lt;/van-row&gt;</span><br><span class="line">        &lt;template #right&gt;</span><br><span class="line">          &lt;van-button square text=&quot;进入控制台&quot; type=&quot;info&quot; class=&quot;to-ctrl&quot;  @click=&quot;toControl(item), screenChange(item, index)&quot;/&gt;</span><br><span class="line">        &lt;/template&gt;</span><br><span class="line">      &lt;/van-swipe-cell&gt;</span><br><span class="line">      &lt;!-- &lt;div class=&quot;btn&quot; @touchstart.prevent=&quot;startTouch&quot; @touchend.prevent=&quot;touchEnd&quot;&gt;测试语音&lt;/div&gt; --&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;van-row class=&quot;posSelect&quot; @click=&quot;selectShow()&quot;&gt;切换地点&lt;/van-row&gt;</span><br><span class="line">      &lt;van-dialog</span><br><span class="line">        v-model=&quot;selectDialogShow&quot;</span><br><span class="line">        @confirm=&quot;dialogConfirmHandler&quot;</span><br><span class="line">        closeOnClickOverlay</span><br><span class="line">        :showConfirmButton=&quot;false&quot;</span><br><span class="line">        title=&quot;请选择&quot;</span><br><span class="line">      &gt;</span><br><span class="line">        &lt;div class=&quot;optionsWrap&quot;&gt;</span><br><span class="line">          &lt;div</span><br><span class="line">            :class=&quot;`posOption $&#123;deviceCode==index+1 ? &apos;isActive&apos; : &apos;&apos;&#125;`&quot;</span><br><span class="line">            v-for=&quot;(item, index) in screenPosList&quot;</span><br><span class="line">            :key=&quot;index&quot;</span><br><span class="line">            @click=&quot;screenSelect(index)&quot;</span><br><span class="line">          &gt;</span><br><span class="line">            &#123;&#123; item.name &#125;&#125;</span><br><span class="line">          &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">      &lt;/van-dialog&gt;</span><br><span class="line">      &lt;!-- &lt;Loading ref=&quot;loading&quot; :visable=&quot;true&quot;/&gt; --&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import &#123; Button, Tabbar, TabbarItem, Swipe, SwipeCell, SwipeItem, Row, Col, Dialog &#125; from &apos;vant&apos;</span><br><span class="line">import * as dd from &apos;dingtalk-jsapi&apos;</span><br><span class="line">import &#123; getScreenList, changeScreen, getTokenByAuthCode &#125; from &apos;../api/dingdingApi&apos;</span><br><span class="line">// import Loading from &apos;components/Loading&apos;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  name: &apos;home&apos;,</span><br><span class="line">  data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      selectDialogShow: false,</span><br><span class="line">      deviceCode: localStorage.getItem(&apos;DEVICE_CODE&apos;) || &apos;1&apos;,</span><br><span class="line">      screenIndex: localStorage.getItem(&apos;SCREEN_INDEX&apos;) || 0,</span><br><span class="line">      // 大屏物理地点</span><br><span class="line">      screenPosList: [</span><br><span class="line">        &#123;</span><br><span class="line">          name: &apos;A座大屏&apos;,</span><br><span class="line">          deviceCode: &apos;1&apos;,</span><br><span class="line">          isActive: true</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          name: &apos;B座博物馆&apos;,</span><br><span class="line">          deviceCode: &apos;2&apos;,</span><br><span class="line">          isActive: false</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          name: &apos;B座拼接屏&apos;,</span><br><span class="line">          deviceCode: &apos;3&apos;,</span><br><span class="line">          isActive: false</span><br><span class="line">        &#125;, &#123;</span><br><span class="line">          name: &apos;进入测试&apos;,</span><br><span class="line">          deviceCode: 100,</span><br><span class="line">          isActive: false</span><br><span class="line">        &#125;</span><br><span class="line">      ],</span><br><span class="line">      screenList: [</span><br><span class="line">        &#123;</span><br><span class="line">          screenId: 1,</span><br><span class="line">          scrid: 1,</span><br><span class="line">          name: &apos;设备互联调度中心&apos;,</span><br><span class="line">          num: &apos;20200429090807&apos;,</span><br><span class="line">          time: &apos;2020/4/29&apos;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          screenId: 2,</span><br><span class="line">          scrid: 2,</span><br><span class="line">          name: &apos;产前调度中心&apos;,</span><br><span class="line">          num: &apos;20200429090807&apos;,</span><br><span class="line">          time: &apos;2020/4/29&apos;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          screenId: 3,</span><br><span class="line">          scrid: 3,</span><br><span class="line">          name: &apos;车间订单调度中心&apos;,</span><br><span class="line">          num: &apos;20200429090807&apos;,</span><br><span class="line">          time: &apos;2020/4/29&apos;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          screenId: 4,</span><br><span class="line">          scrid: 4,</span><br><span class="line">          name: &apos;智能产线调度中心&apos;,</span><br><span class="line">          num: &apos;20200429090807&apos;,</span><br><span class="line">          time: &apos;2020/4/29&apos;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          screenId: 5,</span><br><span class="line">          scrid: 5,</span><br><span class="line">          name: &apos;生产通知调度大屏&apos;,</span><br><span class="line">          num: &apos;20200429090807&apos;,</span><br><span class="line">          time: &apos;2020/4/29&apos;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          screenId: 6,</span><br><span class="line">          scrid: 6,</span><br><span class="line">          name: &apos;精益中心调度大屏&apos;,</span><br><span class="line">          num: &apos;20200429090807&apos;,</span><br><span class="line">          time: &apos;2020/4/29&apos;</span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  components: &#123;</span><br><span class="line">    [Button.name]: Button,</span><br><span class="line">    [Tabbar.name]: Tabbar,</span><br><span class="line">    [TabbarItem.name]: TabbarItem,</span><br><span class="line">    [Swipe.name]: Swipe,</span><br><span class="line">    [SwipeItem.name]: SwipeItem,</span><br><span class="line">    [Row.name]: Row,</span><br><span class="line">    [Col.name]: Col,</span><br><span class="line">    [Dialog.Component.name]: Dialog.Component,</span><br><span class="line">    // Loading: Loading,</span><br><span class="line">    [SwipeCell.name]: SwipeCell</span><br><span class="line">  &#125;,</span><br><span class="line">  mounted () &#123;</span><br><span class="line">    console.log(&apos; --- 进入Home ---&apos;)</span><br><span class="line"></span><br><span class="line">    if (localStorage.getItem(&apos;FIRST_ENTER&apos;) === &apos;true&apos; &amp;&amp; localStorage.getItem(&apos;DEVICE_CODE&apos;) === null) &#123;</span><br><span class="line">      this.selectDialogShow = true</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      this.selectDialogShow = false</span><br><span class="line">      try &#123;</span><br><span class="line">        document.title = this.screenPosList[localStorage.getItem(&apos;DEVICE_CODE&apos;) - 1].name + &apos;-控制器&apos;</span><br><span class="line">      &#125; catch (e) &#123; console.error(e) &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(&apos;deviceCode created:&apos;, localStorage.getItem(&apos;DEVICE_CODE&apos;))</span><br><span class="line">    if (process.env.NODE_ENV === &apos;development&apos;) &#123;</span><br><span class="line">      getScreenList().then(res =&gt; &#123;</span><br><span class="line">        this.screenList = res.data</span><br><span class="line">        for (let item of this.screenList) &#123;</span><br><span class="line">          item.imgUrl = &apos;p&apos; + item.scrid</span><br><span class="line">          item.hasEnter = ![20200521001, 20200521004, 20200521005].includes(item.scrid)</span><br><span class="line">        &#125;</span><br><span class="line">        const scrLoading = document.querySelector(&apos;#scr-loading&apos;)</span><br><span class="line">        setTimeout(() =&gt; &#123;</span><br><span class="line">          scrLoading.className = &apos;fade-hide&apos;</span><br><span class="line">        &#125;, 500)</span><br><span class="line">        setTimeout(() =&gt; &#123;</span><br><span class="line">          scrLoading.className = &apos;&apos;</span><br><span class="line">          scrLoading.style.display = &apos;none&apos;</span><br><span class="line">        &#125;, 1000)</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    debugger</span><br><span class="line">    console.log(&apos;--- 正在添加token ---&apos;)</span><br><span class="line">    try &#123;</span><br><span class="line">      dd.runtime.permission.requestAuthCode(&#123;</span><br><span class="line">        corpId: &apos;ding93d89be042ee6abd35c2f4657eb6378f&apos;,</span><br><span class="line">        // corpId: &apos;ding9bf7f88c8bc0ced3ffe93478753d9884&apos;,</span><br><span class="line">        onSuccess: result =&gt; &#123;</span><br><span class="line">          console.log(result)</span><br><span class="line">          console.log(&apos;添加token成功&apos;, result)</span><br><span class="line">          getTokenByAuthCode(&#123;</span><br><span class="line">            requestAuthCode: result.code</span><br><span class="line">          &#125;).then(res =&gt; &#123;</span><br><span class="line">            console.log(&apos;getTokenByAuthCode 成功&apos;, res)</span><br><span class="line"></span><br><span class="line">            localStorage.setItem(&apos;TOKEN&apos;, res.data)</span><br><span class="line">            getScreenList().then(res =&gt; &#123;</span><br><span class="line">              this.screenList = res.data</span><br><span class="line">              for (let item of this.screenList) &#123;</span><br><span class="line">                item.imgUrl = &apos;p&apos; + item.scrid</span><br><span class="line">              &#125;</span><br><span class="line">            &#125;).catch(err =&gt; &#123;</span><br><span class="line">              alert(JSON.stringify(err))</span><br><span class="line">              console.log(&apos;=========================&gt;&apos;)</span><br><span class="line"></span><br><span class="line">              console.error(err)</span><br><span class="line">            &#125;)</span><br><span class="line">          &#125;).catch(err =&gt; &#123;</span><br><span class="line">            alert(&apos;getTokenByAuthCode 出错&apos;)</span><br><span class="line">            console.log(&apos;getTokenByAuthCode 出错&apos;, err)</span><br><span class="line">          &#125;)</span><br><span class="line">        /* &#123;</span><br><span class="line">        code: &apos;hYLK98jkf0m&apos; //string authCode</span><br><span class="line">    &#125; */</span><br><span class="line">        &#125;,</span><br><span class="line">        onFail: err =&gt; &#123;</span><br><span class="line">          console.log(&apos;添加token失败--&gt;&apos;, err)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">      &#125;)</span><br><span class="line">    &#125; catch (error) &#123;</span><br><span class="line">      alert(&apos;添加token中途崩溃&apos;)</span><br><span class="line">      console.error(&apos;添加token中途崩溃&apos;)</span><br><span class="line">      console.error(error)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  beforeRouteEnter (to, from, next) &#123;</span><br><span class="line">    if (!from.name) &#123;</span><br><span class="line">      localStorage.setItem(&apos;FIRST_ENTER&apos;, true)</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      localStorage.setItem(&apos;FIRST_ENTER&apos;, false)</span><br><span class="line">    &#125;</span><br><span class="line">    next()</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    // 大屏地点选择</span><br><span class="line">    screenSelect (index) &#123;</span><br><span class="line">      console.log(typeof (index))</span><br><span class="line">      if (index === 3) &#123;</span><br><span class="line">        this.$router.push(&apos;/test&apos;)</span><br><span class="line">        return</span><br><span class="line">      &#125;</span><br><span class="line">      this.screenPosList.forEach(item =&gt; &#123;</span><br><span class="line">        item.isActive = false</span><br><span class="line">      &#125;)</span><br><span class="line">      this.screenPosList[index].isActive = true</span><br><span class="line">      this.deviceCode = this.screenPosList[index].deviceCode</span><br><span class="line">      localStorage.setItem(&apos;DEVICE_CODE&apos;, this.deviceCode)</span><br><span class="line">      document.title = this.screenPosList[index].name + &apos;-控制器&apos;</span><br><span class="line">      dd.biz.navigation.setTitle(&#123;</span><br><span class="line">        title: document.title, // 控制标题文本，空字符串表示显示默认文本</span><br><span class="line">        onSuccess: function (result) &#123;</span><br><span class="line">          console.log(&apos;设置title成功&apos;, result)</span><br><span class="line">        &#125;,</span><br><span class="line">        onFail: function (err) &#123;</span><br><span class="line">          console.error(&apos;设置title失败&apos;, err)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">      this.selectDialogShow = false</span><br><span class="line">    &#125;,</span><br><span class="line">    dialogConfirmHandler () &#123;</span><br><span class="line">      console.log(&apos;deviceCode:&apos;, this.deviceCode)</span><br><span class="line">      localStorage.setItem(&apos;DEVICE_CODE&apos;, this.deviceCode)</span><br><span class="line">      // this.selectDialogShow = true</span><br><span class="line">    &#125;,</span><br><span class="line">    // 切换地点按钮</span><br><span class="line">    selectShow () &#123;</span><br><span class="line">      this.selectDialogShow = true</span><br><span class="line">    &#125;,</span><br><span class="line">    screenChange (item, index) &#123;</span><br><span class="line">      this.screenIndex = index</span><br><span class="line">      localStorage.setItem(&apos;SCREEN_INDEX&apos;, this.screenIndex)</span><br><span class="line">      changeScreen(&#123;</span><br><span class="line">        deviceCode: this.deviceCode,</span><br><span class="line">        scrid: item.scrid</span><br><span class="line">      &#125;).then(res =&gt; &#123;</span><br><span class="line">        console.log(res)</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    toControl (item) &#123;</span><br><span class="line">      this.$router.push(&#123;</span><br><span class="line">        path: &apos;/control&apos;,</span><br><span class="line">        name: &apos;control&apos;,</span><br><span class="line">        query: &#123;</span><br><span class="line">          name: item.scrname,</span><br><span class="line">          scrid: item.scrid,</span><br><span class="line">          deviceCode: this.deviceCode,</span><br><span class="line">          respower: item.respower</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style lang=&quot;scss&quot; scoped&gt;</span><br><span class="line">.container&#123;</span><br><span class="line">  height: auto;</span><br><span class="line">  width: 100%;</span><br><span class="line">  padding-bottom: 50px;</span><br><span class="line">  .screen-container &#123;</span><br><span class="line">    height: 100%;</span><br><span class="line">    // background: red;</span><br><span class="line">    overflow: scroll;</span><br><span class="line">    .screenItem &#123;</span><br><span class="line">      width: 90%;</span><br><span class="line">      height: 120px;</span><br><span class="line">      margin: 10px auto;</span><br><span class="line">      border: 1px solid rgba(136, 136, 136, 0.1);</span><br><span class="line">      // box-shadow: 3px 3px 5px rgba(136, 136, 136, 0.2);</span><br><span class="line">      padding: 20px 15px;</span><br><span class="line">      box-sizing: border-box;</span><br><span class="line">      .content &#123;</span><br><span class="line">        height: 100%;</span><br><span class="line">        width: 50%;</span><br><span class="line">        position: relative;</span><br><span class="line">        .title &#123;</span><br><span class="line">          position: absolute;</span><br><span class="line">          width: 120px;</span><br><span class="line">          height: 30px;</span><br><span class="line">          text-align: center;</span><br><span class="line">          line-height: 30px;</span><br><span class="line">          right: 0;</span><br><span class="line">          top: 15px;</span><br><span class="line">          background: rgba(82, 79, 79, 0.8);</span><br><span class="line">          font-size: 16px;</span><br><span class="line">          color: #fff;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      .content:nth-child(1) &#123;</span><br><span class="line">        text-align: left;</span><br><span class="line">        p &#123;</span><br><span class="line">          margin: 0;</span><br><span class="line">        &#125;</span><br><span class="line">        p:nth-child(1) &#123;</span><br><span class="line">          color: #000;</span><br><span class="line">          font-size: 16px;</span><br><span class="line">          line-height: 22px;</span><br><span class="line">          margin-bottom: 4px;</span><br><span class="line">          // white-space: nowrap;</span><br><span class="line">          // text-overflow: ellipsis;</span><br><span class="line">          // overflow: hidden;</span><br><span class="line">        &#125;</span><br><span class="line">        p:nth-child(n + 2) &#123;</span><br><span class="line">          color: #9199A9!important;</span><br><span class="line">          font-size: 14px;</span><br><span class="line">          line-height: 20px;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      .content:nth-child(2) &#123;</span><br><span class="line">        text-align: right;</span><br><span class="line">        img &#123;</span><br><span class="line">          width: 120px;</span><br><span class="line">          height: 60px;</span><br><span class="line">          background: #000;</span><br><span class="line">          border-radius: 4px;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    .to-ctrl &#123;</span><br><span class="line">      width: 80px;</span><br><span class="line">      height: 3.2rem;</span><br><span class="line">      line-height: 1.5;</span><br><span class="line">    &#125;</span><br><span class="line">    .screenActive &#123;</span><br><span class="line">      border-color: #3DD6F6;</span><br><span class="line">      background: url(&apos;../assets/icon_selected.png&apos;) bottom right no-repeat;</span><br><span class="line">      background-size: 10%;</span><br><span class="line">      border-radius: 3px;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  // .btn&#123;</span><br><span class="line">  //   width: 300px;</span><br><span class="line">  //   background: red;</span><br><span class="line">  //   height: 100px;</span><br><span class="line">  // &#125;</span><br><span class="line">  .posSelect &#123;</span><br><span class="line">    width: 90%;</span><br><span class="line">    height: 40px;</span><br><span class="line">    background: #1487fb;</span><br><span class="line">    // border: 1px solid #1487fb;</span><br><span class="line">    border-radius: 20px;</span><br><span class="line">    position: fixed;</span><br><span class="line">    bottom: 15px;</span><br><span class="line">    left: 50%;</span><br><span class="line">    transform: translateX(-50%);</span><br><span class="line">    text-align: center;</span><br><span class="line">    line-height: 40px;</span><br><span class="line">    font-size: 16px;</span><br><span class="line">    color: #fff;</span><br><span class="line">  &#125;</span><br><span class="line">  .optionsWrap &#123;</span><br><span class="line">    width: 100%;</span><br><span class="line">    box-sizing: border-box;</span><br><span class="line">    padding: 10px 20px;</span><br><span class="line">    display: flex;</span><br><span class="line">    flex-wrap: wrap;</span><br><span class="line">    justify-content: space-between;</span><br><span class="line">    .posOption &#123;</span><br><span class="line">      width: 80px;</span><br><span class="line">      padding: 5px 25px;</span><br><span class="line">      color: #9199A9;</span><br><span class="line">      text-align: center;</span><br><span class="line">      border-radius: 25px;</span><br><span class="line">      margin-bottom: 10px;</span><br><span class="line">      border: 1px solid transparent;</span><br><span class="line">    &#125;</span><br><span class="line">    .isActive &#123;</span><br><span class="line">      border-color: #1487fb;</span><br><span class="line">      color: #1487fb;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```javascript</span><br><span class="line">const path = require(&apos;path&apos;)</span><br><span class="line">const CompressionWebpackPlugin = require(&apos;compression-webpack-plugin&apos;)</span><br><span class="line">const UglifyjsWebpackPlugin = require(&apos;uglifyjs-webpack-plugin&apos;)</span><br><span class="line">const port = process.env.port || process.env.npm_config_port || 8888</span><br><span class="line">const cdnDomian = &apos;./&apos; // cdn域名，如果有cdn修改成对应的cdn</span><br><span class="line">const name = &apos;大屏控制器&apos; // page title</span><br><span class="line">const IS_PRODUCTION = process.env.NODE_ENV === &apos;production&apos;</span><br><span class="line">// dev环境接口地址</span><br><span class="line">let DEVE_MODE_REQUEST_URL = &apos;http://localhost:8080/&apos;</span><br><span class="line">if (process.argv[4] === &apos;test&apos;) &#123;</span><br><span class="line">// test环境接口地址</span><br><span class="line">  DEVE_MODE_REQUEST_URL = &apos;http://101.71.158.252:8888/&apos;</span><br><span class="line">&#125;</span><br><span class="line">const cdn = &#123;</span><br><span class="line">  css: [],</span><br><span class="line">  js: [</span><br><span class="line">    &apos;https://cdn.bootcss.com/vue/2.6.10/vue.min.js&apos;,</span><br><span class="line">    &apos;https://cdn.bootcss.com/vue-router/3.0.3/vue-router.min.js&apos;,</span><br><span class="line">    &apos;https://cdn.bootcss.com/vuex/3.1.0/vuex.min.js&apos;,</span><br><span class="line">    &apos;https://cdn.bootcss.com/axios/0.19.0-beta.1/axios.min.js&apos;,</span><br><span class="line">    &apos;https://cdn.bootcss.com/js-cookie/2.2.1/js.cookie.min.js&apos;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const externals = &#123;</span><br><span class="line">  vue: &apos;Vue&apos;,</span><br><span class="line">  &apos;vue-router&apos;: &apos;VueRouter&apos;,</span><br><span class="line">  vuex: &apos;Vuex&apos;,</span><br><span class="line">  axios: &apos;axios&apos;,</span><br><span class="line">  &apos;js-cookie&apos;: &apos;Cookies&apos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function resolve (dir) &#123;</span><br><span class="line">  return path.join(__dirname, dir)</span><br><span class="line">&#125;</span><br><span class="line">console.log(&apos;process&apos;, process.argv[4])</span><br><span class="line">module.exports = &#123;</span><br><span class="line">  publicPath: IS_PRODUCTION ? cdnDomian : &apos;./&apos;,</span><br><span class="line">  outputDir: &apos;dist&apos;,</span><br><span class="line">  assetsDir: &apos;static&apos;,</span><br><span class="line">  lintOnSave: process.env.NODE_ENV === &apos;development&apos;,</span><br><span class="line">  productionSourceMap: false,</span><br><span class="line">  devServer: &#123;</span><br><span class="line">    port: port,</span><br><span class="line">    open: true,</span><br><span class="line">    overlay: &#123;</span><br><span class="line">      warnings: false,</span><br><span class="line">      errors: true</span><br><span class="line">    &#125;,</span><br><span class="line">    disableHostCheck: true,</span><br><span class="line">    proxy: &#123;</span><br><span class="line">      &apos;/sc_api&apos;: &#123;</span><br><span class="line">        target: DEVE_MODE_REQUEST_URL,</span><br><span class="line">        changeOrigin: true</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    after: require(&apos;./mock/mock-server.js&apos;)</span><br><span class="line">  &#125;,</span><br><span class="line">  configureWebpack: &#123;</span><br><span class="line">    // provide the app&apos;s title in webpack&apos;s name field, so that</span><br><span class="line">    // it can be accessed in index.html to inject the correct title.</span><br><span class="line">    name: name,</span><br><span class="line">    resolve: &#123;</span><br><span class="line">      alias: &#123;</span><br><span class="line">        &apos;@&apos;: resolve(&apos;src&apos;), // 主目录</span><br><span class="line">        &apos;views&apos;: resolve(&apos;src/views&apos;), // 页面</span><br><span class="line">        &apos;components&apos;: resolve(&apos;src/components&apos;), // 组件</span><br><span class="line">        &apos;api&apos;: resolve(&apos;src/api&apos;), // 接口</span><br><span class="line">        &apos;utils&apos;: resolve(&apos;src/utils&apos;), // 通用功能</span><br><span class="line">        &apos;assets&apos;: resolve(&apos;src/assets&apos;), // 静态资源</span><br><span class="line">        &apos;style&apos;: resolve(&apos;src/style&apos;) // 通用样式</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  chainWebpack (config) &#123;</span><br><span class="line">    config.plugins.delete(&apos;preload&apos;) // TODO: need test</span><br><span class="line">    config.plugins.delete(&apos;prefetch&apos;) // TODO: need test</span><br><span class="line"></span><br><span class="line">    // set svg-sprite-loader</span><br><span class="line">    config.module</span><br><span class="line">      .rule(&apos;svg&apos;)</span><br><span class="line">      .exclude.add(resolve(&apos;src/icons&apos;))</span><br><span class="line">      .end()</span><br><span class="line">    config.module</span><br><span class="line">      .rule(&apos;icons&apos;)</span><br><span class="line">      .test(/\.svg$/)</span><br><span class="line">      .include.add(resolve(&apos;src/icons&apos;))</span><br><span class="line">      .end()</span><br><span class="line">      .use(&apos;svg-sprite-loader&apos;)</span><br><span class="line">      .loader(&apos;svg-sprite-loader&apos;)</span><br><span class="line">      .options(&#123;</span><br><span class="line">        symbolId: &apos;icon-[name]&apos;</span><br><span class="line">      &#125;)</span><br><span class="line">      .end()</span><br><span class="line"></span><br><span class="line">    // set preserveWhitespace</span><br><span class="line">    config.module</span><br><span class="line">      .rule(&apos;vue&apos;)</span><br><span class="line">      .use(&apos;vue-loader&apos;)</span><br><span class="line">      .loader(&apos;vue-loader&apos;)</span><br><span class="line">      .tap(options =&gt; &#123;</span><br><span class="line">        options.compilerOptions.preserveWhitespace = true</span><br><span class="line">        return options</span><br><span class="line">      &#125;)</span><br><span class="line">      .end()</span><br><span class="line"></span><br><span class="line">    config</span><br><span class="line">    // https://webpack.js.org/configuration/devtool/#development</span><br><span class="line">      .when(process.env.NODE_ENV === &apos;development&apos;,</span><br><span class="line">        config =&gt; config.devtool(&apos;cheap-source-map&apos;)</span><br><span class="line">      )</span><br><span class="line"></span><br><span class="line">    config</span><br><span class="line">      .when(process.env.NODE_ENV !== &apos;development&apos;,</span><br><span class="line">        config =&gt; &#123;</span><br><span class="line">          config</span><br><span class="line">            .plugin(&apos;ScriptExtHtmlWebpackPlugin&apos;)</span><br><span class="line">            .after(&apos;html&apos;)</span><br><span class="line">            .use(&apos;script-ext-html-webpack-plugin&apos;, [&#123;</span><br><span class="line">            // `runtime` must same as runtimeChunk name. default is `runtime`</span><br><span class="line">              inline: /runtime\..*\.js$/</span><br><span class="line">            &#125;])</span><br><span class="line">            .end()</span><br><span class="line">          config</span><br><span class="line">            .optimization.splitChunks(&#123;</span><br><span class="line">              chunks: &apos;all&apos;,</span><br><span class="line">              cacheGroups: &#123;</span><br><span class="line">                libs: &#123;</span><br><span class="line">                  name: &apos;chunk-libs&apos;,</span><br><span class="line">                  test: /[\\/]node_modules[\\/]/,</span><br><span class="line">                  priority: 10,</span><br><span class="line">                  chunks: &apos;initial&apos; // only package third parties that are initially dependent</span><br><span class="line">                &#125;,</span><br><span class="line">                commons: &#123;</span><br><span class="line">                  name: &apos;chunk-commons&apos;,</span><br><span class="line">                  test: resolve(&apos;src/components&apos;), // can customize your rules</span><br><span class="line">                  minChunks: 3, //  minimum common number</span><br><span class="line">                  priority: 5,</span><br><span class="line">                  reuseExistingChunk: true</span><br><span class="line">                &#125;</span><br><span class="line">              &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">          config.optimization.runtimeChunk(&apos;single&apos;)</span><br><span class="line">        &#125;</span><br><span class="line">      )</span><br><span class="line">    if (IS_PRODUCTION) &#123;</span><br><span class="line">      config.plugin(&apos;html&apos;).tap(args =&gt; &#123;</span><br><span class="line">        args[0].cdn = cdn</span><br><span class="line">        return args</span><br><span class="line">      &#125;)</span><br><span class="line">      config.externals(externals)</span><br><span class="line">      config.plugin(&apos;html&apos;).tap(args =&gt; &#123;</span><br><span class="line">        args[0].minify.minifyCSS = true // 压缩html中的css</span><br><span class="line">        return args</span><br><span class="line">      &#125;)</span><br><span class="line">      // gzip需要nginx进行配合</span><br><span class="line">      config</span><br><span class="line">        .plugin(&apos;compression&apos;)</span><br><span class="line">        .use(CompressionWebpackPlugin)</span><br><span class="line">        .tap(() =&gt; [</span><br><span class="line">          &#123;</span><br><span class="line">            test: /\.js$|\.html$|\.css/, // 匹配文件名</span><br><span class="line">            threshold: 10240, // 超过10k进行压缩</span><br><span class="line">            deleteOriginalAssets: false // 是否删除源文件</span><br><span class="line">          &#125;</span><br><span class="line">        ])</span><br><span class="line">      config.optimization.minimizer([</span><br><span class="line">        new UglifyjsWebpackPlugin(&#123;</span><br><span class="line">          // 生产环境推荐关闭 sourcemap 防止源码泄漏</span><br><span class="line">          // 服务端通过前端发送的行列，根据 sourcemap 转为源文件位置</span><br><span class="line">          sourceMap: true,</span><br><span class="line">          uglifyOptions: &#123;</span><br><span class="line">            warnings: false,</span><br><span class="line">            compress: &#123;</span><br><span class="line">              drop_console: false,</span><br><span class="line">              drop_debugger: false</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">      ])</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  css: &#123;</span><br><span class="line">    // 是否使用css分离插件 ExtractTextPlugin</span><br><span class="line">    extract: !!IS_PRODUCTION,</span><br><span class="line">    // 开启 CSS source maps?</span><br><span class="line">    sourceMap: false,</span><br><span class="line">    // css预设器配置项</span><br><span class="line">    // 启用 CSS modules for all css / pre-processor files.</span><br><span class="line">    modules: false,</span><br><span class="line">    loaderOptions: &#123;</span><br><span class="line">      sass: &#123;</span><br><span class="line">        data: &apos;@import &quot;style/_mixin.scss&quot;;@import &quot;style/_variables.scss&quot;;@import &quot;style/common.scss&quot;;&apos; // 全局引入</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-关于FAT32硬盘格式不支持cnpm的解决办法" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/07/07/关于FAT32硬盘格式不支持cnpm的解决办法/" class="article-date">
+  	<time datetime="2020-07-07T05:00:13.000Z" itemprop="datePublished">2020-07-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/07/关于FAT32硬盘格式不支持cnpm的解决办法/">
+        关于FAT32硬盘格式不支持cnpm的解决办法
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近学习<code>gulp</code> ，运行 <code>cnpm install gulp-less --save -dev</code> 的时候，报了如下错误：</p>
+<p><img src="https://sunchang.oss-cn-beijing.aliyuncs.com/image/1538374778411-6aced56f-f403-4e44-aa60-4941d8c82a99.png" alt=""><br> 然后改用 <code>npm</code> 安装，结果如下：</p>
+<p> <img src="https://sunchang.oss-cn-beijing.aliyuncs.com/image/1538374852301-bc8c73d5-bcfa-4fb5-aa02-0d6b5d702cef.png" alt=""></p>
+<p> 这是因为硬盘格式是 FAT32 格式的。解决办法如下：</p>
+<p>可以使用 <code>npm</code> 去解决：<code>cnpm i --by=npm --no-bin-links</code><br>或者：<code>npm i --registry=https://registry.npm.taobao.org --no-bin-links</code>。<br>在使用<code>--no-bin-links</code>时，注意<code>Maximum call stack size exceeded</code>的问题。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-关于React 路由嵌套方式的其中一种" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/07/07/关于React 路由嵌套方式的其中一种/" class="article-date">
+  	<time datetime="2020-07-07T05:00:13.000Z" itemprop="datePublished">2020-07-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/07/关于React 路由嵌套方式的其中一种/">
+        关于React 路由嵌套方式的其中一种
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>现在react router v4 的路由嵌套改成这样子了。和之前的大不一样。<br>不过也不是也别麻烦。<br>代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line">import React from &apos;react&apos;</span><br><span class="line">import &#123;</span><br><span class="line">  BrowserRouter as Router,</span><br><span class="line">  Route,</span><br><span class="line">  Link</span><br><span class="line">&#125; from &apos;react-router-dom&apos;</span><br><span class="line"></span><br><span class="line">const BasicExample = () =&gt; (</span><br><span class="line">  &lt;Router&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;ul&gt;</span><br><span class="line">        &lt;li&gt;&lt;Link to=&quot;/&quot;&gt;Home&lt;/Link&gt;&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;&lt;Link to=&quot;/about&quot;&gt;About&lt;/Link&gt;&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;&lt;Link to=&quot;/topics&quot;&gt;Topics&lt;/Link&gt;&lt;/li&gt;</span><br><span class="line">      &lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">      &lt;hr/&gt;</span><br><span class="line"></span><br><span class="line">      &lt;Route exact path=&quot;/&quot; component=&#123;Home&#125;/&gt;</span><br><span class="line">      &lt;Route path=&quot;/about&quot; component=&#123;About&#125;/&gt;</span><br><span class="line">      &lt;Route path=&quot;/topics&quot; component=&#123;Topics&#125;/&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/Router&gt;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">const Home = () =&gt; (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h2&gt;Home&lt;/h2&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">)</span><br><span class="line">const Bus =()=&gt;(&lt;h2&gt;Bus&lt;/h2&gt;);</span><br><span class="line">const Car =(&#123;match&#125;)=&gt;(&lt;h2&gt;Car &#123;match.params.message&#125;&lt;/h2&gt;);</span><br><span class="line">const About = (&#123;match&#125;) =&gt; (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h2&gt;About&lt;/h2&gt;</span><br><span class="line">    &lt;Link to=&#123;`$&#123;match.url&#125;/car/123`&#125;&gt;Car&lt;/Link&gt;</span><br><span class="line">    &lt;Link to=&#123;`$&#123;match.url&#125;/bus`&#125;&gt;Bus&lt;/Link&gt;</span><br><span class="line">    &lt;Route path=&#123;`$&#123;match.url&#125;/car/:message`&#125; component=&#123;Car&#125; /&gt;</span><br><span class="line">    &lt;Route path=&#123;`$&#123;match.url&#125;/bus`&#125; component=&#123;Bus&#125; /&gt;</span><br><span class="line">    &lt;Route exact path=&#123;match.url&#125; component=&#123;()=&gt;(&lt;h2&gt;请选择一辆车&lt;/h2&gt;)&#125; /&gt;</span><br><span class="line"></span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">const Topics = (&#123; match &#125;) =&gt; (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h2&gt;Topics&lt;/h2&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">      &lt;li&gt;</span><br><span class="line">        &lt;Link to=&#123;`$&#123;match.url&#125;/rendering`&#125;&gt;</span><br><span class="line">          Rendering with React</span><br><span class="line">        &lt;/Link&gt;</span><br><span class="line">      &lt;/li&gt;</span><br><span class="line">      &lt;li&gt;</span><br><span class="line">        &lt;Link to=&#123;`$&#123;match.url&#125;/components`&#125;&gt;</span><br><span class="line">          Components</span><br><span class="line">        &lt;/Link&gt;</span><br><span class="line">      &lt;/li&gt;</span><br><span class="line">      &lt;li&gt;</span><br><span class="line">        &lt;Link to=&#123;`$&#123;match.url&#125;/props-v-state`&#125;&gt;</span><br><span class="line">          Props v. State</span><br><span class="line">        &lt;/Link&gt;</span><br><span class="line">      &lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">    &lt;Route path=&#123;`$&#123;match.url&#125;/:topicId`&#125; component=&#123;Topic&#125;/&gt;</span><br><span class="line">    &lt;Route exact path=&#123;match.url&#125; render=&#123;() =&gt; (</span><br><span class="line">      &lt;h3&gt;Please select a topic.&lt;/h3&gt;</span><br><span class="line">    )&#125;/&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">const Topic = (&#123; match &#125;) =&gt; (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h3&gt;&#123;match.params.topicId&#125;&lt;/h3&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">export default BasicExample</span><br></pre></td></tr></table></figure></p>
+<p>和之前相比，Router 标签里多了一个叫match 的东西。通过match来获取当前组件的路径。<br>也是通过match 来获取参数。<br>获取参数代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">const Topic = (&#123; match &#125;) =&gt; (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h3&gt;&#123;match.params.topicId&#125;&lt;/h3&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
+<p>传入的时候以以下方式传入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;Link to=&#123;`$&#123;match.url&#125;/props-v-state`&#125;&gt;</span><br><span class="line">          Props v. State</span><br><span class="line">        &lt;/Link&gt;</span><br><span class="line">&lt;Link to=&#123;`$&#123;match.url&#125;/components`&#125;&gt;</span><br><span class="line">          Components</span><br><span class="line">        &lt;/Link&gt;</span><br><span class="line">&lt;Route path=&#123;`$&#123;match.url&#125;/:topicId`&#125; component=&#123;Topic&#125;/&gt;</span><br></pre></td></tr></table></figure></p>
+<p>但是如果组件是通过Component 建立的,可以通过 this.props.match.params 获取参数。代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">    &lt;div className=&quot;subject-tit&quot;&gt;</span><br><span class="line">       &#123;this.props.match.params.message&#125;</span><br><span class="line">        &lt;a href=&quot;#&quot;&gt;（查看原因）&lt;/a&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div className=&quot;img-box&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;input type=&quot;button&quot; value=&quot;返回首页&quot;/&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-关于数组遍历dom没有key导致的错误 react&amp;npm 中的state" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/07/07/关于数组遍历dom没有key导致的错误 react&npm 中的state/" class="article-date">
+  	<time datetime="2020-07-07T05:00:13.000Z" itemprop="datePublished">2020-07-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/07/关于数组遍历dom没有key导致的错误 react&npm 中的state/">
+        关于数组遍历dom没有key导致的错误 react&amp;npm 中的state
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="React-报错-Warning-Each-child-in-an-array-or-iterator-should-have-a-unique-“key”-prop"><a href="#React-报错-Warning-Each-child-in-an-array-or-iterator-should-have-a-unique-“key”-prop" class="headerlink" title="React 报错 Warning: Each child in an array or iterator should have a unique “key” prop."></a>React 报错 Warning: Each child in an array or iterator should have a unique “key” prop.</h5><p>这个是和react的dom-diff算法相关的。react对dom做遍历的时候，会根据data-reactid生成虚拟dom树。如果你没有手动的添加unique constant key的话，react是无法记录你的dom操作的。它只会在重新渲染的时候，继续使用相应dom数组的序数号(就是array[index]这种)来比对dom树。</p>
+<p>解决办法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">bannerArr.map(function (src,index) &#123;</span><br><span class="line">    // body...</span><br><span class="line">    return (</span><br><span class="line">        &lt;div className=&quot;banner-box&quot; key=&#123;index&#125;&gt;</span><br><span class="line">            &lt;img src=&#123;src&#125; /&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        )</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>在遍历的dom节点加个key属性</p>
+<h4 id="2-react-amp-npm-中的this-state"><a href="#2-react-amp-npm-中的this-state" class="headerlink" title="2. react&amp;npm 中的this.state"></a>2. react&amp;npm 中的this.state</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">constructor(props) &#123;</span><br><span class="line">    super(props);</span><br><span class="line">    // this.onClickButton = this.onClickButton.bind(this);</span><br><span class="line">    this.state = &#123;</span><br><span class="line">        left: 0,</span><br><span class="line">        curr:0</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>html代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;span className=&quot;prev&quot; onClick=&#123;this.prev.bind(this)&#125;&gt;&lt;/span&gt;</span><br><span class="line">&lt;span className=&quot;next&quot; onClick=&#123;this.next.bind(this)&#125;&gt;&lt;/span&gt;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+    </nav>
+  
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2022 sunJsona
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/smackgg/hexo-theme-smackdown" target="_blank">Smackdown</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: true,
+		isPost: false,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/main.js"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>
+
+
+  </div>
+</body>
+</html>

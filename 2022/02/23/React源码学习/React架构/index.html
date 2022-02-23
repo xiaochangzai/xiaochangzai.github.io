@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>sunJsona的个人博客</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="React 源码学习1-React架构老的架构-React15的架构React15使用的架构主要分两层:  Reconciler(协调器) Renderer(渲染器)  协调器负责找出组件的变化，也就是我们说的diff，而Renderer负责渲染组件。首先为了方便我们后续更好的理解，先略微讲一下Render工作 JSXJSX官网React官网 在这之前我们先将一下JSX，React 使用 JSX">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sunJsona的个人博客">
+<meta property="og:url" content="https://xiaochangzai.github.io/2022/02/23/React源码学习/React架构/index.html">
+<meta property="og:site_name" content="sunJsona的个人博客">
+<meta property="og:description" content="React 源码学习1-React架构老的架构-React15的架构React15使用的架构主要分两层:  Reconciler(协调器) Renderer(渲染器)  协调器负责找出组件的变化，也就是我们说的diff，而Renderer负责渲染组件。首先为了方便我们后续更好的理解，先略微讲一下Render工作 JSXJSX官网React官网 在这之前我们先将一下JSX，React 使用 JSX">
+<meta property="og:locale" content="Simple Chinese">
+<meta property="og:updated_time" content="2022-02-23T10:39:08.755Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="sunJsona的个人博客">
+<meta name="twitter:description" content="React 源码学习1-React架构老的架构-React15的架构React15使用的架构主要分两层:  Reconciler(协调器) Renderer(渲染器)  协调器负责找出组件的变化，也就是我们说的diff，而Renderer负责渲染组件。首先为了方便我们后续更好的理解，先略微讲一下Render工作 JSXJSX官网React官网 在这之前我们先将一下JSX，React 使用 JSX">
+  
+    <link rel="alternative" href="/atom.xml" title="sunJsona的个人博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+
+  <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">sunJsona</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/smackgg/hexo-theme-smackdown">smackdown</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">sunJsona</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">sunJsona</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-React源码学习/React架构" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2022/02/23/React源码学习/React架构/" class="article-date">
+  	<time datetime="2022-02-23T06:03:59.188Z" itemprop="datePublished">2022-02-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="React-源码学习1-React架构"><a href="#React-源码学习1-React架构" class="headerlink" title="React 源码学习1-React架构"></a>React 源码学习1-React架构</h1><h2 id="老的架构-React15的架构"><a href="#老的架构-React15的架构" class="headerlink" title="老的架构-React15的架构"></a>老的架构-React15的架构</h2><p>React15使用的架构主要分两层:</p>
+<ul>
+<li>Reconciler(协调器)</li>
+<li>Renderer(渲染器)</li>
+</ul>
+<p>协调器负责找出组件的变化，也就是我们说的diff，而Renderer负责渲染组件。首先为了方便我们后续更好的理解，先略微讲一下Render工作</p>
+<h2 id="JSX"><a href="#JSX" class="headerlink" title="JSX"></a>JSX</h2><p><a href="https://reactjs.org/docs/introducing-jsx.html" target="_blank" rel="noopener">JSX官网</a><br><a href="https://reactjs.org/" target="_blank" rel="noopener">React官网</a></p>
+<p>在这之前我们先将一下JSX，React 使用 JSX 来替代常规的 JavaScript。JSX 是一个看起来很像 XML 的 JavaScript 语法扩展。是FaceBook公司为了方便我们编写代码，研究出的一套特殊语法。JSX的优点有以下几个方面: </p>
+<ul>
+<li>JSX 执行更快，因为它在编译为 JavaScript 代码后进行了优化。</li>
+<li>它是类型安全的，在编译过程中就能发现错误。</li>
+<li>使用 JSX 编写模板更加简单快速。<br>我们看以下代码: </li>
+</ul>
+<p>代码1:<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HelloMessage</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        Hello &#123;<span class="keyword">this</span>.props.name&#125;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">ReactDOM.render(</span></span><br><span class="line"><span class="regexp">  &lt;HelloMessage name="Taylor" /</span>&gt;,</span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">'hello-example'</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<p>代码2:<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HelloMessage</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> React.createElement(</span><br><span class="line">      <span class="string">"div"</span>,</span><br><span class="line">      <span class="literal">null</span>,</span><br><span class="line">      <span class="string">"Hello "</span>,</span><br><span class="line">      <span class="keyword">this</span>.props.name</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(React.createElement(HelloMessage, &#123; <span class="attr">name</span>: <span class="string">"Taylor"</span> &#125;), <span class="built_in">document</span>.getElementById(<span class="string">'hello-example'</span>));</span><br></pre></td></tr></table></figure></p>
+<p>猜测一下这两段代码有什么区别?</p>
+<p>其实就是写法上不一样而已，实际的效果是一模一样的。那我们不妨猜测一下JSX的作用？</p>
+<p><code>JSX 会被babel编译成React.createElement方式运行</code>。<br>那到这里，我们继续往下猜测，<code>React.createElement</code> 方法是做什么的？</p>
+<h3 id="React-createElement-方法"><a href="#React-createElement-方法" class="headerlink" title="React.createElement 方法"></a>React.createElement 方法</h3><p>我们知道，Vue 和React 框架都是基于虚拟dom的。那么React.createDom 方法就是创建虚拟dom节点的方法。那如果存在组件嵌套的情况，在第三个参数那里可以调用React.createElement 去创建一个节点。最后得到一整个虚拟dom节点，交给render函数进行渲染。</p>
+<h2 id="ReactDom-render"><a href="#ReactDom-render" class="headerlink" title="ReactDom.render"></a>ReactDom.render</h2><p>ReactDom.render 这个函数从名字上来看就可以猜出它是干什么的，就是专门用来把虚拟dom节点转成真实dom节点，最后挂载带页面上。也就是我们说的渲染。那我们可以思考一下，这个dom节点如果很大会怎么样？对就是会卡顿。于是需要在render之前做一下diff。</p>
+<p>React 是一个跨平台的框架，所以有多套Renderer。每当Renderer接到Reconciler的通知，Renderer会根据平台来渲染。</p>
+<h2 id="Reconciler-协调器"><a href="#Reconciler-协调器" class="headerlink" title="Reconciler(协调器)"></a>Reconciler(协调器)</h2><p>协调器的作用是 负责找出变化的组件。每当有组件需要更新时，协调器需要做如下工作:</p>
+<ul>
+<li>调用函数组件、或class组件的render方法，将返回的JSX转化为虚拟DOM</li>
+<li>将虚拟DOM和上次更新时的虚拟DOM对比</li>
+<li>通过对比找出本次更新中变化的虚拟DOM</li>
+<li>通知Renderer将变化的虚拟DOM渲染到页面上</li>
+</ul>
+<h2 id="老架构的缺点"><a href="#老架构的缺点" class="headerlink" title="老架构的缺点"></a>老架构的缺点</h2><p>即使有diff算法来优化性能，但如果dom层级很深的话，由于React使用递归的方式来遍历虚拟dom节点，必然会造成视觉上的卡顿。</p>
+<h3 id="递归更新的缺点"><a href="#递归更新的缺点" class="headerlink" title="递归更新的缺点"></a>递归更新的缺点</h3><p>由于递归执行，所以更新一旦开始，中途就无法中断。当层级很深时，递归更新时间超过了16ms，用户交互就会卡顿。</p>
+<h2 id="新的React架构"><a href="#新的React架构" class="headerlink" title="新的React架构"></a>新的React架构</h2><p>React16架构可以分为三层：</p>
+<ul>
+<li>Scheduler（调度器）—— 调度任务的优先级，高优任务优先进入Reconciler</li>
+<li>Reconciler（协调器）—— 负责找出变化的组件</li>
+<li><p>Renderer（渲染器）—— 负责将变化的组件渲染到页面上</p>
+<p>那么什么是调度器？</p>
+<h3 id="Fiber-的三层含义"><a href="#Fiber-的三层含义" class="headerlink" title="Fiber 的三层含义"></a>Fiber 的三层含义</h3><ul>
+<li>作为架构来说，之前React15的Reconciler采用递归的方式执行，数据保存在递归调用栈中，所以被称为stack Reconciler。React16的Reconciler基于Fiber节点实现，被称为Fiber Reconciler。</li>
+</ul>
+</li>
+<li><p>作为静态的数据结构来说，每个Fiber节点对应一个React element，保存了该组件的类型（函数组件/类组件/原生组件…）、对应的DOM节点等信息。</p>
+</li>
+<li><p>作为动态的工作单元来说，每个Fiber节点保存了本次更新中该组件改变的状态、要执行的工作（需要被删除/被插入页面中/被更新…）。</p>
+<h3 id="调度器"><a href="#调度器" class="headerlink" title="调度器"></a>调度器</h3><p>我们知道React16最大的更新就是新增了Fiber架构，Fiber架构把一个完整的渲染任务拆成很多个小任务，分成不同的优先级。增量渲染（把渲染任务拆分成块，匀到多帧），十任务渲染更流畅，避免卡顿现象。</p>
+</li>
+</ul>
+<p>调度器处理完任务的优先级，将需要渲染的任务传递给协调器，进行diff。最后传递给renderer进行渲染。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/02/23/React源码学习/Renderer原理解析/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/02/23/npm/mvn在mac安装遇到的坑/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="ds-share share" data-thread-key="React源码学习/React架构" data-title="" data-url="https://xiaochangzai.github.io/2022/02/23/React源码学习/React架构/"  data-images="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg" data-content="">
+    <div class="ds-share-inline">
+      <ul  class="ds-share-icons-16">
+      	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+      </ul>
+      <div class="ds-share-icons-more">
+      </div>
+    </div>
+ </div>
+ 
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2022 sunJsona
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/smackgg/hexo-theme-smackdown" target="_blank">Smackdown</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/main.js"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>only-child 用法 React click事件 | sunJsona的个人博客</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="今天遇到了一个需求： 案例列表有的会有两个图片，有的有一个图片。两个图片中间又要留出空隙。一般做法都是用js解决。而我的想法是能用css解决的，就不用js 我的思路是：only-child 处理有一个图片的情况。nth-child(2) 处理有两个图片下的间距问题。代码如下：123456789101112#case-list .case-item .imgs img&amp;#123;	width: 30">
+<meta property="og:type" content="article">
+<meta property="og:title" content="only-child 用法 React click事件">
+<meta property="og:url" content="https://xiaochangzai.github.io/2020/07/07/only-child 用法 React click事件/index.html">
+<meta property="og:site_name" content="sunJsona的个人博客">
+<meta property="og:description" content="今天遇到了一个需求： 案例列表有的会有两个图片，有的有一个图片。两个图片中间又要留出空隙。一般做法都是用js解决。而我的想法是能用css解决的，就不用js 我的思路是：only-child 处理有一个图片的情况。nth-child(2) 处理有两个图片下的间距问题。代码如下：123456789101112#case-list .case-item .imgs img&amp;#123;	width: 30">
+<meta property="og:locale" content="Simple Chinese">
+<meta property="og:updated_time" content="2020-07-07T05:00:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="only-child 用法 React click事件">
+<meta name="twitter:description" content="今天遇到了一个需求： 案例列表有的会有两个图片，有的有一个图片。两个图片中间又要留出空隙。一般做法都是用js解决。而我的想法是能用css解决的，就不用js 我的思路是：only-child 处理有一个图片的情况。nth-child(2) 处理有两个图片下的间距问题。代码如下：123456789101112#case-list .case-item .imgs img&amp;#123;	width: 30">
+  
+    <link rel="alternative" href="/atom.xml" title="sunJsona的个人博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+
+  <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">sunJsona</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/smackgg/hexo-theme-smackdown">smackdown</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">sunJsona</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">sunJsona</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-only-child 用法 React click事件" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/07/07/only-child 用法 React click事件/" class="article-date">
+  	<time datetime="2020-07-07T05:00:13.000Z" itemprop="datePublished">2020-07-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      only-child 用法 React click事件
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天遇到了一个需求：</p>
+<p>案例列表有的会有两个图片，有的有一个图片。两个图片中间又要留出空隙。一般做法都是用js解决。而我的想法是能用css解决的，就不用js</p>
+<p>我的思路是：only-child 处理有一个图片的情况。<br>nth-child(2) 处理有两个图片下的间距问题。代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#case-list .case-item .imgs img&#123;</span><br><span class="line">	width: 300px;</span><br><span class="line">	height: 300px;</span><br><span class="line">	display: block;</span><br><span class="line">	float: left;</span><br><span class="line">&#125;</span><br><span class="line">#case-list .case-item .imgs img:nth-child(2)&#123;</span><br><span class="line">	margin-left: 16px;</span><br><span class="line">&#125;</span><br><span class="line">#case-list .case-item .imgs img:only-child&#123;</span><br><span class="line">	width: 610px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>所有主流浏览器均支持 :only-child 选择器，除了 IE8 及更早的版本。</p>
+<p><a href="http://note.youdao.com/noteshare?id=50abee06b14c1ff465032d07289ccaa0" target="_blank" rel="noopener">JQuery源码之自调用匿名函数</a></p>
+<hr>
+<p>React 添加事件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">_init_ = (function(window,undefined)&#123;</span><br><span class="line">	return &#123;</span><br><span class="line">		getWidthOfClient:function()&#123;</span><br><span class="line">			var width = document.body.clientWidth;</span><br><span class="line">			var container = document.getElementById(&quot;container&quot;);</span><br><span class="line">			//container.style.width = width + &quot;px&quot;;</span><br><span class="line">		&#125;,</span><br><span class="line">		bindBannerClickHandeler()&#123;</span><br><span class="line">			var pos_left = 0;</span><br><span class="line">			var Banner = React.createClass(&#123;</span><br><span class="line">				prevHandle:function()&#123;</span><br><span class="line">					pos_left = -300;</span><br><span class="line">				&#125;,</span><br><span class="line">				render:function()&#123;</span><br><span class="line">					return &lt;div&gt;</span><br><span class="line">						&lt;img className=&quot;logo&quot; src=&quot;img/logo.png&quot; &gt;&lt;/img&gt;</span><br><span class="line">						&lt;div className=&quot;img-list&quot; style=&#123;&#123;left:pos_left&#125;&#125;&gt;</span><br><span class="line">							&lt;div className=&quot;banner-box&quot;&gt;</span><br><span class="line">								&lt;img src=&quot;img/banner2.png&quot;&gt;&lt;/img&gt;</span><br><span class="line">								&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">								&lt;div className=&quot;banner-box&quot;&gt;</span><br><span class="line">									&lt;img src=&quot;img/banner2.png&quot;&gt;&lt;/img&gt;</span><br><span class="line">									&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">									&lt;div className=&quot;banner-box&quot;&gt;</span><br><span class="line">										&lt;img src=&quot;img/banner2.png&quot;&gt;&lt;/img&gt;</span><br><span class="line">										&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">									&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">									&lt;div className=&quot;modal-box&quot;&gt;</span><br><span class="line">										&lt;div className=&quot;width-base height-max auto&quot;&gt;</span><br><span class="line">											&lt;span className=&quot;prev&quot; onClick=&#123;this.prevHandle&#125;&gt;&lt;/span&gt;</span><br><span class="line">											&lt;span className=&quot;next&quot;&gt;&lt;/span&gt;</span><br><span class="line">										&lt;/div&gt;</span><br><span class="line">									&lt;/div&gt;</span><br><span class="line">					&lt;/div&gt;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;);</span><br><span class="line"></span><br><span class="line">			ReactDOM.render(&lt;Banner /&gt;,document.getElementById(&quot;banner&quot;))</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)(window)</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/07/07/springboot 如何解决跨域问题/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          springboot 如何解决跨域问题
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/07/07/一些JS骚操作/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">一些JS骚操作</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="ds-share share" data-thread-key="only-child 用法 React click事件" data-title="only-child 用法 React click事件" data-url="https://xiaochangzai.github.io/2020/07/07/only-child 用法 React click事件/"  data-images="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg" data-content="only-child 用法 React click事件">
+    <div class="ds-share-inline">
+      <ul  class="ds-share-icons-16">
+      	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+      </ul>
+      <div class="ds-share-icons-more">
+      </div>
+    </div>
+ </div>
+ 
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2022 sunJsona
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/smackgg/hexo-theme-smackdown" target="_blank">Smackdown</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/main.js"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>
+
+
+  </div>
+</body>
+</html>

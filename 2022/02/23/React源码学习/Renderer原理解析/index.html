@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>sunJsona的个人博客</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="React源码2 Renderer渲染器什么是渲染器在React架构这篇文章中已经介绍过了，所谓渲染器就是专门把虚拟DOM节点转成真实DOM节点的公共方法。 render阶段始于performSyncWorkOnRoot（同步更新）或performConcurrentWorkOnRoot（异步更新）方法。 两个方法最终调用到workLoopSync或workLoopConcurrent两个函数，如">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sunJsona的个人博客">
+<meta property="og:url" content="https://xiaochangzai.github.io/2022/02/23/React源码学习/Renderer原理解析/index.html">
+<meta property="og:site_name" content="sunJsona的个人博客">
+<meta property="og:description" content="React源码2 Renderer渲染器什么是渲染器在React架构这篇文章中已经介绍过了，所谓渲染器就是专门把虚拟DOM节点转成真实DOM节点的公共方法。 render阶段始于performSyncWorkOnRoot（同步更新）或performConcurrentWorkOnRoot（异步更新）方法。 两个方法最终调用到workLoopSync或workLoopConcurrent两个函数，如">
+<meta property="og:locale" content="Simple Chinese">
+<meta property="og:image" content="https://image-static.segmentfault.com/361/416/3614163625-c4e10f3d78b6b123_fix732">
+<meta property="og:updated_time" content="2022-02-23T13:51:08.647Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="sunJsona的个人博客">
+<meta name="twitter:description" content="React源码2 Renderer渲染器什么是渲染器在React架构这篇文章中已经介绍过了，所谓渲染器就是专门把虚拟DOM节点转成真实DOM节点的公共方法。 render阶段始于performSyncWorkOnRoot（同步更新）或performConcurrentWorkOnRoot（异步更新）方法。 两个方法最终调用到workLoopSync或workLoopConcurrent两个函数，如">
+<meta name="twitter:image" content="https://image-static.segmentfault.com/361/416/3614163625-c4e10f3d78b6b123_fix732">
+  
+    <link rel="alternative" href="/atom.xml" title="sunJsona的个人博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+
+  <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">sunJsona</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/smackgg/hexo-theme-smackdown">smackdown</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">sunJsona</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">sunJsona</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-React源码学习/Renderer原理解析" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2022/02/23/React源码学习/Renderer原理解析/" class="article-date">
+  	<time datetime="2022-02-23T10:46:23.000Z" itemprop="datePublished">2022-02-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="React源码2-Renderer渲染器"><a href="#React源码2-Renderer渲染器" class="headerlink" title="React源码2 Renderer渲染器"></a>React源码2 Renderer渲染器</h1><h2 id="什么是渲染器"><a href="#什么是渲染器" class="headerlink" title="什么是渲染器"></a>什么是渲染器</h2><p>在<a href="React架构.md">React架构</a>这篇文章中已经介绍过了，所谓渲染器就是专门把虚拟DOM节点转成真实DOM节点的公共方法。</p>
+<p><code>render</code>阶段始于<code>performSyncWorkOnRoot</code>（同步更新）或<code>performConcurrentWorkOnRoot</code>（异步更新）方法。</p>
+<p>两个方法最终调用到<code>workLoopSync</code>或<code>workLoopConcurrent</code>两个函数，如下：<br><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 同步更新</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">workLoopSync</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">while</span> (workInProgress !== <span class="literal">null</span>) &#123;</span><br><span class="line">    performUnitOfWork(workInProgress);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 异步更新</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">workLoopConcurrent</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">while</span> (workInProgress !== <span class="literal">null</span> &amp;&amp; !shouldYield()) &#123;</span><br><span class="line">    performUnitOfWork(workInProgress);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>从代码中我们可以看出，更新过程中都会判断<code>workInProgress</code>，而异步更新会调用<code>shouldYield()</code>函数的判断</p>
+<h3 id="shouldYield"><a href="#shouldYield" class="headerlink" title="shouldYield"></a><code>shouldYield</code></h3><p>异步任务在处理的时候会调用<code>shouldYield</code>，<code>shouldYield</code>会判断是不是已经超时了，超时暂时先不做。<br><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">shouldYield</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (deadline === <span class="literal">null</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (deadline.timeRemaining() &gt; timeHeuristicForUnitOfWork) &#123;</span><br><span class="line">      <span class="comment">// Disregard deadline.didTimeout. Only expired work should be flushed</span></span><br><span class="line">      <span class="comment">// during a timeout. This path is only hit for non-expired work.</span></span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    deadlineDidExpire = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="performUnitOfWork"><a href="#performUnitOfWork" class="headerlink" title="performUnitOfWork"></a><code>performUnitOfWork</code></h3><p><code>performUnitOfWork</code>函数最主要的功能就是调用<code>beginWork()</code>和 <code>completeUnitOfWork()</code>两个函数。<code>beginWork()</code>为捕获阶段，此阶段会采取深度优先的方式遍历节点，并完成Fiber树创建以及diff算法。<code>completeUnitOfWork()</code>为冒泡阶段，此阶段要完成生命周期（部分）的调用，形成<code>effectlist</code>等</p>
+<h3 id="递归遍历"><a href="#递归遍历" class="headerlink" title="递归遍历"></a>递归遍历</h3><p>前面也讲过，渲染的时候需要调用递归遍历虚拟节点。那么在“递”和“归”的过程中，具体要做哪些工作呢？</p>
+<h4 id="“递”阶段"><a href="#“递”阶段" class="headerlink" title="“递”阶段"></a>“递”阶段</h4><p>递阶段会从<code>Fiber的RootFiber</code>开始深度优先遍历，为遍历到的每一个方法调用<code>beginWork</code>方法。</p>
+<p><code>beginWork</code> 的工作内容是往传入的Fiber节点上添加子节点。并使两个节点连接起来。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">beginWork</span>(<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">  current: Fiber | <span class="literal">null</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">  workInProgress: Fiber,</span></span></span><br><span class="line"><span class="function"><span class="params">  renderLanes: Lanes,</span></span></span><br><span class="line"><span class="function"><span class="params"></span>): <span class="title">Fiber</span> | <span class="title">null</span> </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> updateLanes = workInProgress.lanes;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (current !== <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> oldProps = current.memoizedProps;</span><br><span class="line">    <span class="keyword">const</span> newProps = workInProgress.pendingProps;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (</span><br><span class="line">      oldProps !== newProps ||</span><br><span class="line">      hasLegacyContextChanged() ||</span><br><span class="line">      <span class="comment">// 如果实现因热重载而改变，则强制重新渲染</span></span><br><span class="line">      (__DEV__ ? workInProgress.type !== current.type : <span class="literal">false</span>)</span><br><span class="line">    ) &#123;</span><br><span class="line">      <span class="comment">// ...更新阶段的处理</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!includesSomeLane(renderLanes, updateLanes)) &#123;</span><br><span class="line">      <span class="comment">// </span></span><br><span class="line">      <span class="comment">//...</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> ((current.effectTag &amp; ForceUpdateForLegacySuspense) !== NoEffect) &#123;</span><br><span class="line">        </span><br><span class="line">        didReceiveUpdate = <span class="literal">false</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="comment">/* 该didReceiveUpdate变量代表本次更新中本Fiber节点是否有变化 */</span></span><br><span class="line">    didReceiveUpdate = <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当第一次渲染，会根据 <code>workInProgress.tag</code> 来根据组件类型分别处理<br><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> (workInProgress.tag) &#123;</span><br><span class="line">  <span class="keyword">case</span> IndeterminateComponent: </span><br><span class="line">    <span class="comment">// ...省略</span></span><br><span class="line">  <span class="keyword">case</span> LazyComponent: </span><br><span class="line">    <span class="comment">// ...省略</span></span><br><span class="line">  <span class="keyword">case</span> FunctionComponent: &#123;</span><br><span class="line">      <span class="keyword">const</span> Component = workInProgress.type;</span><br><span class="line">      <span class="keyword">const</span> unresolvedProps = workInProgress.pendingProps;</span><br><span class="line">      <span class="keyword">const</span> resolvedProps =</span><br><span class="line">        workInProgress.elementType === Component</span><br><span class="line">          ? unresolvedProps</span><br><span class="line">          : resolveDefaultProps(Component, unresolvedProps);</span><br><span class="line">      <span class="keyword">return</span> updateFunctionComponent(</span><br><span class="line">        current,</span><br><span class="line">        workInProgress,</span><br><span class="line">        Component,</span><br><span class="line">        resolvedProps,</span><br><span class="line">        renderLanes,</span><br><span class="line">      );</span><br><span class="line">    &#125;</span><br><span class="line">  <span class="keyword">case</span> ClassComponent: </span><br><span class="line">    <span class="comment">// ...省略</span></span><br><span class="line">  <span class="keyword">case</span> HostRoot:</span><br><span class="line">    <span class="comment">// ...省略</span></span><br><span class="line">  <span class="keyword">case</span> HostComponent:</span><br><span class="line">    <span class="comment">// ...省略</span></span><br><span class="line">  <span class="keyword">case</span> HostText:</span><br><span class="line">    <span class="comment">// ...省略</span></span><br><span class="line">  <span class="comment">// ...省略其他类型</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这里注意 <code>updateFunctionComponent</code> 方法，并不是真正的把真实的dom节点渲染到浏览器上，而是先做个标记，到<code>commit</code>阶段再统一做渲染。</p>
+<p><code>current</code> 用来区分是 <code>mount</code> 还是 创建还是更新。如果当前<code>Fiber</code>不存在的话，就会创建一个新的<code>Fiber</code>节点。</p>
+<h4 id="“归”阶段"><a href="#“归”阶段" class="headerlink" title="“归”阶段"></a>“归”阶段</h4><p>在“归”阶段会调用<code>completeWork (opens new window)</code>处理<code>Fiber</code>节点。</p>
+<p>当某个<code>Fiber</code>节点执行完<code>completeWork</code>，如果其存在兄弟<code>Fiber</code>节点（即<code>fiber.sibling !== null）</code>，会进入其兄弟<code>Fiber</code>的“递”阶段。</p>
+<p>如果不存在兄弟<code>Fiber</code>，会进入父级<code>Fiber</code>的“归”阶段。</p>
+<p>“递”和“归”阶段会交错执行直到“归”到<code>rootFiber</code>。至此，render阶段的工作就结束了。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (next === <span class="literal">null</span>) &#123;</span><br><span class="line">  <span class="comment">// workInProgress已经不存在子树，就开始进行"归"阶段</span></span><br><span class="line">  completeUnitOfWork(unitOfWork);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="comment">// next是beginWork调用后的返回值workInProgress.child</span></span><br><span class="line">  workInProgress = next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个时候会调用 <code>completeUnitOfWork</code> 方法，此方法的作用是处理标记的<code>EffectList</code></p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 执行effect相关</span></span><br><span class="line"> <span class="keyword">if</span> (returnFiber.firstEffect === <span class="literal">null</span>) &#123;</span><br><span class="line">   returnFiber.firstEffect = completedWork.firstEffect;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">if</span> (completedWork.lastEffect !== <span class="literal">null</span>) &#123;</span><br><span class="line">   <span class="keyword">if</span> (returnFiber.lastEffect !== <span class="literal">null</span>) &#123;</span><br><span class="line">     returnFiber.lastEffect.nextEffect = completedWork.firstEffect;</span><br><span class="line">   &#125;</span><br><span class="line">   returnFiber.lastEffect = completedWork.lastEffect;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">if</span> (effectTag &gt; PerformedWork) &#123;</span><br><span class="line">   <span class="keyword">if</span> (returnFiber.lastEffect !== <span class="literal">null</span>) &#123;</span><br><span class="line">     returnFiber.lastEffect.nextEffect = completedWork;</span><br><span class="line">   &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">     returnFiber.firstEffect = completedWork;</span><br><span class="line">   &#125;</span><br><span class="line">   returnFiber.lastEffect = completedWork;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://image-static.segmentfault.com/361/416/3614163625-c4e10f3d78b6b123_fix732" alt=""></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2022/02/23/React源码学习/React架构/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="ds-share share" data-thread-key="React源码学习/Renderer原理解析" data-title="" data-url="https://xiaochangzai.github.io/2022/02/23/React源码学习/Renderer原理解析/"  data-images="http://7xkj1z.com1.z0.glb.clouddn.com/head.jpg" data-content="">
+    <div class="ds-share-inline">
+      <ul  class="ds-share-icons-16">
+      	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+      </ul>
+      <div class="ds-share-icons-more">
+      </div>
+    </div>
+ </div>
+ 
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2022 sunJsona
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/smackgg/hexo-theme-smackdown" target="_blank">Smackdown</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/main.js"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>
+
+
+  </div>
+</body>
+</html>
